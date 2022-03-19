@@ -63,3 +63,25 @@ export class Snapshots extends Array<Snapshot> {
     return new Snapshots(...snapshots)
   }
 }
+
+export type SnapshotFallbackLoader = (id: string) => Snapshots | undefined | Promise<Snapshots | undefined>
+export interface SnapshotManagerOptions {
+  ensureFallback?: SnapshotFallbackLoader
+}
+
+export class SnapshotManager extends Map<string, Snapshots> {
+  constructor(
+    public options: SnapshotManagerOptions = {},
+  ) {
+    super()
+  }
+
+  async ensure(
+    id: string,
+    load = this.options.ensureFallback,
+  ) {
+    if (!this.has(id))
+      this.set(id, await load?.(id) || new Snapshots())
+    return this.get(id)!
+  }
+}
