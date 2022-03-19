@@ -1,9 +1,9 @@
 import { expect, it } from 'vitest'
-import { simpleAnimator } from '../src'
+import { animateTo } from '../src'
 import { input, output } from './fixture'
 
 it('animator', () => {
-  const animator = simpleAnimator(input, output)
+  const animator = animateTo(input, output)
 
   expect([...animator]).toMatchSnapshot('animator')
 })

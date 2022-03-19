@@ -583,7 +583,7 @@ describe('should', () => {
   {
     "index": 3,
     "patch": {
-      "content": "
+      "content": "    expect(two).toEqual(2)
 ",
       "cursor": 122,
       "type": "insert",
@@ -605,15 +605,6 @@ describe('should', () => {
 ",
     "cursor": 123,
     "type": "insert",
-  },
-  {
-    "index": 4,
-    "patch": {
-      "content": "    expect(two).toEqual(2)",
-      "cursor": 122,
-      "type": "insert",
-    },
-    "type": "new-patch",
   },
   {
     "char": " ",
@@ -781,6 +772,21 @@ describe('should', () => {
     "type": "insert",
   },
   {
+    "char": ")",
+    "content": "
+import { describe, expect, it } from 'vitest'
+
+describe('should', () => {
+  it('one', () => {
+    expect(one).toEqual(1)
+    expect()
+  })
+})
+",
+    "cursor": 134,
+    "type": "insert",
+  },
+  {
     "char": "t",
     "content": "
 import { describe, expect, it } from 'vitest'
@@ -788,7 +794,7 @@ import { describe, expect, it } from 'vitest'
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-    expect(t
+    expect(t)
   })
 })
 ",
@@ -803,7 +809,7 @@ import { describe, expect, it } from 'vitest'
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-    expect(tw
+    expect(tw)
   })
 })
 ",
@@ -818,26 +824,11 @@ import { describe, expect, it } from 'vitest'
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-    expect(two
-  })
-})
-",
-    "cursor": 136,
-    "type": "insert",
-  },
-  {
-    "char": ")",
-    "content": "
-import { describe, expect, it } from 'vitest'
-
-describe('should', () => {
-  it('one', () => {
-    expect(one).toEqual(1)
     expect(two)
   })
 })
 ",
-    "cursor": 137,
+    "cursor": 136,
     "type": "insert",
   },
   {
@@ -976,14 +967,14 @@ describe('should', () => {
     "type": "insert",
   },
   {
-    "char": "2",
+    "char": ")",
     "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-    expect(two).toEqual(2
+    expect(two).toEqual()
   })
 })
 ",
@@ -991,7 +982,7 @@ describe('should', () => {
     "type": "insert",
   },
   {
-    "char": ")",
+    "char": "2",
     "content": "
 import { describe, expect, it } from 'vitest'
 
@@ -1002,7 +993,7 @@ describe('should', () => {
   })
 })
 ",
-    "cursor": 148,
+    "cursor": 147,
     "type": "insert",
   },
   {

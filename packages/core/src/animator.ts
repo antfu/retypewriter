@@ -1,7 +1,8 @@
 import { calculatePatch, diff } from './patch'
+import { sliceInput } from './slicing'
 import type { AnimatorStep, Patch } from './types'
 
-export function* createAnimator(input: string, patches: Patch[]): Generator<AnimatorStep> {
+export function *animatePatches(input: string, patches: Patch[]): Generator<AnimatorStep> {
   let output = input
   let cursor = 0
 
@@ -14,14 +15,12 @@ export function* createAnimator(input: string, patches: Patch[]): Generator<Anim
       cursor = patch.cursor
       const head = output.slice(0, patch.cursor)
       const tail = output.slice(patch.cursor)
-      let selection = ''
-      for (const char of patch.content) {
-        selection += char
+      for (const { char, output, cursor: delta } of animateInsertionSlices(patch.content)) {
         yield {
           type: 'insert',
           char,
-          cursor: cursor + selection.length,
-          content: head + selection + tail,
+          cursor: cursor + delta,
+          content: head + output + tail,
         }
       }
       output = head + patch.content + tail
@@ -45,14 +44,34 @@ export function* createAnimator(input: string, patches: Patch[]): Generator<Anim
   yield { type: 'snap-finish', content: output }
 }
 
-export function simpleAnimator(input: string, output: string) {
+export function *animateInsertionSlices(input: string) {
+  const slices = sliceInput(input)
+  let output = ''
+  for (const { content, cursor } of slices) {
+    const head = output.slice(0, cursor)
+    const tail = output.slice(cursor)
+
+    let body = ''
+    for (const char of content) {
+      body += char
+      yield {
+        char,
+        output: head + body + tail,
+        cursor: cursor + body.length,
+      }
+    }
+    output = head + content + tail
+  }
+}
+
+export function animateTo(input: string, output: string) {
   const delta = diff(input, output)
   const patches = calculatePatch(delta)
-  return createAnimator(input, patches)
+  return animatePatches(input, patches)
 }
 
 export function applyPatches(input: string, patches: Patch[]) {
-  for (const patch of createAnimator(input, patches)) {
+  for (const patch of animatePatches(input, patches)) {
     if (patch.type === 'snap-finish')
       return patch.content
   }

@@ -27,25 +27,11 @@ export function calculatePatch(diff: Diff[]): Patch[] {
     }
     else if (change[0] === 1) {
       const content = change[1]
-      const tailingNewLines = content.match(/\n*$/m)?.[0] || ''
-      const rest = tailingNewLines.length
-        ? content.slice(0, -tailingNewLines.length)
-        : content
-      // if there is new lines in the patch, we should type them first
-      if (tailingNewLines.length) {
-        patches.push({
-          type: 'insert',
-          cursor,
-          content: tailingNewLines,
-        })
-      }
-      if (rest.length) {
-        patches.push({
-          type: 'insert',
-          cursor,
-          content: rest,
-        })
-      }
+      patches.push({
+        type: 'insert',
+        cursor,
+        content,
+      })
       cursor += content.length
     }
     else {

@@ -21,6 +21,9 @@ export default defineConfig({
       dts: 'src/auto-imports.d.ts',
     }),
   ],
+  define: {
+    'import.meta.vitest': 'false',
+  },
   build: {
     rollupOptions: {
       external: [

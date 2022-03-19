@@ -1,6 +1,6 @@
 
 import type { AnimatorStep, Snapshot } from './types'
-import { simpleAnimator } from './animator'
+import { animateTo } from './animator'
 
 export const SNAP_HEADING = 'reTypewriter Snapshots v1\n'
 export const SNAP_SEPERATOR_PRE = '-'.repeat(2)
@@ -85,7 +85,7 @@ export class Snapshots extends Array<Snapshot> {
         snap,
         index,
       }
-      const animator = simpleAnimator(lastContent, snap.content)
+      const animator = animateTo(lastContent, snap.content)
       for (const result of animator)
         yield result
 

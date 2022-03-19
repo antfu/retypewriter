@@ -12,6 +12,12 @@ export interface RemovalPatch {
 
 export type Patch = InsertPatch | RemovalPatch
 
+export interface Slice {
+  content: string
+  order: number
+  cursor: number
+}
+
 export interface Snapshot {
   content: string
   options?: SnapshotOptions

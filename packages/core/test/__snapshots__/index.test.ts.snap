@@ -78,13 +78,8 @@ exports[`should > exported > patches 1`] = `
     "type": "insert",
   },
   {
-    "content": "
+    "content": "    expect(two).toEqual(2)
 ",
-    "cursor": 122,
-    "type": "insert",
-  },
-  {
-    "content": "    expect(two).toEqual(2)",
     "cursor": 122,
     "type": "insert",
   },
