@@ -1,3 +1,67 @@
 {
-  
+  "name": "retypewriter",
+  "displayName": "reTypewriter",
+  "version": "0.0.0",
+  "private": true,
+  "description": "",
+  "publisher": "antfu",
+  "homepage": "https://github.com/antfu/retypewriter#readme",
+  "bugs": {
+    "url": "https://github.com/antfu/retypewriter/issues"
+  },
+  "license": "MIT",
+  "author": "Anthony Fu <anthonyfu117@hotmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antfu/retypewriter.git",
+    "directory": "packages/core"
+  },
+  "funding": "https://github.com/sponsors/antfu",
+  "engines": {
+    "vscode": "^1.65.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./dist/index.js",
+  "contributes": {
+    "commands": [
+      {
+        "category": "reTypewriter",
+        "command": "retypewriter.snap",
+        "title": "Take snapshot of current file",
+        "icon": "$(diff-added)"
+      },
+      {
+        "category": "reTypewriter",
+        "command": "retypewriter.play",
+        "title": "Play typewritter",
+        "icon": "$(play)"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "retypewriter.snap",
+          "group": "navigation@1170"
+        },
+        {
+          "command": "retypewriter.play",
+          "group": "navigation@1170"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --external vscode",
+    "dev": "nr build --watch",
+    "publish": "vsce publish --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.65.0",
+    "tsup": "^5.12.1"
+  }
 }

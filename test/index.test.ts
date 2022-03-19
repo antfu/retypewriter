@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { applyPatches, calculatePatch, diff } from '../src'
+import { applyPatches, calculatePatch, diff } from '../packages/core/src'
 import { input, output } from './fixture'
 
 describe('should', () => {

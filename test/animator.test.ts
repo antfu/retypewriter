@@ -1,5 +1,5 @@
 import { expect, it } from 'vitest'
-import { calculatePatch, createAnimator, diff } from '../src'
+import { calculatePatch, createAnimator, diff } from '../packages/core/src'
 import { input, output } from './fixture'
 
 it('animator', () => {
