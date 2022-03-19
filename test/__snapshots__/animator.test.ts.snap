@@ -3,21 +3,7 @@
 exports[`animator > animator 1`] = `
 [
   {
-    "cursor": 75,
-    "output": "
-import { describe, expect, it } from 'vitest'
-import { one } from '../src'
-
-describe('should', () => {
-  it('exported', () => {
-    expect(one).toEqual(1)
-  })
-})
-",
-  },
-  {
-    "cursor": 74,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 import { one } from '../src
 
@@ -27,10 +13,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 74,
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "patchIndex": 0,
   },
   {
-    "cursor": 73,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 import { one } from '../sr
 
@@ -40,10 +32,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 73,
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "patchIndex": 0,
   },
   {
-    "cursor": 72,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 import { one } from '../s
 
@@ -53,10 +51,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 72,
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "patchIndex": 0,
   },
   {
-    "cursor": 71,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 import { one } from '../
 
@@ -66,10 +70,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 71,
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "patchIndex": 0,
   },
   {
-    "cursor": 70,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 import { one } from '..
 
@@ -79,10 +89,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 70,
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "patchIndex": 0,
   },
   {
-    "cursor": 69,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 import { one } from '.
 
@@ -92,10 +108,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 69,
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "patchIndex": 0,
   },
   {
-    "cursor": 68,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 import { one } from '
 
@@ -105,10 +127,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 68,
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "patchIndex": 0,
   },
   {
-    "cursor": 67,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 import { one } from 
 
@@ -118,10 +146,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 67,
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "patchIndex": 0,
   },
   {
-    "cursor": 66,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 import { one } from
 
@@ -131,10 +165,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 66,
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "patchIndex": 0,
   },
   {
-    "cursor": 65,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 import { one } fro
 
@@ -144,10 +184,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 65,
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "patchIndex": 0,
   },
   {
-    "cursor": 64,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 import { one } fr
 
@@ -157,10 +203,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 64,
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "patchIndex": 0,
   },
   {
-    "cursor": 63,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 import { one } f
 
@@ -170,10 +222,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 63,
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "patchIndex": 0,
   },
   {
-    "cursor": 62,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 import { one } 
 
@@ -183,10 +241,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 62,
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "patchIndex": 0,
   },
   {
-    "cursor": 61,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 import { one }
 
@@ -196,10 +260,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 61,
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "patchIndex": 0,
   },
   {
-    "cursor": 60,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 import { one 
 
@@ -209,10 +279,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 60,
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "patchIndex": 0,
   },
   {
-    "cursor": 59,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 import { one
 
@@ -222,10 +298,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 59,
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "patchIndex": 0,
   },
   {
-    "cursor": 58,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 import { on
 
@@ -235,10 +317,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 58,
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "patchIndex": 0,
   },
   {
-    "cursor": 57,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 import { o
 
@@ -248,10 +336,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 57,
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "patchIndex": 0,
   },
   {
-    "cursor": 56,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 import { 
 
@@ -261,10 +355,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 56,
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "patchIndex": 0,
   },
   {
-    "cursor": 55,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 import {
 
@@ -274,10 +374,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 55,
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "patchIndex": 0,
   },
   {
-    "cursor": 54,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 import 
 
@@ -287,10 +393,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 54,
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "patchIndex": 0,
   },
   {
-    "cursor": 53,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 import
 
@@ -300,10 +412,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 53,
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "patchIndex": 0,
   },
   {
-    "cursor": 52,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 impor
 
@@ -313,10 +431,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 52,
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "patchIndex": 0,
   },
   {
-    "cursor": 51,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 impo
 
@@ -326,10 +450,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 51,
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "patchIndex": 0,
   },
   {
-    "cursor": 50,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 imp
 
@@ -339,10 +469,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 50,
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "patchIndex": 0,
   },
   {
-    "cursor": 49,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 im
 
@@ -352,10 +488,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 49,
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "patchIndex": 0,
   },
   {
-    "cursor": 48,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 i
 
@@ -365,12 +507,36 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 48,
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "patchIndex": 0,
   },
   {
+    "content": "
+import { describe, expect, it } from 'vitest'
+
+
+describe('should', () => {
+  it('exported', () => {
+    expect(one).toEqual(1)
+  })
+})
+",
     "cursor": 47,
-    "output": "
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "patchIndex": 0,
+  },
+  {
+    "content": "
 import { describe, expect, it } from 'vitest'
-
 
 describe('should', () => {
   it('exported', () => {
@@ -378,34 +544,16 @@ describe('should', () => {
   })
 })
 ",
-  },
-  {
     "cursor": 46,
-    "output": "
-import { describe, expect, it } from 'vitest'
-
-describe('should', () => {
-  it('exported', () => {
-    expect(one).toEqual(1)
-  })
-})
-",
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "patchIndex": 0,
   },
   {
-    "cursor": 89,
-    "output": "
-import { describe, expect, it } from 'vitest'
-
-describe('should', () => {
-  it('exported', () => {
-    expect(one).toEqual(1)
-  })
-})
-",
-  },
-  {
-    "cursor": 88,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -414,10 +562,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 88,
+    "patch": {
+      "from": 89,
+      "length": 8,
+      "type": "removal",
+    },
+    "patchIndex": 1,
   },
   {
-    "cursor": 87,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -426,10 +580,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 87,
+    "patch": {
+      "from": 89,
+      "length": 8,
+      "type": "removal",
+    },
+    "patchIndex": 1,
   },
   {
-    "cursor": 86,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -438,10 +598,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 86,
+    "patch": {
+      "from": 89,
+      "length": 8,
+      "type": "removal",
+    },
+    "patchIndex": 1,
   },
   {
-    "cursor": 85,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -450,10 +616,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 85,
+    "patch": {
+      "from": 89,
+      "length": 8,
+      "type": "removal",
+    },
+    "patchIndex": 1,
   },
   {
-    "cursor": 84,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -462,10 +634,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 84,
+    "patch": {
+      "from": 89,
+      "length": 8,
+      "type": "removal",
+    },
+    "patchIndex": 1,
   },
   {
-    "cursor": 83,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -474,10 +652,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 83,
+    "patch": {
+      "from": 89,
+      "length": 8,
+      "type": "removal",
+    },
+    "patchIndex": 1,
   },
   {
-    "cursor": 82,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -486,10 +670,16 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 82,
+    "patch": {
+      "from": 89,
+      "length": 8,
+      "type": "removal",
+    },
+    "patchIndex": 1,
   },
   {
-    "cursor": 81,
-    "output": "
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -498,10 +688,17 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 81,
+    "patch": {
+      "from": 89,
+      "length": 8,
+      "type": "removal",
+    },
+    "patchIndex": 1,
   },
   {
-    "cursor": 82,
-    "output": "
+    "char": "o",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -510,10 +707,17 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 82,
+    "patch": {
+      "from": 81,
+      "text": "one",
+      "type": "insert",
+    },
+    "patchIndex": 2,
   },
   {
-    "cursor": 83,
-    "output": "
+    "char": "n",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -522,10 +726,17 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 83,
+    "patch": {
+      "from": 81,
+      "text": "one",
+      "type": "insert",
+    },
+    "patchIndex": 2,
   },
   {
-    "cursor": 84,
-    "output": "
+    "char": "e",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -534,10 +745,17 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 84,
+    "patch": {
+      "from": 81,
+      "text": "one",
+      "type": "insert",
+    },
+    "patchIndex": 2,
   },
   {
-    "cursor": 123,
-    "output": "
+    "char": " ",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -546,10 +764,18 @@ describe('should', () => {
    })
 })
 ",
+    "cursor": 123,
+    "patch": {
+      "from": 122,
+      "text": "    expect(two).toEqual(2)
+",
+      "type": "insert",
+    },
+    "patchIndex": 3,
   },
   {
-    "cursor": 124,
-    "output": "
+    "char": " ",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -558,10 +784,18 @@ describe('should', () => {
     })
 })
 ",
+    "cursor": 124,
+    "patch": {
+      "from": 122,
+      "text": "    expect(two).toEqual(2)
+",
+      "type": "insert",
+    },
+    "patchIndex": 3,
   },
   {
-    "cursor": 125,
-    "output": "
+    "char": " ",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -570,10 +804,18 @@ describe('should', () => {
      })
 })
 ",
+    "cursor": 125,
+    "patch": {
+      "from": 122,
+      "text": "    expect(two).toEqual(2)
+",
+      "type": "insert",
+    },
+    "patchIndex": 3,
   },
   {
-    "cursor": 126,
-    "output": "
+    "char": " ",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -582,10 +824,18 @@ describe('should', () => {
       })
 })
 ",
+    "cursor": 126,
+    "patch": {
+      "from": 122,
+      "text": "    expect(two).toEqual(2)
+",
+      "type": "insert",
+    },
+    "patchIndex": 3,
   },
   {
-    "cursor": 127,
-    "output": "
+    "char": "e",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -594,10 +844,18 @@ describe('should', () => {
     e  })
 })
 ",
+    "cursor": 127,
+    "patch": {
+      "from": 122,
+      "text": "    expect(two).toEqual(2)
+",
+      "type": "insert",
+    },
+    "patchIndex": 3,
   },
   {
-    "cursor": 128,
-    "output": "
+    "char": "x",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -606,10 +864,18 @@ describe('should', () => {
     ex  })
 })
 ",
+    "cursor": 128,
+    "patch": {
+      "from": 122,
+      "text": "    expect(two).toEqual(2)
+",
+      "type": "insert",
+    },
+    "patchIndex": 3,
   },
   {
-    "cursor": 129,
-    "output": "
+    "char": "p",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -618,10 +884,18 @@ describe('should', () => {
     exp  })
 })
 ",
+    "cursor": 129,
+    "patch": {
+      "from": 122,
+      "text": "    expect(two).toEqual(2)
+",
+      "type": "insert",
+    },
+    "patchIndex": 3,
   },
   {
-    "cursor": 130,
-    "output": "
+    "char": "e",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -630,10 +904,18 @@ describe('should', () => {
     expe  })
 })
 ",
+    "cursor": 130,
+    "patch": {
+      "from": 122,
+      "text": "    expect(two).toEqual(2)
+",
+      "type": "insert",
+    },
+    "patchIndex": 3,
   },
   {
-    "cursor": 131,
-    "output": "
+    "char": "c",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -642,10 +924,18 @@ describe('should', () => {
     expec  })
 })
 ",
+    "cursor": 131,
+    "patch": {
+      "from": 122,
+      "text": "    expect(two).toEqual(2)
+",
+      "type": "insert",
+    },
+    "patchIndex": 3,
   },
   {
-    "cursor": 132,
-    "output": "
+    "char": "t",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -654,10 +944,18 @@ describe('should', () => {
     expect  })
 })
 ",
+    "cursor": 132,
+    "patch": {
+      "from": 122,
+      "text": "    expect(two).toEqual(2)
+",
+      "type": "insert",
+    },
+    "patchIndex": 3,
   },
   {
-    "cursor": 133,
-    "output": "
+    "char": "(",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -666,10 +964,18 @@ describe('should', () => {
     expect(  })
 })
 ",
+    "cursor": 133,
+    "patch": {
+      "from": 122,
+      "text": "    expect(two).toEqual(2)
+",
+      "type": "insert",
+    },
+    "patchIndex": 3,
   },
   {
-    "cursor": 134,
-    "output": "
+    "char": "t",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -678,10 +984,18 @@ describe('should', () => {
     expect(t  })
 })
 ",
+    "cursor": 134,
+    "patch": {
+      "from": 122,
+      "text": "    expect(two).toEqual(2)
+",
+      "type": "insert",
+    },
+    "patchIndex": 3,
   },
   {
-    "cursor": 135,
-    "output": "
+    "char": "w",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -690,10 +1004,18 @@ describe('should', () => {
     expect(tw  })
 })
 ",
+    "cursor": 135,
+    "patch": {
+      "from": 122,
+      "text": "    expect(two).toEqual(2)
+",
+      "type": "insert",
+    },
+    "patchIndex": 3,
   },
   {
-    "cursor": 136,
-    "output": "
+    "char": "o",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -702,10 +1024,18 @@ describe('should', () => {
     expect(two  })
 })
 ",
+    "cursor": 136,
+    "patch": {
+      "from": 122,
+      "text": "    expect(two).toEqual(2)
+",
+      "type": "insert",
+    },
+    "patchIndex": 3,
   },
   {
-    "cursor": 137,
-    "output": "
+    "char": ")",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -714,10 +1044,18 @@ describe('should', () => {
     expect(two)  })
 })
 ",
+    "cursor": 137,
+    "patch": {
+      "from": 122,
+      "text": "    expect(two).toEqual(2)
+",
+      "type": "insert",
+    },
+    "patchIndex": 3,
   },
   {
-    "cursor": 138,
-    "output": "
+    "char": ".",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -726,10 +1064,18 @@ describe('should', () => {
     expect(two).  })
 })
 ",
+    "cursor": 138,
+    "patch": {
+      "from": 122,
+      "text": "    expect(two).toEqual(2)
+",
+      "type": "insert",
+    },
+    "patchIndex": 3,
   },
   {
-    "cursor": 139,
-    "output": "
+    "char": "t",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -738,10 +1084,18 @@ describe('should', () => {
     expect(two).t  })
 })
 ",
+    "cursor": 139,
+    "patch": {
+      "from": 122,
+      "text": "    expect(two).toEqual(2)
+",
+      "type": "insert",
+    },
+    "patchIndex": 3,
   },
   {
-    "cursor": 140,
-    "output": "
+    "char": "o",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -750,10 +1104,18 @@ describe('should', () => {
     expect(two).to  })
 })
 ",
+    "cursor": 140,
+    "patch": {
+      "from": 122,
+      "text": "    expect(two).toEqual(2)
+",
+      "type": "insert",
+    },
+    "patchIndex": 3,
   },
   {
-    "cursor": 141,
-    "output": "
+    "char": "E",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -762,10 +1124,18 @@ describe('should', () => {
     expect(two).toE  })
 })
 ",
+    "cursor": 141,
+    "patch": {
+      "from": 122,
+      "text": "    expect(two).toEqual(2)
+",
+      "type": "insert",
+    },
+    "patchIndex": 3,
   },
   {
-    "cursor": 142,
-    "output": "
+    "char": "q",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -774,10 +1144,18 @@ describe('should', () => {
     expect(two).toEq  })
 })
 ",
+    "cursor": 142,
+    "patch": {
+      "from": 122,
+      "text": "    expect(two).toEqual(2)
+",
+      "type": "insert",
+    },
+    "patchIndex": 3,
   },
   {
-    "cursor": 143,
-    "output": "
+    "char": "u",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -786,10 +1164,18 @@ describe('should', () => {
     expect(two).toEqu  })
 })
 ",
+    "cursor": 143,
+    "patch": {
+      "from": 122,
+      "text": "    expect(two).toEqual(2)
+",
+      "type": "insert",
+    },
+    "patchIndex": 3,
   },
   {
-    "cursor": 144,
-    "output": "
+    "char": "a",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -798,10 +1184,18 @@ describe('should', () => {
     expect(two).toEqua  })
 })
 ",
+    "cursor": 144,
+    "patch": {
+      "from": 122,
+      "text": "    expect(two).toEqual(2)
+",
+      "type": "insert",
+    },
+    "patchIndex": 3,
   },
   {
-    "cursor": 145,
-    "output": "
+    "char": "l",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -810,10 +1204,18 @@ describe('should', () => {
     expect(two).toEqual  })
 })
 ",
+    "cursor": 145,
+    "patch": {
+      "from": 122,
+      "text": "    expect(two).toEqual(2)
+",
+      "type": "insert",
+    },
+    "patchIndex": 3,
   },
   {
-    "cursor": 146,
-    "output": "
+    "char": "(",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -822,10 +1224,18 @@ describe('should', () => {
     expect(two).toEqual(  })
 })
 ",
+    "cursor": 146,
+    "patch": {
+      "from": 122,
+      "text": "    expect(two).toEqual(2)
+",
+      "type": "insert",
+    },
+    "patchIndex": 3,
   },
   {
-    "cursor": 147,
-    "output": "
+    "char": "2",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -834,10 +1244,18 @@ describe('should', () => {
     expect(two).toEqual(2  })
 })
 ",
+    "cursor": 147,
+    "patch": {
+      "from": 122,
+      "text": "    expect(two).toEqual(2)
+",
+      "type": "insert",
+    },
+    "patchIndex": 3,
   },
   {
-    "cursor": 148,
-    "output": "
+    "char": ")",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -846,10 +1264,19 @@ describe('should', () => {
     expect(two).toEqual(2)  })
 })
 ",
+    "cursor": 148,
+    "patch": {
+      "from": 122,
+      "text": "    expect(two).toEqual(2)
+",
+      "type": "insert",
+    },
+    "patchIndex": 3,
   },
   {
-    "cursor": 149,
-    "output": "
+    "char": "
+",
+    "content": "
 import { describe, expect, it } from 'vitest'
 
 describe('should', () => {
@@ -859,6 +1286,14 @@ describe('should', () => {
   })
 })
 ",
+    "cursor": 149,
+    "patch": {
+      "from": 122,
+      "text": "    expect(two).toEqual(2)
+",
+      "type": "insert",
+    },
+    "patchIndex": 3,
   },
 ]
 `;

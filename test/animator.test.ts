@@ -1,11 +1,9 @@
 import { expect, it } from 'vitest'
-import { calculatePatch, createAnimator, diff } from '../packages/core/src'
+import { simpleAnimator } from '../packages/core/src'
 import { input, output } from './fixture'
 
 it('animator', () => {
-  const delta = diff(input, output)
-  const patches = calculatePatch(delta)
-  const animator = createAnimator(input, patches)
+  const animator = simpleAnimator(input, output)
 
   expect([...animator]).toMatchSnapshot('animator')
 })
