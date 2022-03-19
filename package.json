@@ -4,13 +4,11 @@
   "version": "0.0.0",
   "packageManager": "pnpm@6.32.3",
   "scripts": {
-    "build": "rimraf dist && unbuild",
+    "build": "pnpm -r run build",
     "dev": "vite playground",
-    "stub": "unbuild --stub",
+    "stub": "pnpm -r run stub",
     "lint": "eslint .",
-    "prepublishOnly": "nr build",
-    "release": "bumpp --commit --push --tag && pnpm publish",
-    "start": "esno src/index.ts",
+    "release": "bumpp --commit --push --tag && pnpm -r publish --access public",
     "test": "vitest",
     "vscode": "nr -C packages/vscode dev",
     "typecheck": "tsc --noEmit"

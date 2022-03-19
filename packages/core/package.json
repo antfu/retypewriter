@@ -35,7 +35,11 @@
     "stub": "unbuild --stub",
     "prepublishOnly": "nr build"
   },
+  "dependencies": {
+    "diff-match-patch": "^1.0.5",
+    "js-yaml": "^4.1.0"
+  },
   "devDependencies": {
-    "diff-match-patch": "^1.0.5"
+    "@types/js-yaml": "^4.0.5"
   }
 }

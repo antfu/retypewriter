@@ -24,16 +24,4 @@ export default defineConfig({
   define: {
     'import.meta.vitest': 'false',
   },
-  build: {
-    rollupOptions: {
-      external: [
-        'local-pkg',
-        'fs',
-      ],
-      input: [
-        './index.html',
-        './__play.html',
-      ],
-    },
-  },
 })

@@ -1,4 +1,5 @@
 
+import YAML from 'js-yaml'
 import type { AnimatorStep, Snapshot } from './types'
 import { animateTo } from './animator'
 
@@ -6,7 +7,7 @@ export const SNAP_HEADING = 'reTypewriter Snapshots v1\n'
 export const SNAP_SEPERATOR_PRE = '-'.repeat(2)
 export const SNAP_SEPERATOR_POST = '-'.repeat(10)
 export const SNAP_SEPERATOR = `${SNAP_SEPERATOR_PRE}--${SNAP_SEPERATOR_POST}`
-export const SNAP_SEPERATOR_OPTIONS = '----OPTIONS----'
+export const SNAP_SEPERATOR_OPTIONS = '-----options--'
 export const SNAP_SEPERATOR_MATCHER = new RegExp(`\\n?${SNAP_SEPERATOR_PRE}[#\\w-]*${SNAP_SEPERATOR_POST}\\n`, 'g')
 export const SNAP_SEPERATOR_OPTIONS_MATCHER = new RegExp(`\\n?${SNAP_SEPERATOR_OPTIONS}\\n`, 'g')
 
@@ -23,7 +24,7 @@ export class Snapshots extends Array<Snapshot> {
     return this[0]
   }
 
-  toString() {
+  toString(useYaml = true) {
     return [
       SNAP_HEADING,
       ...this
@@ -34,9 +35,11 @@ export class Snapshots extends Array<Snapshot> {
             snap.options
               ? [
                 SNAP_SEPERATOR_OPTIONS,
-                Object.keys(snap.options).length > 1
-                  ? JSON.stringify(snap.options, null, 2)
-                  : JSON.stringify(snap.options),
+                useYaml
+                  ? YAML.dump(snap.options, { indent: 2 }).trimEnd()
+                  : Object.keys(snap.options).length > 1
+                    ? JSON.stringify(snap.options, null, 2)
+                    : JSON.stringify(snap.options),
               ]
               : []
           ),
@@ -53,12 +56,17 @@ export class Snapshots extends Array<Snapshot> {
 
     const snapshots: Snapshot[] = []
     for (let i = 0; i < parts.length; i += 1) {
-      const [content, optionsRaw] = parts[i].split(SNAP_SEPERATOR_OPTIONS_MATCHER)
+      const withOptions = parts[i].split(SNAP_SEPERATOR_OPTIONS_MATCHER)
       const snap: Snapshot = {
-        content,
+        content: withOptions[0],
       }
-      if (optionsRaw?.trim())
-        snap.options = JSON.parse(optionsRaw)
+      const optionsRaw = withOptions[1]?.trim()
+      if (optionsRaw) {
+        if (optionsRaw.startsWith('{'))
+          snap.options = JSON.parse(optionsRaw)
+        else
+          snap.options = YAML.load(optionsRaw) as any
+      }
 
       snapshots.push(snap)
     }

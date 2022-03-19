@@ -38,9 +38,13 @@ importers:
 
   packages/core:
     specifiers:
+      '@types/js-yaml': ^4.0.5
       diff-match-patch: ^1.0.5
+      js-yaml: ^4.1.0
     devDependencies:
+      '@types/js-yaml': 4.0.5
       diff-match-patch: 1.0.5
+      js-yaml: 4.1.0
 
   packages/vscode:
     specifiers:
@@ -427,6 +431,10 @@ packages:
 
   /@types/estree/0.0.50:
     resolution: {integrity: sha512-C6N5s2ZFtuZRj54k2/zyRhNDjJwwcViAM3Nbm8zjBpbqAdZ00mr0CFxvSKeO8Y/e03WVFLpQMdHYVfUd6SB+Hw==}
+    dev: true
+
+  /@types/js-yaml/4.0.5:
+    resolution: {integrity: sha512-FhpRzf927MNQdRZP0J5DLIdTXhjLYzeUTmLAu69mnVksLH9CJY3IuSeEgbKUki7GQZm0WqDkGzyxju2EZGD2wA==}
     dev: true
 
   /@types/json-schema/7.0.9:

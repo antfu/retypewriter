@@ -7,8 +7,8 @@ exports[`snaps 1`] = `
 
 --02----------
 import {} from \\"vue\\"
-----OPTIONS----
-{\\"pause\\":true}
+-----options--
+pause: true
 --03----------
 import { createApp } from \\"vue\\"
 
