@@ -12,44 +12,45 @@ export function diff(a: string, b: string): Diff[] {
 export function calculatePatch(diff: Diff[]): Patch[] {
   const patches: Patch[] = []
 
-  let index = 0
+  let cursor = 0
   for (const change of diff) {
     if (change[0] === 0) {
-      index += change[1].length
-      continue
+      cursor += change[1].length
     }
     else if (change[0] === -1) {
       const length = change[1].length
       patches.push({
         type: 'removal',
-        from: index + length,
+        cursor: cursor + length,
         length,
       })
     }
     else if (change[0] === 1) {
-      patches.push({
-        type: 'insert',
-        from: index,
-        text: change[1],
-      })
-      index += change[1].length
+      const content = change[1]
+      const tailingNewLines = content.match(/\n*$/m)?.[0] || ''
+      const rest = tailingNewLines.length
+        ? content.slice(0, -tailingNewLines.length)
+        : content
+      // if there is new lines in the patch, we should type them first
+      if (tailingNewLines.length) {
+        patches.push({
+          type: 'insert',
+          cursor,
+          content: tailingNewLines,
+        })
+      }
+      if (rest.length) {
+        patches.push({
+          type: 'insert',
+          cursor,
+          content: rest,
+        })
+      }
+      cursor += content.length
     }
     else {
       throw new Error('unknown change type')
     }
   }
   return patches
-}
-
-export function applyPatches(input: string, patches: Patch[]) {
-  let output = input
-  for (const patch of patches) {
-    if (patch.type === 'insert')
-      output = output.slice(0, patch.from) + patch.text + output.slice(patch.from)
-    else if (patch.type === 'removal')
-      output = output.slice(0, patch.from - patch.length) + output.slice(patch.from)
-  }
-  return {
-    output,
-  }
 }

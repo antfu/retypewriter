@@ -1,12 +1,12 @@
 export interface InsertPatch {
   type: 'insert'
-  from: number
-  text: string
+  cursor: number
+  content: string
 }
 
 export interface RemovalPatch {
   type: 'removal'
-  from: number
+  cursor: number
   length: number
 }
 
@@ -52,4 +52,15 @@ export interface AnimatorStepSnap {
   index: number
 }
 
-export type AnimatorStep = AnimatorStepInsert | AnimatorStepRemoval | AnimatorStepInit | AnimatorStepPatch | AnimatorStepSnap
+export interface AnimatorStepSnapFinish {
+  type: 'snap-finish'
+  content: string
+}
+
+export type AnimatorStep =
+  | AnimatorStepInsert
+  | AnimatorStepRemoval
+  | AnimatorStepInit
+  | AnimatorStepPatch
+  | AnimatorStepSnap
+  | AnimatorStepSnapFinish

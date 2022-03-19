@@ -2,7 +2,7 @@
 import type { AnimatorStep, Snapshot } from './types'
 import { simpleAnimator } from './animator'
 
-export const SNAP_HEADING = 'reTypewriter Snapshots v1'
+export const SNAP_HEADING = 'reTypewriter Snapshots v1\n'
 export const SNAP_SEPERATOR_PRE = '-'.repeat(2)
 export const SNAP_SEPERATOR_POST = '-'.repeat(10)
 export const SNAP_SEPERATOR = `${SNAP_SEPERATOR_PRE}--${SNAP_SEPERATOR_POST}`

@@ -5,7 +5,7 @@ exports[`animator > animator 1`] = `
   {
     "index": 0,
     "patch": {
-      "from": 75,
+      "cursor": 75,
       "length": 29,
       "type": "removal",
     },
@@ -419,7 +419,7 @@ describe('should', () => {
   {
     "index": 1,
     "patch": {
-      "from": 89,
+      "cursor": 89,
       "length": 8,
       "type": "removal",
     },
@@ -532,8 +532,8 @@ describe('should', () => {
   {
     "index": 2,
     "patch": {
-      "from": 81,
-      "text": "one",
+      "content": "one",
+      "cursor": 81,
       "type": "insert",
     },
     "type": "new-patch",
@@ -583,9 +583,34 @@ describe('should', () => {
   {
     "index": 3,
     "patch": {
-      "from": 122,
-      "text": "    expect(two).toEqual(2)
+      "content": "
 ",
+      "cursor": 122,
+      "type": "insert",
+    },
+    "type": "new-patch",
+  },
+  {
+    "char": "
+",
+    "content": "
+import { describe, expect, it } from 'vitest'
+
+describe('should', () => {
+  it('one', () => {
+    expect(one).toEqual(1)
+
+  })
+})
+",
+    "cursor": 123,
+    "type": "insert",
+  },
+  {
+    "index": 4,
+    "patch": {
+      "content": "    expect(two).toEqual(2)",
+      "cursor": 122,
       "type": "insert",
     },
     "type": "new-patch",
@@ -598,7 +623,8 @@ import { describe, expect, it } from 'vitest'
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-   })
+ 
+  })
 })
 ",
     "cursor": 123,
@@ -612,7 +638,8 @@ import { describe, expect, it } from 'vitest'
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-    })
+  
+  })
 })
 ",
     "cursor": 124,
@@ -626,7 +653,8 @@ import { describe, expect, it } from 'vitest'
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-     })
+   
+  })
 })
 ",
     "cursor": 125,
@@ -640,7 +668,8 @@ import { describe, expect, it } from 'vitest'
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-      })
+    
+  })
 })
 ",
     "cursor": 126,
@@ -654,7 +683,8 @@ import { describe, expect, it } from 'vitest'
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-    e  })
+    e
+  })
 })
 ",
     "cursor": 127,
@@ -668,7 +698,8 @@ import { describe, expect, it } from 'vitest'
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-    ex  })
+    ex
+  })
 })
 ",
     "cursor": 128,
@@ -682,7 +713,8 @@ import { describe, expect, it } from 'vitest'
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-    exp  })
+    exp
+  })
 })
 ",
     "cursor": 129,
@@ -696,7 +728,8 @@ import { describe, expect, it } from 'vitest'
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-    expe  })
+    expe
+  })
 })
 ",
     "cursor": 130,
@@ -710,7 +743,8 @@ import { describe, expect, it } from 'vitest'
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-    expec  })
+    expec
+  })
 })
 ",
     "cursor": 131,
@@ -724,7 +758,8 @@ import { describe, expect, it } from 'vitest'
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-    expect  })
+    expect
+  })
 })
 ",
     "cursor": 132,
@@ -738,7 +773,8 @@ import { describe, expect, it } from 'vitest'
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-    expect(  })
+    expect(
+  })
 })
 ",
     "cursor": 133,
@@ -752,7 +788,8 @@ import { describe, expect, it } from 'vitest'
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-    expect(t  })
+    expect(t
+  })
 })
 ",
     "cursor": 134,
@@ -766,7 +803,8 @@ import { describe, expect, it } from 'vitest'
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-    expect(tw  })
+    expect(tw
+  })
 })
 ",
     "cursor": 135,
@@ -780,7 +818,8 @@ import { describe, expect, it } from 'vitest'
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-    expect(two  })
+    expect(two
+  })
 })
 ",
     "cursor": 136,
@@ -794,7 +833,8 @@ import { describe, expect, it } from 'vitest'
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-    expect(two)  })
+    expect(two)
+  })
 })
 ",
     "cursor": 137,
@@ -808,7 +848,8 @@ import { describe, expect, it } from 'vitest'
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-    expect(two).  })
+    expect(two).
+  })
 })
 ",
     "cursor": 138,
@@ -822,7 +863,8 @@ import { describe, expect, it } from 'vitest'
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-    expect(two).t  })
+    expect(two).t
+  })
 })
 ",
     "cursor": 139,
@@ -836,7 +878,8 @@ import { describe, expect, it } from 'vitest'
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-    expect(two).to  })
+    expect(two).to
+  })
 })
 ",
     "cursor": 140,
@@ -850,7 +893,8 @@ import { describe, expect, it } from 'vitest'
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-    expect(two).toE  })
+    expect(two).toE
+  })
 })
 ",
     "cursor": 141,
@@ -864,7 +908,8 @@ import { describe, expect, it } from 'vitest'
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-    expect(two).toEq  })
+    expect(two).toEq
+  })
 })
 ",
     "cursor": 142,
@@ -878,7 +923,8 @@ import { describe, expect, it } from 'vitest'
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-    expect(two).toEqu  })
+    expect(two).toEqu
+  })
 })
 ",
     "cursor": 143,
@@ -892,7 +938,8 @@ import { describe, expect, it } from 'vitest'
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-    expect(two).toEqua  })
+    expect(two).toEqua
+  })
 })
 ",
     "cursor": 144,
@@ -906,7 +953,8 @@ import { describe, expect, it } from 'vitest'
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-    expect(two).toEqual  })
+    expect(two).toEqual
+  })
 })
 ",
     "cursor": 145,
@@ -920,7 +968,8 @@ import { describe, expect, it } from 'vitest'
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-    expect(two).toEqual(  })
+    expect(two).toEqual(
+  })
 })
 ",
     "cursor": 146,
@@ -934,7 +983,8 @@ import { describe, expect, it } from 'vitest'
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-    expect(two).toEqual(2  })
+    expect(two).toEqual(2
+  })
 })
 ",
     "cursor": 147,
@@ -948,15 +998,14 @@ import { describe, expect, it } from 'vitest'
 describe('should', () => {
   it('one', () => {
     expect(one).toEqual(1)
-    expect(two).toEqual(2)  })
+    expect(two).toEqual(2)
+  })
 })
 ",
     "cursor": 148,
     "type": "insert",
   },
   {
-    "char": "
-",
     "content": "
 import { describe, expect, it } from 'vitest'
 
@@ -967,8 +1016,7 @@ describe('should', () => {
   })
 })
 ",
-    "cursor": 149,
-    "type": "insert",
+    "type": "snap-finish",
   },
 ]
 `;
