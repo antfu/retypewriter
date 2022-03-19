@@ -1,6 +1,7 @@
 {
   "name": "@retypewriter/monorepo",
   "private": true,
+  "packageManager": "pnpm@6.32.3",
   "scripts": {
     "build": "rimraf dist && unbuild",
     "dev": "vite playground",
