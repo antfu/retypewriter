@@ -1,6 +1,6 @@
 import { existsSync, promises as fs } from 'fs'
 import { Range, Selection, commands, window, workspace } from 'vscode'
-import { SnapshotManager, Snapshots } from '../../core/src'
+import { SnapshotManager, Snapshots, getTimeout } from '../../core/src'
 
 const snapExt = '.retypewriter'
 
@@ -111,7 +111,7 @@ export function activate() {
             snap.char,
           ))
           setCursor(snap.cursor)
-          await sleep(Math.random() * 60)
+          await sleep(getTimeout(snap.char, 2))
           break
 
         case 'removal':
@@ -120,7 +120,7 @@ export function activate() {
             doc.positionAt(snap.cursor + 1),
           )))
           setCursor(snap.cursor)
-          await sleep(Math.random() * 10)
+          await sleep(3)
           break
       }
     }

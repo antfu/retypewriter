@@ -85,14 +85,19 @@ describe('should', () => {
 
   const slices = sliceInput(fixture)
   // expect(applySlice(slices)).toEqual(fixture)
-  expect(applySlice(slices.slice(0, 3))).toMatchInlineSnapshot(`
-    "
-    import { 
-    "
-  `)
   expect(applySlice(slices.slice(0, 4))).toMatchInlineSnapshot(`
     "
     import {  } 
+    "
+  `)
+  expect(applySlice(slices.slice(0, 5))).toMatchInlineSnapshot(`
+    "
+    import { describe, expect, it } 
+    "
+  `)
+  expect(applySlice(slices.slice(0, 6))).toMatchInlineSnapshot(`
+    "
+    import { describe, expect, it } from
     "
   `)
   expect(slices.slice(0, 4)).toMatchInlineSnapshot(`
