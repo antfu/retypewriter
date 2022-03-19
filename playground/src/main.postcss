@@ -1,0 +1,99 @@
+:root {
+  /* scrollbars colors */
+  --play-ttc-c-thumb: #eee;
+  --play-ttc-c-track: white;
+}
+.dark {
+  color-scheme: dark;
+  background: #080808;
+  color: white;
+  /* scrollbars colors */
+  --play-ttc-c-thumb: #222;
+  --play-ttc-c-track: #111;
+}
+
+.splitpanes__splitter {
+  @apply relative;
+}
+
+.splitpanes__splitter:before {
+  content: '';
+  transition: opacity 0.4s;
+  background-color: rgba(125,125,125,0.1);
+  @apply absolute z-1 top-0 left-0 op-0;
+}
+
+.splitpanes__splitter:hover:before {
+  @apply op-100;
+}
+
+.splitpanes--vertical > .splitpanes__splitter:before {
+  /* fix vertical scrollbar */
+  /*left: -10px;*/
+  @apply h-full -right-10px;
+}
+
+.splitpanes--horizontal > .splitpanes__splitter:before {
+  /* fix vertical scrollbar */
+  /* top: -10px; */
+  @apply w-full -bottom-10px;
+}
+
+.CodeMirror-scroll::-webkit-scrollbar,
+.scrolls::-webkit-scrollbar {
+  @apply w-8px h-8px;
+}
+.scrolls {
+  overflow: auto !important;
+  width: 100%;
+  height: calc(100% - 34px - 3px) !important;
+  scrollbar-width: thin;
+  scrollbar-color: var(--play-ttc-c-thumb) var(--play-ttc-c-track);
+}
+.CodeMirror-scroll::-webkit-scrollbar-track,
+.scrolls::-webkit-scrollbar-track {
+  background: var(--play-ttc-c-track);
+}
+.CodeMirror-scroll::-webkit-scrollbar-thumb,
+.scrolls::-webkit-scrollbar-thumb {
+  background-color: var(--play-ttc-c-thumb);
+  border-radius: 3px;
+  border: 2px solid var(--play-ttc-c-thumb);
+}
+.CodeMirror-scroll::-webkit-scrollbar-corner,
+.scrolls::-webkit-scrollbar-corner {
+  background-color: var(--play-ttc-c-track);
+}
+.CodeMirror {
+  overflow: unset !important;
+}
+.CodeMirror-vscrollbar,
+.CodeMirror-hscrollbar {
+  display: none !important;
+}
+.CodeMirror-scroll {
+  margin-bottom: unset !important;
+  margin-right: unset !important;
+  padding-bottom: unset !important;
+}
+.scrolls .CodeMirror .CodeMirror-scroll {
+  width: 100%;
+  height: 100%;
+}
+
+.CodeMirror-hints {
+  font-family: var(--cm-font-family) !important;
+  background: var(--cm-background) !important;
+  color: var(--cm-foreground) !important;
+  font-size: 0.8em !important;
+  border: 1px solid #8885 !important;
+}
+
+.CodeMirror-hints, .CodeMirror-hint {
+  color: var(--cm-foreground) !important;
+}
+
+li.CodeMirror-hint-active {
+  background: #489371 !important;
+  color: white !important;
+}
