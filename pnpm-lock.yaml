@@ -15,14 +15,12 @@ importers:
       esno: ^0.14.1
       pnpm: ^6.32.3
       rimraf: ^3.0.2
-      typeit: ^8.3.3
       typescript: ^4.6.2
       unbuild: ^0.7.0
       vite: ^2.8.6
       vitest: ^0.7.4
     dependencies:
       diff-match-patch: 1.0.5
-      typeit: 8.3.3
     devDependencies:
       '@antfu/eslint-config': 0.18.8_eslint@8.11.0+typescript@4.6.2
       '@antfu/ni': 0.13.2
@@ -3327,11 +3325,6 @@ packages:
     resolution: {integrity: sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==}
     engines: {node: '>=8'}
     dev: true
-
-  /typeit/8.3.3:
-    resolution: {integrity: sha512-DOrcb4PjWzdNBjd2LZlIGRBqqFzaealJ3JPUlp6iuw3s/LgsqC7Zo68kl07l/YrmqjRVl0AiF1I7rWiDe0lNnQ==}
-    requiresBuild: true
-    dev: false
 
   /typescript/4.6.2:
     resolution: {integrity: sha512-HM/hFigTBHZhLXshn9sN37H085+hQGeJHJ/X7LpBWLID/fbc2acUMfU+lGD98X81sKP+pFa9f0DZmCwB9GnbAg==}
