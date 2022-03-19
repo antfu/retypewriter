@@ -1,34 +1,6 @@
 {
-  "name": "retypewriter",
-  "version": "0.0.0",
-  "packageManager": "pnpm@6.32.3",
-  "description": "",
-  "keywords": [],
-  "homepage": "https://github.com/antfu/retypewriter#readme",
-  "bugs": {
-    "url": "https://github.com/antfu/retypewriter/issues"
-  },
-  "license": "MIT",
-  "author": "Anthony Fu <anthonyfu117@hotmail.com>",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/antfu/retypewriter.git"
-  },
-  "funding": "https://github.com/sponsors/antfu",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
-    }
-  },
-  "files": [
-    "dist"
-  ],
-  "sideEffects": false,
+  "name": "@retypewriter/monorepo",
+  "private": true,
   "scripts": {
     "build": "rimraf dist && unbuild",
     "dev": "vite playground",
@@ -40,10 +12,8 @@
     "test": "vitest",
     "typecheck": "tsc --noEmit"
   },
-  "dependencies": {
-    "diff-match-patch": "^1.0.5"
-  },
   "devDependencies": {
+    "diff-match-patch": "^1.0.5",
     "@antfu/eslint-config": "^0.18.8",
     "@antfu/ni": "^0.13.2",
     "@babel/types": "^7.17.0",

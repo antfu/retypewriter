@@ -1,0 +1,41 @@
+{
+  "name": "retypewriter",
+  "version": "0.0.0",
+  "packageManager": "pnpm@6.32.3",
+  "description": "",
+  "keywords": [],
+  "homepage": "https://github.com/antfu/retypewriter#readme",
+  "bugs": {
+    "url": "https://github.com/antfu/retypewriter/issues"
+  },
+  "license": "MIT",
+  "author": "Anthony Fu <anthonyfu117@hotmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antfu/retypewriter.git",
+    "directory": "packages/core"
+  },
+  "funding": "https://github.com/sponsors/antfu",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "rimraf dist && unbuild",
+    "stub": "unbuild --stub",
+    "prepublishOnly": "nr build"
+  },
+  "devDependencies": {
+    "diff-match-patch": "^1.0.5"
+  }
+}

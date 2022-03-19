@@ -1,4 +1,4 @@
-import { calculatePatch, createAnimator, diff } from '../src'
+import { calculatePatch, createAnimator, diff } from '../packages/core/src'
 
 const typingEl = document.getElementById('typing') as HTMLParagraphElement
 const inputEl = document.getElementById('input') as HTMLTextAreaElement
