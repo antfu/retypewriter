@@ -1,20 +1,15 @@
 import { calculatePatch, diff } from './patch'
-import type { Patch } from '.'
-
-export interface AnimatorStep {
-  cursor: number
-  content: string
-  patch: Patch
-  patchIndex: number
-  char?: string
-}
+import type { AnimatorStep, Patch } from './types'
 
 export function* createAnimator(input: string, patches: Patch[]): Generator<AnimatorStep> {
   let output = input
   let cursor = 0
 
-  for (let patchIndex = 0; patchIndex < patches.length; patchIndex++) {
-    const patch = patches[patchIndex]
+  for (let index = 0; index < patches.length; index++) {
+    const patch = patches[index]
+
+    yield { type: 'new-patch', patch, index }
+
     if (patch.type === 'insert') {
       cursor = patch.from
       const head = output.slice(0, patch.from)
@@ -23,11 +18,10 @@ export function* createAnimator(input: string, patches: Patch[]): Generator<Anim
       for (const char of patch.text) {
         selection += char
         yield {
+          type: 'insert',
           char,
           cursor: cursor + selection.length,
           content: head + selection + tail,
-          patch,
-          patchIndex,
         }
       }
       output = head + patch.text + tail
@@ -39,10 +33,9 @@ export function* createAnimator(input: string, patches: Patch[]): Generator<Anim
       const selection = output.slice(cursor, patch.from)
       for (let i = selection.length - 1; i >= 0; i--) {
         yield {
+          type: 'removal',
           cursor: cursor + i,
           content: head + selection.slice(0, i) + tail,
-          patch,
-          patchIndex,
         }
       }
       output = head + tail

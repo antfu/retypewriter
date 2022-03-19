@@ -3,6 +3,15 @@
 exports[`animator > animator 1`] = `
 [
   {
+    "index": 0,
+    "patch": {
+      "from": 75,
+      "length": 29,
+      "type": "removal",
+    },
+    "type": "new-patch",
+  },
+  {
     "content": "
 import { describe, expect, it } from 'vitest'
 import { one } from '../src
@@ -14,12 +23,7 @@ describe('should', () => {
 })
 ",
     "cursor": 74,
-    "patch": {
-      "from": 75,
-      "length": 29,
-      "type": "removal",
-    },
-    "patchIndex": 0,
+    "type": "removal",
   },
   {
     "content": "
@@ -33,12 +37,7 @@ describe('should', () => {
 })
 ",
     "cursor": 73,
-    "patch": {
-      "from": 75,
-      "length": 29,
-      "type": "removal",
-    },
-    "patchIndex": 0,
+    "type": "removal",
   },
   {
     "content": "
@@ -52,12 +51,7 @@ describe('should', () => {
 })
 ",
     "cursor": 72,
-    "patch": {
-      "from": 75,
-      "length": 29,
-      "type": "removal",
-    },
-    "patchIndex": 0,
+    "type": "removal",
   },
   {
     "content": "
@@ -71,12 +65,7 @@ describe('should', () => {
 })
 ",
     "cursor": 71,
-    "patch": {
-      "from": 75,
-      "length": 29,
-      "type": "removal",
-    },
-    "patchIndex": 0,
+    "type": "removal",
   },
   {
     "content": "
@@ -90,12 +79,7 @@ describe('should', () => {
 })
 ",
     "cursor": 70,
-    "patch": {
-      "from": 75,
-      "length": 29,
-      "type": "removal",
-    },
-    "patchIndex": 0,
+    "type": "removal",
   },
   {
     "content": "
@@ -109,12 +93,7 @@ describe('should', () => {
 })
 ",
     "cursor": 69,
-    "patch": {
-      "from": 75,
-      "length": 29,
-      "type": "removal",
-    },
-    "patchIndex": 0,
+    "type": "removal",
   },
   {
     "content": "
@@ -128,12 +107,7 @@ describe('should', () => {
 })
 ",
     "cursor": 68,
-    "patch": {
-      "from": 75,
-      "length": 29,
-      "type": "removal",
-    },
-    "patchIndex": 0,
+    "type": "removal",
   },
   {
     "content": "
@@ -147,12 +121,7 @@ describe('should', () => {
 })
 ",
     "cursor": 67,
-    "patch": {
-      "from": 75,
-      "length": 29,
-      "type": "removal",
-    },
-    "patchIndex": 0,
+    "type": "removal",
   },
   {
     "content": "
@@ -166,12 +135,7 @@ describe('should', () => {
 })
 ",
     "cursor": 66,
-    "patch": {
-      "from": 75,
-      "length": 29,
-      "type": "removal",
-    },
-    "patchIndex": 0,
+    "type": "removal",
   },
   {
     "content": "
@@ -185,12 +149,7 @@ describe('should', () => {
 })
 ",
     "cursor": 65,
-    "patch": {
-      "from": 75,
-      "length": 29,
-      "type": "removal",
-    },
-    "patchIndex": 0,
+    "type": "removal",
   },
   {
     "content": "
@@ -204,12 +163,7 @@ describe('should', () => {
 })
 ",
     "cursor": 64,
-    "patch": {
-      "from": 75,
-      "length": 29,
-      "type": "removal",
-    },
-    "patchIndex": 0,
+    "type": "removal",
   },
   {
     "content": "
@@ -223,12 +177,7 @@ describe('should', () => {
 })
 ",
     "cursor": 63,
-    "patch": {
-      "from": 75,
-      "length": 29,
-      "type": "removal",
-    },
-    "patchIndex": 0,
+    "type": "removal",
   },
   {
     "content": "
@@ -242,12 +191,7 @@ describe('should', () => {
 })
 ",
     "cursor": 62,
-    "patch": {
-      "from": 75,
-      "length": 29,
-      "type": "removal",
-    },
-    "patchIndex": 0,
+    "type": "removal",
   },
   {
     "content": "
@@ -261,12 +205,7 @@ describe('should', () => {
 })
 ",
     "cursor": 61,
-    "patch": {
-      "from": 75,
-      "length": 29,
-      "type": "removal",
-    },
-    "patchIndex": 0,
+    "type": "removal",
   },
   {
     "content": "
@@ -280,12 +219,7 @@ describe('should', () => {
 })
 ",
     "cursor": 60,
-    "patch": {
-      "from": 75,
-      "length": 29,
-      "type": "removal",
-    },
-    "patchIndex": 0,
+    "type": "removal",
   },
   {
     "content": "
@@ -299,12 +233,7 @@ describe('should', () => {
 })
 ",
     "cursor": 59,
-    "patch": {
-      "from": 75,
-      "length": 29,
-      "type": "removal",
-    },
-    "patchIndex": 0,
+    "type": "removal",
   },
   {
     "content": "
@@ -318,12 +247,7 @@ describe('should', () => {
 })
 ",
     "cursor": 58,
-    "patch": {
-      "from": 75,
-      "length": 29,
-      "type": "removal",
-    },
-    "patchIndex": 0,
+    "type": "removal",
   },
   {
     "content": "
@@ -337,12 +261,7 @@ describe('should', () => {
 })
 ",
     "cursor": 57,
-    "patch": {
-      "from": 75,
-      "length": 29,
-      "type": "removal",
-    },
-    "patchIndex": 0,
+    "type": "removal",
   },
   {
     "content": "
@@ -356,12 +275,7 @@ describe('should', () => {
 })
 ",
     "cursor": 56,
-    "patch": {
-      "from": 75,
-      "length": 29,
-      "type": "removal",
-    },
-    "patchIndex": 0,
+    "type": "removal",
   },
   {
     "content": "
@@ -375,12 +289,7 @@ describe('should', () => {
 })
 ",
     "cursor": 55,
-    "patch": {
-      "from": 75,
-      "length": 29,
-      "type": "removal",
-    },
-    "patchIndex": 0,
+    "type": "removal",
   },
   {
     "content": "
@@ -394,12 +303,7 @@ describe('should', () => {
 })
 ",
     "cursor": 54,
-    "patch": {
-      "from": 75,
-      "length": 29,
-      "type": "removal",
-    },
-    "patchIndex": 0,
+    "type": "removal",
   },
   {
     "content": "
@@ -413,12 +317,7 @@ describe('should', () => {
 })
 ",
     "cursor": 53,
-    "patch": {
-      "from": 75,
-      "length": 29,
-      "type": "removal",
-    },
-    "patchIndex": 0,
+    "type": "removal",
   },
   {
     "content": "
@@ -432,12 +331,7 @@ describe('should', () => {
 })
 ",
     "cursor": 52,
-    "patch": {
-      "from": 75,
-      "length": 29,
-      "type": "removal",
-    },
-    "patchIndex": 0,
+    "type": "removal",
   },
   {
     "content": "
@@ -451,12 +345,7 @@ describe('should', () => {
 })
 ",
     "cursor": 51,
-    "patch": {
-      "from": 75,
-      "length": 29,
-      "type": "removal",
-    },
-    "patchIndex": 0,
+    "type": "removal",
   },
   {
     "content": "
@@ -470,12 +359,7 @@ describe('should', () => {
 })
 ",
     "cursor": 50,
-    "patch": {
-      "from": 75,
-      "length": 29,
-      "type": "removal",
-    },
-    "patchIndex": 0,
+    "type": "removal",
   },
   {
     "content": "
@@ -489,12 +373,7 @@ describe('should', () => {
 })
 ",
     "cursor": 49,
-    "patch": {
-      "from": 75,
-      "length": 29,
-      "type": "removal",
-    },
-    "patchIndex": 0,
+    "type": "removal",
   },
   {
     "content": "
@@ -508,12 +387,7 @@ describe('should', () => {
 })
 ",
     "cursor": 48,
-    "patch": {
-      "from": 75,
-      "length": 29,
-      "type": "removal",
-    },
-    "patchIndex": 0,
+    "type": "removal",
   },
   {
     "content": "
@@ -527,12 +401,7 @@ describe('should', () => {
 })
 ",
     "cursor": 47,
-    "patch": {
-      "from": 75,
-      "length": 29,
-      "type": "removal",
-    },
-    "patchIndex": 0,
+    "type": "removal",
   },
   {
     "content": "
@@ -545,12 +414,16 @@ describe('should', () => {
 })
 ",
     "cursor": 46,
+    "type": "removal",
+  },
+  {
+    "index": 1,
     "patch": {
-      "from": 75,
-      "length": 29,
+      "from": 89,
+      "length": 8,
       "type": "removal",
     },
-    "patchIndex": 0,
+    "type": "new-patch",
   },
   {
     "content": "
@@ -563,12 +436,7 @@ describe('should', () => {
 })
 ",
     "cursor": 88,
-    "patch": {
-      "from": 89,
-      "length": 8,
-      "type": "removal",
-    },
-    "patchIndex": 1,
+    "type": "removal",
   },
   {
     "content": "
@@ -581,12 +449,7 @@ describe('should', () => {
 })
 ",
     "cursor": 87,
-    "patch": {
-      "from": 89,
-      "length": 8,
-      "type": "removal",
-    },
-    "patchIndex": 1,
+    "type": "removal",
   },
   {
     "content": "
@@ -599,12 +462,7 @@ describe('should', () => {
 })
 ",
     "cursor": 86,
-    "patch": {
-      "from": 89,
-      "length": 8,
-      "type": "removal",
-    },
-    "patchIndex": 1,
+    "type": "removal",
   },
   {
     "content": "
@@ -617,12 +475,7 @@ describe('should', () => {
 })
 ",
     "cursor": 85,
-    "patch": {
-      "from": 89,
-      "length": 8,
-      "type": "removal",
-    },
-    "patchIndex": 1,
+    "type": "removal",
   },
   {
     "content": "
@@ -635,12 +488,7 @@ describe('should', () => {
 })
 ",
     "cursor": 84,
-    "patch": {
-      "from": 89,
-      "length": 8,
-      "type": "removal",
-    },
-    "patchIndex": 1,
+    "type": "removal",
   },
   {
     "content": "
@@ -653,12 +501,7 @@ describe('should', () => {
 })
 ",
     "cursor": 83,
-    "patch": {
-      "from": 89,
-      "length": 8,
-      "type": "removal",
-    },
-    "patchIndex": 1,
+    "type": "removal",
   },
   {
     "content": "
@@ -671,12 +514,7 @@ describe('should', () => {
 })
 ",
     "cursor": 82,
-    "patch": {
-      "from": 89,
-      "length": 8,
-      "type": "removal",
-    },
-    "patchIndex": 1,
+    "type": "removal",
   },
   {
     "content": "
@@ -689,12 +527,16 @@ describe('should', () => {
 })
 ",
     "cursor": 81,
+    "type": "removal",
+  },
+  {
+    "index": 2,
     "patch": {
-      "from": 89,
-      "length": 8,
-      "type": "removal",
+      "from": 81,
+      "text": "one",
+      "type": "insert",
     },
-    "patchIndex": 1,
+    "type": "new-patch",
   },
   {
     "char": "o",
@@ -708,12 +550,7 @@ describe('should', () => {
 })
 ",
     "cursor": 82,
-    "patch": {
-      "from": 81,
-      "text": "one",
-      "type": "insert",
-    },
-    "patchIndex": 2,
+    "type": "insert",
   },
   {
     "char": "n",
@@ -727,12 +564,7 @@ describe('should', () => {
 })
 ",
     "cursor": 83,
-    "patch": {
-      "from": 81,
-      "text": "one",
-      "type": "insert",
-    },
-    "patchIndex": 2,
+    "type": "insert",
   },
   {
     "char": "e",
@@ -746,12 +578,17 @@ describe('should', () => {
 })
 ",
     "cursor": 84,
+    "type": "insert",
+  },
+  {
+    "index": 3,
     "patch": {
-      "from": 81,
-      "text": "one",
+      "from": 122,
+      "text": "    expect(two).toEqual(2)
+",
       "type": "insert",
     },
-    "patchIndex": 2,
+    "type": "new-patch",
   },
   {
     "char": " ",
@@ -765,13 +602,7 @@ describe('should', () => {
 })
 ",
     "cursor": 123,
-    "patch": {
-      "from": 122,
-      "text": "    expect(two).toEqual(2)
-",
-      "type": "insert",
-    },
-    "patchIndex": 3,
+    "type": "insert",
   },
   {
     "char": " ",
@@ -785,13 +616,7 @@ describe('should', () => {
 })
 ",
     "cursor": 124,
-    "patch": {
-      "from": 122,
-      "text": "    expect(two).toEqual(2)
-",
-      "type": "insert",
-    },
-    "patchIndex": 3,
+    "type": "insert",
   },
   {
     "char": " ",
@@ -805,13 +630,7 @@ describe('should', () => {
 })
 ",
     "cursor": 125,
-    "patch": {
-      "from": 122,
-      "text": "    expect(two).toEqual(2)
-",
-      "type": "insert",
-    },
-    "patchIndex": 3,
+    "type": "insert",
   },
   {
     "char": " ",
@@ -825,13 +644,7 @@ describe('should', () => {
 })
 ",
     "cursor": 126,
-    "patch": {
-      "from": 122,
-      "text": "    expect(two).toEqual(2)
-",
-      "type": "insert",
-    },
-    "patchIndex": 3,
+    "type": "insert",
   },
   {
     "char": "e",
@@ -845,13 +658,7 @@ describe('should', () => {
 })
 ",
     "cursor": 127,
-    "patch": {
-      "from": 122,
-      "text": "    expect(two).toEqual(2)
-",
-      "type": "insert",
-    },
-    "patchIndex": 3,
+    "type": "insert",
   },
   {
     "char": "x",
@@ -865,13 +672,7 @@ describe('should', () => {
 })
 ",
     "cursor": 128,
-    "patch": {
-      "from": 122,
-      "text": "    expect(two).toEqual(2)
-",
-      "type": "insert",
-    },
-    "patchIndex": 3,
+    "type": "insert",
   },
   {
     "char": "p",
@@ -885,13 +686,7 @@ describe('should', () => {
 })
 ",
     "cursor": 129,
-    "patch": {
-      "from": 122,
-      "text": "    expect(two).toEqual(2)
-",
-      "type": "insert",
-    },
-    "patchIndex": 3,
+    "type": "insert",
   },
   {
     "char": "e",
@@ -905,13 +700,7 @@ describe('should', () => {
 })
 ",
     "cursor": 130,
-    "patch": {
-      "from": 122,
-      "text": "    expect(two).toEqual(2)
-",
-      "type": "insert",
-    },
-    "patchIndex": 3,
+    "type": "insert",
   },
   {
     "char": "c",
@@ -925,13 +714,7 @@ describe('should', () => {
 })
 ",
     "cursor": 131,
-    "patch": {
-      "from": 122,
-      "text": "    expect(two).toEqual(2)
-",
-      "type": "insert",
-    },
-    "patchIndex": 3,
+    "type": "insert",
   },
   {
     "char": "t",
@@ -945,13 +728,7 @@ describe('should', () => {
 })
 ",
     "cursor": 132,
-    "patch": {
-      "from": 122,
-      "text": "    expect(two).toEqual(2)
-",
-      "type": "insert",
-    },
-    "patchIndex": 3,
+    "type": "insert",
   },
   {
     "char": "(",
@@ -965,13 +742,7 @@ describe('should', () => {
 })
 ",
     "cursor": 133,
-    "patch": {
-      "from": 122,
-      "text": "    expect(two).toEqual(2)
-",
-      "type": "insert",
-    },
-    "patchIndex": 3,
+    "type": "insert",
   },
   {
     "char": "t",
@@ -985,13 +756,7 @@ describe('should', () => {
 })
 ",
     "cursor": 134,
-    "patch": {
-      "from": 122,
-      "text": "    expect(two).toEqual(2)
-",
-      "type": "insert",
-    },
-    "patchIndex": 3,
+    "type": "insert",
   },
   {
     "char": "w",
@@ -1005,13 +770,7 @@ describe('should', () => {
 })
 ",
     "cursor": 135,
-    "patch": {
-      "from": 122,
-      "text": "    expect(two).toEqual(2)
-",
-      "type": "insert",
-    },
-    "patchIndex": 3,
+    "type": "insert",
   },
   {
     "char": "o",
@@ -1025,13 +784,7 @@ describe('should', () => {
 })
 ",
     "cursor": 136,
-    "patch": {
-      "from": 122,
-      "text": "    expect(two).toEqual(2)
-",
-      "type": "insert",
-    },
-    "patchIndex": 3,
+    "type": "insert",
   },
   {
     "char": ")",
@@ -1045,13 +798,7 @@ describe('should', () => {
 })
 ",
     "cursor": 137,
-    "patch": {
-      "from": 122,
-      "text": "    expect(two).toEqual(2)
-",
-      "type": "insert",
-    },
-    "patchIndex": 3,
+    "type": "insert",
   },
   {
     "char": ".",
@@ -1065,13 +812,7 @@ describe('should', () => {
 })
 ",
     "cursor": 138,
-    "patch": {
-      "from": 122,
-      "text": "    expect(two).toEqual(2)
-",
-      "type": "insert",
-    },
-    "patchIndex": 3,
+    "type": "insert",
   },
   {
     "char": "t",
@@ -1085,13 +826,7 @@ describe('should', () => {
 })
 ",
     "cursor": 139,
-    "patch": {
-      "from": 122,
-      "text": "    expect(two).toEqual(2)
-",
-      "type": "insert",
-    },
-    "patchIndex": 3,
+    "type": "insert",
   },
   {
     "char": "o",
@@ -1105,13 +840,7 @@ describe('should', () => {
 })
 ",
     "cursor": 140,
-    "patch": {
-      "from": 122,
-      "text": "    expect(two).toEqual(2)
-",
-      "type": "insert",
-    },
-    "patchIndex": 3,
+    "type": "insert",
   },
   {
     "char": "E",
@@ -1125,13 +854,7 @@ describe('should', () => {
 })
 ",
     "cursor": 141,
-    "patch": {
-      "from": 122,
-      "text": "    expect(two).toEqual(2)
-",
-      "type": "insert",
-    },
-    "patchIndex": 3,
+    "type": "insert",
   },
   {
     "char": "q",
@@ -1145,13 +868,7 @@ describe('should', () => {
 })
 ",
     "cursor": 142,
-    "patch": {
-      "from": 122,
-      "text": "    expect(two).toEqual(2)
-",
-      "type": "insert",
-    },
-    "patchIndex": 3,
+    "type": "insert",
   },
   {
     "char": "u",
@@ -1165,13 +882,7 @@ describe('should', () => {
 })
 ",
     "cursor": 143,
-    "patch": {
-      "from": 122,
-      "text": "    expect(two).toEqual(2)
-",
-      "type": "insert",
-    },
-    "patchIndex": 3,
+    "type": "insert",
   },
   {
     "char": "a",
@@ -1185,13 +896,7 @@ describe('should', () => {
 })
 ",
     "cursor": 144,
-    "patch": {
-      "from": 122,
-      "text": "    expect(two).toEqual(2)
-",
-      "type": "insert",
-    },
-    "patchIndex": 3,
+    "type": "insert",
   },
   {
     "char": "l",
@@ -1205,13 +910,7 @@ describe('should', () => {
 })
 ",
     "cursor": 145,
-    "patch": {
-      "from": 122,
-      "text": "    expect(two).toEqual(2)
-",
-      "type": "insert",
-    },
-    "patchIndex": 3,
+    "type": "insert",
   },
   {
     "char": "(",
@@ -1225,13 +924,7 @@ describe('should', () => {
 })
 ",
     "cursor": 146,
-    "patch": {
-      "from": 122,
-      "text": "    expect(two).toEqual(2)
-",
-      "type": "insert",
-    },
-    "patchIndex": 3,
+    "type": "insert",
   },
   {
     "char": "2",
@@ -1245,13 +938,7 @@ describe('should', () => {
 })
 ",
     "cursor": 147,
-    "patch": {
-      "from": 122,
-      "text": "    expect(two).toEqual(2)
-",
-      "type": "insert",
-    },
-    "patchIndex": 3,
+    "type": "insert",
   },
   {
     "char": ")",
@@ -1265,13 +952,7 @@ describe('should', () => {
 })
 ",
     "cursor": 148,
-    "patch": {
-      "from": 122,
-      "text": "    expect(two).toEqual(2)
-",
-      "type": "insert",
-    },
-    "patchIndex": 3,
+    "type": "insert",
   },
   {
     "char": "
@@ -1287,13 +968,7 @@ describe('should', () => {
 })
 ",
     "cursor": 149,
-    "patch": {
-      "from": 122,
-      "text": "    expect(two).toEqual(2)
-",
-      "type": "insert",
-    },
-    "patchIndex": 3,
+    "type": "insert",
   },
 ]
 `;
