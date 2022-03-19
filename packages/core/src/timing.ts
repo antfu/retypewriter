@@ -1,3 +1,4 @@
+// TODO: improve this with some real data
 export const timeRanges: [string, number, number][] = [
   // default
   ['', 0, 100],
