@@ -1,0 +1,19 @@
+// Vitest Snapshot v1
+
+exports[`snaps 1`] = `
+"reTypewriter Snapshots v1
+--01----------
+
+--------------
+--02----------
+import {} from \\"vue\\"
+--------------
+--03----------
+import { createApp } from \\"vue\\"
+
+const app = createApp()
+
+--------------
+--------------
+"
+`;
