@@ -19,6 +19,7 @@ export interface Snapshot {
 
 export interface SnapshotOptions {
   wait?: number
+  pause?: boolean
 }
 
 export interface AnimatorStepInsert {

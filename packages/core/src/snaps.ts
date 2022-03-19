@@ -6,7 +6,9 @@ export const SNAP_HEADING = 'reTypewriter Snapshots v1'
 export const SNAP_SEPERATOR_PRE = '-'.repeat(2)
 export const SNAP_SEPERATOR_POST = '-'.repeat(10)
 export const SNAP_SEPERATOR = `${SNAP_SEPERATOR_PRE}--${SNAP_SEPERATOR_POST}`
-export const SNAP_SEPERATOR_MATCHER = new RegExp(`\\n?${SNAP_SEPERATOR_PRE}[#\\w-]*${SNAP_SEPERATOR_POST}\\n`, 'g')
+export const SNAP_SEPERATOR_OPTIONS = '----OPTIONS----'
+export const SNAP_SEPERATOR_MATCHER = new RegExp(`\\n${SNAP_SEPERATOR_PRE}[#\\w-]*${SNAP_SEPERATOR_POST}\\n`, 'g')
+export const SNAP_SEPERATOR_OPTIONS_MATCHER = new RegExp(`\\n${SNAP_SEPERATOR_OPTIONS}\\n`, 'g')
 
 export class Snapshots extends Array<Snapshot> {
   constructor(...args: Snapshot[]) {
@@ -25,14 +27,20 @@ export class Snapshots extends Array<Snapshot> {
     return [
       SNAP_HEADING,
       ...this
-        .flatMap((snap, i) => {
-          return [
-            SNAP_SEPERATOR_PRE + (i + 1).toString().padStart(2, '0') + SNAP_SEPERATOR_POST,
-            snap.content,
-            SNAP_SEPERATOR,
-            snap.options ? JSON.stringify(snap.options, null, 2) : undefined,
-          ].filter(i => i !== undefined)
-        }),
+        .flatMap((snap, i) => [
+          SNAP_SEPERATOR_PRE + (i + 1).toString().padStart(2, '0') + SNAP_SEPERATOR_POST,
+          snap.content,
+          ...(
+            snap.options
+              ? [
+                SNAP_SEPERATOR_OPTIONS,
+                Object.keys(snap.options).length > 1
+                  ? JSON.stringify(snap.options, null, 2)
+                  : JSON.stringify(snap.options),
+              ]
+              : []
+          ),
+        ]),
       SNAP_SEPERATOR,
       '',
     ].join('\n')
@@ -44,13 +52,13 @@ export class Snapshots extends Array<Snapshot> {
       .slice(1, -1) // remove header and tailing
 
     const snapshots: Snapshot[] = []
-    for (let i = 0; i < parts.length; i += 2) {
+    for (let i = 0; i < parts.length; i += 1) {
+      const [content, optionsRaw] = parts[i].split(SNAP_SEPERATOR_OPTIONS_MATCHER)
       const snap: Snapshot = {
-        content: parts[i],
+        content,
       }
-      const optionsRaw = parts[i + 1].trim()
-      if (optionsRaw)
-        snap.options = JSON.parse(parts[i + 1])
+      if (optionsRaw?.trim())
+        snap.options = JSON.parse(optionsRaw)
 
       snapshots.push(snap)
     }

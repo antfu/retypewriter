@@ -5,7 +5,7 @@ import { Snapshots } from '../src'
 it('snaps', () => {
   const data: Snapshot[] = [
     { content: '' },
-    { content: 'import {} from "vue"' },
+    { content: 'import {} from "vue"', options: { pause: true } },
     { content: 'import { createApp } from "vue"\n\nconst app = createApp()\n' },
   ]
 
