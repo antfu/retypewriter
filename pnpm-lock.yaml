@@ -7,8 +7,10 @@ importers:
       '@antfu/eslint-config': ^0.18.8
       '@antfu/ni': ^0.13.2
       '@babel/types': ^7.17.0
+      '@types/diff-match-patch': ^1.0.32
       '@types/node': ^17.0.21
       bumpp: ^7.1.1
+      diff-match-patch: ^1.0.5
       eslint: ^8.11.0
       esno: ^0.14.1
       pnpm: ^6.32.3
@@ -17,10 +19,13 @@ importers:
       unbuild: ^0.7.0
       vite: ^2.8.6
       vitest: ^0.7.4
+    dependencies:
+      diff-match-patch: 1.0.5
     devDependencies:
       '@antfu/eslint-config': 0.18.8_eslint@8.11.0+typescript@4.6.2
       '@antfu/ni': 0.13.2
       '@babel/types': 7.17.0
+      '@types/diff-match-patch': 1.0.32
       '@types/node': 17.0.21
       bumpp: 7.1.1
       eslint: 8.11.0
@@ -309,6 +314,10 @@ packages:
 
   /@types/chai/4.3.0:
     resolution: {integrity: sha512-/ceqdqeRraGolFTcfoXNiqjyQhZzbINDngeoAq9GoHa8PPK1yNzTaxWjA6BFWp5Ua9JpXEMSS4s5i9tS0hOJtw==}
+    dev: true
+
+  /@types/diff-match-patch/1.0.32:
+    resolution: {integrity: sha512-bPYT5ECFiblzsVzyURaNhljBH2Gh1t9LowgUwciMrNAhFewLkHT2H0Mto07Y4/3KCOGZHRQll3CTtQZ0X11D/A==}
     dev: true
 
   /@types/estree/0.0.39:
@@ -788,6 +797,10 @@ packages:
   /defu/5.0.1:
     resolution: {integrity: sha512-EPS1carKg+dkEVy3qNTqIdp2qV7mUP08nIsupfwQpz++slCVRw7qbQyWvSTig+kFPwz2XXp5/kIIkH+CwrJKkQ==}
     dev: true
+
+  /diff-match-patch/1.0.5:
+    resolution: {integrity: sha512-IayShXAgj/QMXgB0IWmKx+rOPuGMhqm5w6jvFxmVenXKIzRqTAAsbBPT3kWQeGANj3jGgvcvv4yK6SxqYmikgw==}
+    dev: false
 
   /dir-glob/3.0.1:
     resolution: {integrity: sha512-WkrWp9GR4KXfKGYzOLmTuGVi1UWFfws377n9cc55/tb6DuqyF6pcQ5AbiHEshaDpY9v6oaSr2XCDidGmMwdzIA==}
