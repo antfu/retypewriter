@@ -7,8 +7,8 @@ export const SNAP_SEPERATOR_PRE = '-'.repeat(2)
 export const SNAP_SEPERATOR_POST = '-'.repeat(10)
 export const SNAP_SEPERATOR = `${SNAP_SEPERATOR_PRE}--${SNAP_SEPERATOR_POST}`
 export const SNAP_SEPERATOR_OPTIONS = '----OPTIONS----'
-export const SNAP_SEPERATOR_MATCHER = new RegExp(`\\n${SNAP_SEPERATOR_PRE}[#\\w-]*${SNAP_SEPERATOR_POST}\\n`, 'g')
-export const SNAP_SEPERATOR_OPTIONS_MATCHER = new RegExp(`\\n${SNAP_SEPERATOR_OPTIONS}\\n`, 'g')
+export const SNAP_SEPERATOR_MATCHER = new RegExp(`\\n?${SNAP_SEPERATOR_PRE}[#\\w-]*${SNAP_SEPERATOR_POST}\\n`, 'g')
+export const SNAP_SEPERATOR_OPTIONS_MATCHER = new RegExp(`\\n?${SNAP_SEPERATOR_OPTIONS}\\n`, 'g')
 
 export class Snapshots extends Array<Snapshot> {
   constructor(...args: Snapshot[]) {

@@ -96,11 +96,13 @@ export function activate() {
           break
 
         case 'new-snap':
-          await sleep(900)
+          if (snap.index)
+            await sleep(900)
           break
 
         case 'new-patch':
-          await sleep(900)
+          if (snap.index)
+            await sleep(200)
           break
 
         case 'insert':

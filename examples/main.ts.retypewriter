@@ -1,0 +1,54 @@
+reTypewriter Snapshots v1
+
+--01----------
+--02----------
+import App from './App.vue'
+
+--03----------
+import { } from 'vue'
+import App from './App.vue'
+
+--04----------
+import { createApp } from 'vue'
+import App from './App.vue'
+
+const app = createApp(App)
+app.mount('#app')
+
+--05----------
+import { createApp } from 'vue'
+import { createRouter } from 'vue-router'
+import App from './App.vue'
+
+const app = createApp(App)
+const router = createRouter()
+app.use(router)
+app.mount('#app')
+
+--06----------
+import { createApp } from 'vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import App from './App.vue'
+
+const app = createApp(App)
+const router = createRouter({
+  history: createWebHistory(),
+})
+app.use(router)
+app.mount('#app')
+
+--07----------
+import { createApp } from 'vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import routes from 'virtual:generated-pages'
+import App from './App.vue'
+
+const app = createApp(App)
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+})
+app.use(router)
+app.mount('#app')
+
+--------------
