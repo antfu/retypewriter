@@ -5,6 +5,7 @@ import { stepsTo } from './steps'
 import type { TypewriterOptions } from './typewriter'
 import { typingAnimator } from './typewriter'
 
+export const SNAP_EXT = '.retypewriter'
 export const SNAP_HEADING = 'reTypewriter Snapshots v1\n'
 export const SNAP_SEPERATOR_PRE = '-'.repeat(2)
 export const SNAP_SEPERATOR_POST = '-'.repeat(10)
@@ -62,6 +63,9 @@ export class Snapshots extends Array<Snapshot> {
   }
 
   static fromString(raw: string) {
+    if (!raw.startsWith(SNAP_HEADING))
+      throw new SyntaxError('Invalid snapshot file')
+
     const parts = raw
       .split(SNAP_SEPERATOR_MATCHER)
       .slice(1, -1) // remove header and tailing
@@ -138,4 +142,16 @@ export class SnapshotManager extends Map<string, Snapshots> {
       this.set(id, await load?.(id) || new Snapshots())
     return this.get(id)!
   }
+}
+
+export function getSnapshotPath(id: string) {
+  if (id.endsWith(SNAP_EXT))
+    return id
+  return id + SNAP_EXT
+}
+
+export function getOriginalFilePath(id: string) {
+  if (id.endsWith(SNAP_EXT))
+    return id.slice(0, -SNAP_EXT.length)
+  return undefined
 }

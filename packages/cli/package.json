@@ -1,8 +1,8 @@
 {
-  "name": "retypewriter",
+  "name": "@retypewriter/cli",
   "version": "0.0.0",
   "packageManager": "pnpm@6.32.3",
-  "description": "",
+  "description": "reTypewriter CLI",
   "keywords": [],
   "homepage": "https://github.com/antfu/retypewriter#readme",
   "bugs": {
@@ -13,7 +13,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/antfu/retypewriter.git",
-    "directory": "packages/core"
+    "directory": "packages/cli"
   },
   "funding": "https://github.com/sponsors/antfu",
   "main": "./dist/index.cjs",
@@ -27,8 +27,12 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "bin"
   ],
+  "bin": {
+    "retypewriter": "./bin/retypewriter.mjs"
+  },
   "sideEffects": false,
   "scripts": {
     "build": "rimraf dist && unbuild",
@@ -36,11 +40,16 @@
     "prepublishOnly": "nr build"
   },
   "dependencies": {
-    "diff-match-patch": "^1.0.5",
-    "js-yaml": "^4.1.0",
-    "@retypewriter/cli": "workspace:*"
+    "cac": "^6.7.12",
+    "cli-cursor": "^4.0.0",
+    "log-update": "^5.0.0",
+    "picocolors": "^1.0.0",
+    "simple-git": "^3.4.0"
+  },
+  "peerDependencies": {
+    "retypewriter": "workspace:../core"
   },
   "devDependencies": {
-    "@types/js-yaml": "^4.0.5"
+    "cli-highlight": "^2.1.11"
   }
 }

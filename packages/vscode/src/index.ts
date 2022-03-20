@@ -1,17 +1,11 @@
 import { existsSync, promises as fs } from 'fs'
 import { Range, Selection, commands, window, workspace } from 'vscode'
-import { SnapshotManager, Snapshots } from '../../core/src'
-
-const snapExt = '.retypewriter'
+import { SNAP_EXT, SnapshotManager, Snapshots, getSnapshotPath } from '../../core/src'
 
 export function activate() {
-  function getSnapPath(id: string) {
-    return id + snapExt
-  }
-
   const manager = new SnapshotManager({
     async ensureFallback(path) {
-      const filepath = getSnapPath(path)
+      const filepath = getSnapshotPath(path)
       if (existsSync(filepath)) {
         const content = await fs.readFile(filepath, 'utf8')
         const snap = Snapshots.fromString(content)
@@ -22,13 +16,13 @@ export function activate() {
   })
 
   // invalidate cache
-  const watcher = workspace.createFileSystemWatcher(`**/*\\${snapExt}`)
-  watcher.onDidChange(uri => manager.delete(uri.path.replace(snapExt, '')))
-  watcher.onDidDelete(uri => manager.delete(uri.path.replace(snapExt, '')))
-  watcher.onDidCreate(uri => manager.delete(uri.path.replace(snapExt, '')))
+  const watcher = workspace.createFileSystemWatcher(`**/*\\${SNAP_EXT}`)
+  watcher.onDidChange(uri => manager.delete(uri.path.replace(SNAP_EXT, '')))
+  watcher.onDidDelete(uri => manager.delete(uri.path.replace(SNAP_EXT, '')))
+  watcher.onDidCreate(uri => manager.delete(uri.path.replace(SNAP_EXT, '')))
 
   async function writeSnapshots(path: string, snap: Snapshots) {
-    const filepath = getSnapPath(path)
+    const filepath = getSnapshotPath(path)
     await fs.writeFile(filepath, snap.toString(), 'utf8')
   }
 
@@ -37,7 +31,7 @@ export function activate() {
     if (!doc)
       return
     const path = doc.uri.fsPath
-    if (path.endsWith(snapExt))
+    if (path.endsWith(SNAP_EXT))
       return
 
     const snaps = await manager.ensure(path)

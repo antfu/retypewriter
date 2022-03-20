@@ -23,9 +23,6 @@ export function sliceInput(input: string): Slice[] {
 
   const strings = rest.split(splitRegex).filter(Boolean)
 
-  // assertion
-  import.meta.vitest?.expect(strings.join('')).toEqual(rest)
-
   let index = 0
   const slices = strings
     .map((s, idx) => {
@@ -63,69 +60,10 @@ export function sliceInput(input: string): Slice[] {
   return slices
 }
 
-function applySlice(slices: Slice[]) {
+export function applySlice(slices: Slice[]) {
   const result = slices.reduce((acc, i) => {
     const { content: contet, cursor } = i
     return acc.slice(0, cursor) + contet + acc.slice(cursor)
   }, '')
   return result
-}
-
-if (import.meta.vitest) {
-  const { expect, it } = import.meta.vitest
-
-  it('works', () => {
-    const fixture = `
-import { describe, expect, it } from 'vitest'
-
-describe('should', () => {
-  it('one', () => {
-    expect(one).toEqual(1)
-  })
-})\n`
-
-    const slices = sliceInput(fixture)
-    // expect(applySlice(slices)).toEqual(fixture)
-    expect(applySlice(slices.slice(0, 4))).toMatchInlineSnapshot(`
-      "
-      import {  } 
-      "
-    `)
-    expect(applySlice(slices.slice(0, 5))).toMatchInlineSnapshot(`
-      "
-      import { describe, expect, it } 
-      "
-    `)
-    expect(applySlice(slices.slice(0, 6))).toMatchInlineSnapshot(`
-      "
-      import { describe, expect, it } from
-      "
-    `)
-    expect(slices.slice(0, 4)).toMatchInlineSnapshot(`
-      [
-        {
-          "content": "
-      ",
-          "cursor": 0,
-          "order": -1,
-        },
-        {
-          "content": "
-      import",
-          "cursor": 0,
-          "order": 0,
-        },
-        {
-          "content": " { ",
-          "cursor": 7,
-          "order": 1,
-        },
-        {
-          "content": " } ",
-          "cursor": 10,
-          "order": 1,
-        },
-      ]
-    `)
-  })
 }
