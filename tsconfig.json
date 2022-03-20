@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es2017",
+    "target": "es2018",
     "module": "esnext",
-    "lib": ["esnext", "DOM"],
+    "lib": ["esnext"],
     "moduleResolution": "node",
     "esModuleInterop": true,
     "strict": true,
@@ -12,7 +12,12 @@
     "skipDefaultLibCheck": true,
     "types": [
       "vitest/importMeta"
-    ]
+    ],
+    "paths": {
+      "retypewriter": [
+        "./packages/core/src/index.ts"
+      ]
+    }
   },
   "exclude": [
     "./examples/**/*"

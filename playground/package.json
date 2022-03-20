@@ -18,7 +18,7 @@
     "splitpanes": "^3.1.1",
     "unocss": "^0.29.4",
     "unplugin-auto-import": "^0.6.6",
-    "unplugin-vue-components": "^0.18.0",
+    "unplugin-vue-components": "^0.18.3",
     "vite": "^2.8.6",
     "vite-plugin-inspect": "^0.4.3",
     "vue": "^3.2.31"

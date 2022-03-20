@@ -26,6 +26,16 @@ export class Snapshots extends Array<Snapshot> {
     return this[0]
   }
 
+  move(from: number, to: number) {
+    if (from === to)
+      return
+
+    const i = this.splice(from, 1)[0]
+    if (to > from)
+      to -= 1
+    this.splice(to, 0, i)
+  }
+
   toString(useYaml = true) {
     return [
       SNAP_HEADING,

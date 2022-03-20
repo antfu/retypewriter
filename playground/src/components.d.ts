@@ -8,6 +8,8 @@ declare module 'vue' {
     Editor: typeof import('./components/Editor.vue')['default']
     Playground: typeof import('./components/Playground.vue')['default']
     Preview: typeof import('./components/Preview.vue')['default']
+    Snap: typeof import('./components/Snap.vue')['default']
+    Snapshots: typeof import('./components/Snapshots.vue')['default']
     TitleBar: typeof import('./components/TitleBar.vue')['default']
   }
 }

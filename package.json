@@ -24,11 +24,12 @@
     "eslint": "^8.11.0",
     "esno": "^0.14.1",
     "pnpm": "^6.32.3",
+    "retypewriter": "workspace:*",
     "rimraf": "^3.0.2",
     "typescript": "^4.6.2",
     "unbuild": "^0.7.0",
     "vite": "^2.8.6",
-    "vitest": "^0.7.4",
-    "vue-tsc": "^0.33.2-patch.1"
+    "vitest": "^0.7.6",
+    "vue-tsc": "^0.33.2"
   }
 }
