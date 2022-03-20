@@ -59,6 +59,7 @@
   "scripts": {
     "build": "tsup src/index.ts --external vscode",
     "dev": "nr build --watch ..",
+    "vscode:prepublish": "nr build",
     "publish": "vsce publish --no-dependencies --allow-star-activation",
     "pack": "vsce package --no-dependencies --allow-star-activation"
   },
