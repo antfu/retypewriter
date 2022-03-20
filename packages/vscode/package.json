@@ -3,7 +3,7 @@
   "displayName": "reTypewriter",
   "version": "0.0.0",
   "private": true,
-  "description": "",
+  "description": "Reply the steps of your changes at ease.",
   "publisher": "antfu",
   "homepage": "https://github.com/antfu/retypewriter#readme",
   "bugs": {
@@ -13,7 +13,7 @@
   "author": "Anthony Fu <anthonyfu117@hotmail.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/antfu/retypewriter.git",
+    "url": "https://github.com/antfu/retypewriter",
     "directory": "packages/core"
   },
   "funding": "https://github.com/sponsors/antfu",
@@ -26,6 +26,7 @@
   "activationEvents": [
     "*"
   ],
+  "icon": "./res/icon.png",
   "main": "./dist/index.js",
   "contributes": {
     "commands": [

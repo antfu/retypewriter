@@ -2,7 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/retypewriter?color=a1b858&label=)](https://www.npmjs.com/package/retypewriter)
 
-Reply the steps of your changes naturally.
+Reply the steps of your changes at ease.
 
 ## Sponsors
 

@@ -1,7 +1,7 @@
 {
   "name": "@retypewriter/monorepo",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "packageManager": "pnpm@6.32.3",
   "scripts": {
     "build": "pnpm -r run build",
