@@ -13,5 +13,8 @@
     "types": [
       "vitest/importMeta"
     ]
-  }
+  },
+  "exclude": [
+    "./examples/**/*"
+  ]
 }

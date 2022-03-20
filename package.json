@@ -11,7 +11,7 @@
     "release": "bumpp --commit --push --tag && pnpm -r publish --access public && pnpm -r run publish",
     "test": "vitest",
     "vscode": "nr -C packages/vscode dev",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "vue-tsc --noEmit"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.18.8",
@@ -28,6 +28,7 @@
     "typescript": "^4.6.2",
     "unbuild": "^0.7.0",
     "vite": "^2.8.6",
-    "vitest": "^0.7.4"
+    "vitest": "^0.7.4",
+    "vue-tsc": "^0.33.2-patch.1"
   }
 }
