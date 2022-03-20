@@ -1,7 +1,9 @@
 
 import YAML from 'js-yaml'
 import type { AnimatorStep, Snapshot } from './types'
-import { animateTo } from './animator'
+import { stepsTo } from './steps'
+import type { TypewriterOptions } from './typewriter'
+import { typingAnimator } from './typewriter'
 
 export const SNAP_HEADING = 'reTypewriter Snapshots v1\n'
 export const SNAP_SEPERATOR_PRE = '-'.repeat(2)
@@ -74,7 +76,7 @@ export class Snapshots extends Array<Snapshot> {
     return new Snapshots(...snapshots)
   }
 
-  *animate(): Generator<AnimatorStep> {
+  *steps(): Generator<AnimatorStep> {
     let lastContent: string | undefined
     const copy = [...this]
     for (let index = 0; index < copy.length; index++) {
@@ -93,12 +95,16 @@ export class Snapshots extends Array<Snapshot> {
         snap,
         index,
       }
-      const animator = animateTo(lastContent, snap.content)
-      for (const result of animator)
-        yield result
+      const steps = stepsTo(lastContent, snap.content)
+      for (const step of steps)
+        yield step
 
       lastContent = snap.content
     }
+  }
+
+  typewriter(options?: TypewriterOptions) {
+    return typingAnimator(this.steps(), options)
   }
 }
 

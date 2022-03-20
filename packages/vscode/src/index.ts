@@ -1,12 +1,10 @@
 import { existsSync, promises as fs } from 'fs'
 import { Range, Selection, commands, window, workspace } from 'vscode'
-import { SnapshotManager, Snapshots, getTimeout } from '../../core/src'
+import { SnapshotManager, Snapshots } from '../../core/src'
 
 const snapExt = '.retypewriter'
 
 export function activate() {
-  window.showInformationMessage('Hi')
-
   function getSnapPath(id: string) {
     return id + snapExt
   }
@@ -89,20 +87,10 @@ export function activate() {
       editor.selection = new Selection(pos, pos)
     }
 
-    for (const snap of snaps.animate()) {
+    for await (const snap of snaps.typewriter()) {
       switch (snap.type) {
         case 'init':
           await editor.edit(edit => edit.replace(new Range(0, 0, Infinity, Infinity), snap.content))
-          break
-
-        case 'new-snap':
-          if (snap.index)
-            await sleep(900)
-          break
-
-        case 'new-patch':
-          if (snap.index)
-            await sleep(200)
           break
 
         case 'insert':
@@ -111,7 +99,6 @@ export function activate() {
             snap.char,
           ))
           setCursor(snap.cursor)
-          await sleep(getTimeout(snap.char, 2))
           break
 
         case 'removal':
@@ -120,19 +107,14 @@ export function activate() {
             doc.positionAt(snap.cursor + 1),
           )))
           setCursor(snap.cursor)
-          await sleep(3)
           break
       }
     }
 
-    window.showInformationMessage('reTypewriter: Finished...')
+    window.showInformationMessage('reTypewriter: Finished')
   })
 }
 
 export function deactivate() {
 
-}
-
-function sleep(ms: number) {
-  return new Promise(resolve => setTimeout(resolve, ms))
 }

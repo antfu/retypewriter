@@ -57,7 +57,7 @@
   },
   "scripts": {
     "build": "tsup src/index.ts --external vscode",
-    "dev": "nr build --watch",
+    "dev": "nr build --watch ..",
     "publish": "vsce publish --no-dependencies"
   },
   "devDependencies": {

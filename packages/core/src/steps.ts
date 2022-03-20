@@ -2,7 +2,7 @@ import { calculatePatch, diff } from './patch'
 import { sliceInput } from './slicing'
 import type { AnimatorStep, Patch } from './types'
 
-export function *animatePatches(input: string, patches: Patch[]): Generator<AnimatorStep> {
+export function *patchSteps(input: string, patches: Patch[]): Generator<AnimatorStep> {
   let output = input
   let cursor = 0
 
@@ -64,14 +64,14 @@ export function *animateInsertionSlices(input: string) {
   }
 }
 
-export function animateTo(input: string, output: string) {
+export function stepsTo(input: string, output: string) {
   const delta = diff(input, output)
   const patches = calculatePatch(delta)
-  return animatePatches(input, patches)
+  return patchSteps(input, patches)
 }
 
 export function applyPatches(input: string, patches: Patch[]) {
-  for (const patch of animatePatches(input, patches)) {
+  for (const patch of patchSteps(input, patches)) {
     if (patch.type === 'snap-finish')
       return patch.content
   }
