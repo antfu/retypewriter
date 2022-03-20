@@ -26,7 +26,7 @@
   "activationEvents": [
     "*"
   ],
-  "icon": "./res/icon.png",
+  "icon": "res/icon.png",
   "main": "./dist/index.js",
   "contributes": {
     "commands": [
@@ -59,7 +59,8 @@
   "scripts": {
     "build": "tsup src/index.ts --external vscode",
     "dev": "nr build --watch ..",
-    "publish": "vsce publish --no-dependencies"
+    "publish": "vsce publish --no-dependencies --allow-star-activation",
+    "pack": "vsce package --no-dependencies --allow-star-activation"
   },
   "devDependencies": {
     "@types/vscode": "^1.65.0",

@@ -8,7 +8,7 @@
     "dev": "vite playground",
     "stub": "pnpm -r run stub",
     "lint": "eslint .",
-    "release": "bumpp --commit --push --tag && pnpm -r publish --access public",
+    "release": "bumpp --commit --push --tag && pnpm -r publish --access public && pnpm -r run publish",
     "test": "vitest",
     "vscode": "nr -C packages/vscode dev",
     "typecheck": "tsc --noEmit"
