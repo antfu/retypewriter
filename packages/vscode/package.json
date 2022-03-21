@@ -29,6 +29,24 @@
   "icon": "res/icon.png",
   "main": "./dist/index.js",
   "contributes": {
+    "languages": [
+      {
+        "id": "retypewriter",
+        "aliases": [
+          "reTypewriter"
+        ],
+        "extensions": [
+          ".retypewriter"
+        ]
+      }
+    ],
+    "grammars": [
+      {
+        "language": "retypewriter",
+        "scopeName": "source.retypewriter",
+        "path": "./syntaxes/tmGrammar.json"
+      }
+    ],
     "commands": [
       {
         "category": "reTypewriter",
