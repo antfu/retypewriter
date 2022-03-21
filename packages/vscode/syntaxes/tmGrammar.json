@@ -20,11 +20,7 @@
       "patterns": [
         {
           "name": "punctuation.separator",
-          "match": "--\\d+----------"
-        },
-        {
-          "name": "punctuation.separator",
-          "match": "--------------"
+          "match": "--[\\d-]{2}----------"
         }
       ]
     },
