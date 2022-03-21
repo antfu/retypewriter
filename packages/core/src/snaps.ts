@@ -1,9 +1,9 @@
-
 import YAML from 'js-yaml'
 import type { AnimatorStep, Snapshot } from './types'
 import { stepsTo } from './steps'
 import type { TypewriterOptions } from './typewriter'
 import { typingAnimator } from './typewriter'
+import { parseSnap } from './parse'
 
 export const SNAP_EXT = '.retypewriter'
 export const SNAP_HEADING = 'reTypewriter Snapshots v1\n'
@@ -63,29 +63,19 @@ export class Snapshots extends Array<Snapshot> {
   }
 
   static fromString(raw: string) {
-    if (!raw.startsWith(SNAP_HEADING))
-      throw new SyntaxError('Invalid snapshot file')
-
-    const parts = raw
-      .split(SNAP_SEPERATOR_MATCHER)
-      .slice(1, -1) // remove header and tailing
-
+    const parsed = parseSnap(raw)
+      .slice(1, -1)
     const snapshots: Snapshot[] = []
-    for (let i = 0; i < parts.length; i += 1) {
-      const withOptions = parts[i].split(SNAP_SEPERATOR_OPTIONS_MATCHER)
-      const snap: Snapshot = {
-        content: withOptions[0],
+    parsed.forEach((p, idx) => {
+      if (p.type === 'snapshot') {
+        const snap: Snapshot = {
+          content: p.raw,
+        }
+        if (parsed[idx + 1]?.type === 'options')
+          snap.options = parsed[idx + 1].options
+        snapshots.push(snap)
       }
-      const optionsRaw = withOptions[1]?.trim()
-      if (optionsRaw) {
-        if (optionsRaw.startsWith('{'))
-          snap.options = JSON.parse(optionsRaw)
-        else
-          snap.options = YAML.load(optionsRaw) as any
-      }
-
-      snapshots.push(snap)
-    }
+    })
 
     return new Snapshots(...snapshots)
   }

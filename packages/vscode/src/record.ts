@@ -1,8 +1,6 @@
-import { promises as fs } from 'fs'
-import type { Snapshots } from 'retypewriter'
-import { SNAP_EXT, getSnapshotPath } from 'retypewriter'
 import { window } from 'vscode'
-import { manager } from './manager'
+import { SNAP_EXT } from '../../core/src'
+import { manager, writeSnapshots } from './manager'
 
 export async function snap() {
   const doc = window.activeTextEditor?.document
@@ -18,9 +16,4 @@ export async function snap() {
   await writeSnapshots(path, snaps)
 
   window.showInformationMessage(`reTypewriter: Snapshot added (${snaps.length})`)
-}
-
-async function writeSnapshots(path: string, snap: Snapshots) {
-  const filepath = getSnapshotPath(path)
-  await fs.writeFile(filepath, snap.toString(), 'utf8')
 }
