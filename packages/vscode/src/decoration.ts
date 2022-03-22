@@ -2,12 +2,12 @@ import { DecorationRangeBehavior, Range, ThemeColor, window, workspace } from 'v
 import { calculatePatch, diff, parseSnapshots } from '../../core/src'
 
 const DecorationInserted = window.createTextEditorDecorationType({
+  // color: new ThemeColor('terminal.ansiGreen'),
   backgroundColor: new ThemeColor('diffEditor.insertedTextBackground'),
-  color: new ThemeColor('terminal.ansiGreen'),
   rangeBehavior: DecorationRangeBehavior.ClosedClosed,
 })
 const DecorationRemoved = window.createTextEditorDecorationType({
-  color: new ThemeColor('terminal.ansiRed'),
+  // color: new ThemeColor('terminal.ansiRed'),
   backgroundColor: new ThemeColor('diffEditor.removedTextBackground'),
   rangeBehavior: DecorationRangeBehavior.ClosedClosed,
 })

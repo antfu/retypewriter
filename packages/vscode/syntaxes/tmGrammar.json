@@ -6,39 +6,39 @@
       "include": "#options"
     },
     {
-      "include": "#comment"
+      "include": "#snapshot"
     },
     {
-      "include": "#seperator"
+      "include": "#seperators"
     },
     {
-      "include": "#body"
+      "include": "source.js"
     }
   ],
   "repository": {
-    "seperator": {
+    "snapshot": {
+      "name": "punctuation.separator",
+      "begin": "--[\\d-]{2}----------",
+      "end": "(-----options--|--[\\d-]{2}----------)",
       "patterns": [
         {
-          "name": "punctuation.separator",
-          "match": "--[\\d-]{2}----------"
-        }
-      ]
-    },
-    "comment": {
-      "patterns": [
-        {
-          "name": "punctuation.separator",
-          "match": "reTypewriter Snapshots v\\d"
+          "include": "source.js"
         }
       ]
     },
     "options": {
       "name": "punctuation.separator",
-      "begin": "(-----options--|reTypewriter Snapshots v\\d)",
+      "begin": "-----options--",
       "end": "--[\\d-]{2}----------",
       "patterns": [
-        { "include":  "source.yaml" }
+        {
+          "include": "source.yaml"
+        }
       ]
+    },
+    "seperators": {
+      "name": "punctuation.separator",
+      "match": "(--[\\d-]{2}----------|-----options--|reTypewriter Snapshots v\\d)"
     }
   }
 }
