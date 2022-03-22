@@ -1,0 +1,44 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "scopeName": "source.retypewriter",
+  "patterns": [
+    {
+      "include": "#options"
+    },
+    {
+      "include": "#snapshot"
+    },
+    {
+      "include": "#seperators"
+    },
+    {
+      "include": "source.text"
+    }
+  ],
+  "repository": {
+    "snapshot": {
+      "name": "punctuation.separator",
+      "begin": "--[\\d-]{2}----------",
+      "end": "(-----options--|--[\\d-]{2}----------)",
+      "patterns": [
+        {
+          "include": "source.text"
+        }
+      ]
+    },
+    "options": {
+      "name": "punctuation.separator",
+      "begin": "-----options--",
+      "end": "--[\\d-]{2}----------",
+      "patterns": [
+        {
+          "include": "source.yaml"
+        }
+      ]
+    },
+    "seperators": {
+      "name": "punctuation.separator",
+      "match": "(--[\\d-]{2}----------|-----options--|reTypewriter Snapshots v\\d)"
+    }
+  }
+}

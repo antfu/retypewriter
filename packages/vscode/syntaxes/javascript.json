@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-  "scopeName": "source.retypewriter",
+  "scopeName": "source.retypewriter-js",
   "patterns": [
     {
       "include": "#options"

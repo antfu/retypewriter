@@ -38,13 +38,97 @@
         "extensions": [
           ".retypewriter"
         ]
+      },
+      {
+        "id": "retypewriter-js",
+        "aliases": [
+          "reTypewriter JavaScript"
+        ],
+        "extensions": [
+          ".js.retypewriter"
+        ]
+      },
+      {
+        "id": "retypewriter-jsx",
+        "aliases": [
+          "reTypewriter JSX"
+        ],
+        "extensions": [
+          ".jsx.retypewriter"
+        ]
+      },
+      {
+        "id": "retypewriter-ts",
+        "aliases": [
+          "reTypewriter TypeScript"
+        ],
+        "extensions": [
+          ".ts.retypewriter"
+        ]
+      },
+      {
+        "id": "retypewriter-tsx",
+        "aliases": [
+          "reTypewriter TSX"
+        ],
+        "extensions": [
+          ".tsx.retypewriter"
+        ]
+      },
+      {
+        "id": "retypewriter-vue",
+        "aliases": [
+          "reTypewriter Vue"
+        ],
+        "extensions": [
+          ".vue.retypewriter"
+        ]
+      },
+      {
+        "id": "retypewriter-html",
+        "aliases": [
+          "reTypewriter HTML"
+        ],
+        "extensions": [
+          ".html.retypewriter"
+        ]
       }
     ],
     "grammars": [
       {
         "language": "retypewriter",
         "scopeName": "source.retypewriter",
-        "path": "./syntaxes/tmGrammar.json"
+        "path": "./syntaxes/default.json"
+      },
+      {
+        "language": "retypewriter-js",
+        "scopeName": "source.retypewriter-js",
+        "path": "./syntaxes/javascript.json"
+      },
+      {
+        "language": "retypewriter-jsx",
+        "scopeName": "source.retypewriter-jsx",
+        "path": "./syntaxes/javascriptreact.json"
+      },
+      {
+        "language": "retypewriter-ts",
+        "scopeName": "source.retypewriter-ts",
+        "path": "./syntaxes/typescript.json"
+      },
+      {
+        "language": "retypewriter-tsx",
+        "scopeName": "source.retypewriter-tsx",
+        "path": "./syntaxes/typescriptreact.json"
+      },
+      {
+        "language": "retypewriter-vue",
+        "scopeName": "source.retypewriter-vue",
+        "path": "./syntaxes/vue.json"
+      },
+      {
+        "language": "retypewriter-html",
+        "scopeName": "source.retypewriter-html",
+        "path": "./syntaxes/html.json"
       }
     ],
     "commands": [
@@ -76,6 +160,7 @@
     }
   },
   "scripts": {
+    "prepare": "esno scripts/generateSyntaxes.ts",
     "build": "tsup src/index.ts --external vscode",
     "dev": "nr build --watch",
     "vscode:prepublish": "nr build",
