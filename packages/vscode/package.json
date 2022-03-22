@@ -70,8 +70,7 @@
         },
         {
           "command": "retypewriter.play",
-          "group": "navigation@1170",
-          "when": "editorLangId != retypewriter"
+          "group": "navigation@1170"
         }
       ]
     }

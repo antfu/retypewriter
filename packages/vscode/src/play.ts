@@ -37,8 +37,9 @@ export async function play(arg?: TextDocument | Uri) {
 
   await window.withProgress({
     location: ProgressLocation.Notification,
-    title: 'reTypewriter: Playing',
-  }, async(progress) => {
+    title: '',
+    cancellable: true,
+  }, async(progress, token) => {
     const setCursor = (index: number) => {
       const pos = doc.positionAt(index)
       editor.selection = new Selection(pos, pos)
@@ -54,6 +55,8 @@ export async function play(arg?: TextDocument | Uri) {
     })
 
     for await (const snap of snaps.typewriter()) {
+      if (token.isCancellationRequested)
+        return
       switch (snap.type) {
         case 'snap-start':
           message = `Step ${snap.index} of ${total}`
