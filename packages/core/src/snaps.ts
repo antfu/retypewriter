@@ -3,7 +3,7 @@ import type { AnimatorStep, Snapshot } from './types'
 import { stepsTo } from './steps'
 import type { TypewriterOptions } from './typewriter'
 import { typingAnimator } from './typewriter'
-import { parseSnap } from './parse'
+import { parseSnapshots } from './parse'
 
 export const SNAP_EXT = '.retypewriter'
 export const SNAP_HEADING = 'reTypewriter Snapshots v1\n'
@@ -11,7 +11,7 @@ export const SNAP_SEPERATOR_PRE = '-'.repeat(2)
 export const SNAP_SEPERATOR_POST = '-'.repeat(10)
 export const SNAP_SEPERATOR = `${SNAP_SEPERATOR_PRE}--${SNAP_SEPERATOR_POST}`
 export const SNAP_SEPERATOR_OPTIONS = '-----options--'
-export const SNAP_SEPERATOR_MATCHER = new RegExp(`\\n?${SNAP_SEPERATOR_PRE}[#\\w-]*${SNAP_SEPERATOR_POST}\\n`, 'g')
+export const SNAP_SEPERATOR_MATCHER = new RegExp(`\\n?${SNAP_SEPERATOR_PRE}[\\w-]{2}${SNAP_SEPERATOR_POST}\\n`, 'g')
 export const SNAP_SEPERATOR_OPTIONS_MATCHER = new RegExp(`\\n?${SNAP_SEPERATOR_OPTIONS}\\n`, 'g')
 
 export class Snapshots extends Array<Snapshot> {
@@ -63,18 +63,14 @@ export class Snapshots extends Array<Snapshot> {
   }
 
   static fromString(raw: string) {
-    const parsed = parseSnap(raw)
-      .slice(1, -1)
+    const { snapshots: parsed } = parseSnapshots(raw)
     const snapshots: Snapshot[] = []
-    parsed.forEach((p, idx) => {
-      if (p.type === 'snapshot') {
-        const snap: Snapshot = {
-          content: p.raw,
-        }
-        if (parsed[idx + 1]?.type === 'options')
-          snap.options = parsed[idx + 1].options
-        snapshots.push(snap)
+    parsed.forEach((p) => {
+      const snap: Snapshot = {
+        content: p.body,
+        options: p.options,
       }
+      snapshots.push(snap)
     })
 
     return new Snapshots(...snapshots)

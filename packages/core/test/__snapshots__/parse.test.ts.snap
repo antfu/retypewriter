@@ -1,0 +1,164 @@
+// Vitest Snapshot v1
+
+exports[`works 1`] = `
+{
+  "head": {
+    "options": {
+      "delay": 100,
+    },
+  },
+  "snapshots": [
+    {
+      "body": "",
+      "bodyEnd": 53,
+      "bodyStart": 53,
+      "end": 53,
+      "raw": "
+--01----------
+",
+      "start": 37,
+    },
+    {
+      "body": "import App from './App.vue'
+",
+      "bodyEnd": 96,
+      "bodyStart": 68,
+      "end": 96,
+      "raw": "--02----------
+import App from './App.vue'
+",
+      "start": 53,
+    },
+    {
+      "body": "import { } from 'vue'
+import App from './App.vue'
+",
+      "bodyEnd": 162,
+      "bodyStart": 112,
+      "end": 162,
+      "raw": "
+--03----------
+import { } from 'vue'
+import App from './App.vue'
+",
+      "start": 96,
+    },
+    {
+      "body": "import { createApp } from 'vue'
+import App from './App.vue'
+
+const app = createApp(App)
+app.mount('#app')
+",
+      "bodyEnd": 284,
+      "bodyStart": 178,
+      "end": 311,
+      "options": {
+        "pause": true,
+      },
+      "optionsRaw": "pause: true",
+      "raw": "
+--04----------
+import { createApp } from 'vue'
+import App from './App.vue'
+
+const app = createApp(App)
+app.mount('#app')
+
+-----options--
+pause: true",
+      "start": 162,
+    },
+    {
+      "body": "import { createApp } from 'vue'
+import { createRouter } from 'vue-router'
+import App from './App.vue'
+
+const app = createApp(App)
+const router = createRouter()
+app.use(router)
+app.mount('#app')
+",
+      "bodyEnd": 521,
+      "bodyStart": 327,
+      "end": 521,
+      "raw": "
+--05----------
+import { createApp } from 'vue'
+import { createRouter } from 'vue-router'
+import App from './App.vue'
+
+const app = createApp(App)
+const router = createRouter()
+app.use(router)
+app.mount('#app')
+",
+      "start": 311,
+    },
+    {
+      "body": "import { createApp } from 'vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import App from './App.vue'
+
+const app = createApp(App)
+const router = createRouter({
+  history: createWebHistory(),
+})
+app.use(router)
+app.mount('#app')
+",
+      "bodyEnd": 783,
+      "bodyStart": 537,
+      "end": 783,
+      "raw": "
+--06----------
+import { createApp } from 'vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import App from './App.vue'
+
+const app = createApp(App)
+const router = createRouter({
+  history: createWebHistory(),
+})
+app.use(router)
+app.mount('#app')
+",
+      "start": 521,
+    },
+    {
+      "body": "import { createApp } from 'vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import routes from 'virtual:generated-pages'
+import App from './App.vue'
+
+const app = createApp(App)
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+})
+app.use(router)
+app.mount('#app')
+",
+      "bodyEnd": 1100,
+      "bodyStart": 799,
+      "end": 1100,
+      "raw": "
+--07----------
+import { createApp } from 'vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import routes from 'virtual:generated-pages'
+import App from './App.vue'
+
+const app = createApp(App)
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+})
+app.use(router)
+app.mount('#app')
+",
+      "start": 783,
+    },
+  ],
+}
+`;

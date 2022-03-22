@@ -1,5 +1,6 @@
 reTypewriter Snapshots v1
 
+delay: 100
 --01----------
 --02----------
 import App from './App.vue'
@@ -15,6 +16,8 @@ import App from './App.vue'
 const app = createApp(App)
 app.mount('#app')
 
+-----options--
+pause: true
 --05----------
 import { createApp } from 'vue'
 import { createRouter } from 'vue-router'

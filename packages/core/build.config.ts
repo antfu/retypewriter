@@ -10,6 +10,6 @@ export default defineBuildConfig({
     emitCJS: true,
   },
   replace: {
-    'import.meta.vitest': 'false',
+    'import.meta.vitest': 'undefined',
   },
 })

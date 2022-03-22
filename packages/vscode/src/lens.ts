@@ -1,4 +1,4 @@
-import { parseSnap } from 'retypewriter'
+import { parseSnapshots } from 'retypewriter'
 import type { CodeLensProvider, Event, ProviderResult, TextDocument } from 'vscode'
 import { CodeLens, EventEmitter, Range } from 'vscode'
 
@@ -7,13 +7,13 @@ export class Lens implements CodeLensProvider {
   public readonly onDidChangeCodeLenses: Event<void> = this._onDidChangeCodeLenses.event
 
   provideCodeLenses(document: TextDocument): ProviderResult<CodeLens[]> {
-    const parsed = parseSnap(document.getText())
-      .slice(1, -1)
-      .filter(i => i.type === 'seperator')
+    const {
+      snapshots,
+    } = parseSnapshots(document.getText())
 
-    return parsed.flatMap((i, idx) => {
-      const start = document.positionAt(i.index + 1)
-      const end = document.positionAt(i.index + i.raw.length - 1)
+    return snapshots.flatMap((i, idx) => {
+      const start = document.positionAt(i.start + 1)
+      const end = document.positionAt(i.start + i.raw.length - 1)
       const range = new Range(start, end)
       return [
         new CodeLens(range, {

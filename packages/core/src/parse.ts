@@ -2,50 +2,78 @@ import YAML from 'js-yaml'
 import { SNAP_HEADING, SNAP_SEPERATOR_MATCHER, SNAP_SEPERATOR_OPTIONS_MATCHER } from './snaps'
 import type { SnapshotOptions } from './types'
 
-export interface ParsedSnap {
+export interface ParsedSnaphot {
   raw: string
-  index: number
-  type: 'seperator' | 'options' | 'snapshot' | 'head'
+  start: number
+  end: number
+  body: string
+  bodyStart: number
+  bodyEnd: number
+  optionsRaw?: string
   options?: SnapshotOptions
 }
 
-export function parseSnap(raw: string) {
+export interface ParsedHead {
+  options?: SnapshotOptions
+}
+
+function parseOptions(raw: string): SnapshotOptions | undefined {
+  raw = raw.trim()
+  if (!raw)
+    return undefined
+  return (raw.startsWith('{'))
+    ? JSON.parse(raw)
+    : YAML.load(raw)
+}
+
+export function parseSnapshots(raw: string) {
   if (!raw.startsWith(SNAP_HEADING))
     throw new SyntaxError('Invalid snapshot file')
+  if (!raw.endsWith('\n'))
+    raw += '\n'
 
-  const parts = []
+  const head: ParsedHead = {}
+  const snaps: ParsedSnaphot[] = []
+
   SNAP_SEPERATOR_MATCHER.lastIndex = 0
-  let index = 0
-  for (const i of raw.matchAll(SNAP_SEPERATOR_MATCHER)) {
-    const content = raw.substring(index, i.index!)
-    const withOptions = content.split(SNAP_SEPERATOR_OPTIONS_MATCHER)
-    parts.push({
-      raw: withOptions[0],
-      index,
-      type: 'snapshot',
-    })
-    const optionsRaw = withOptions[1]?.trim()
-    if (optionsRaw) {
-      const options = (optionsRaw.startsWith('{'))
-        ? JSON.parse(optionsRaw)
-        : YAML.load(optionsRaw) as any
+  const matches = Array.from(raw.matchAll(SNAP_SEPERATOR_MATCHER))
 
-      parts.push({
-        raw: withOptions[1],
-        index,
-        type: 'options',
-        options,
-      })
+  matches.forEach((match, idx) => {
+    const start = match.index!
+
+    if (idx === 0) {
+      const content = raw.slice(0, start)
+      head.options = parseOptions(content.slice(SNAP_HEADING.length))
     }
 
-    index = i.index!
-    parts.push({
-      raw: i[0],
-      index,
-      type: 'seperator',
-    })
-    index += i[0].length
-  }
+    const next = matches[idx + 1]
+    const end = next?.index ?? raw.length
+    const bodyStart = start + match[0].length
+    const withOptions = raw.slice(bodyStart, end)
+    const parts = withOptions.split(SNAP_SEPERATOR_OPTIONS_MATCHER)
+    const body = parts[0]
+    const bodyEnd = bodyStart + body.length
+    const snap: ParsedSnaphot = {
+      raw: raw.slice(start, end),
+      start,
+      end,
+      body,
+      bodyEnd,
+      bodyStart,
+    }
+    const optionsRaw = parts[1]?.trim()
+    if (optionsRaw) {
+      snap.optionsRaw = optionsRaw
+      snap.options = parseOptions(optionsRaw)
+    }
+    snaps.push(snap)
+  })
 
-  return parts
+  // remove tailing separator
+  snaps.pop()
+
+  return {
+    head,
+    snapshots: snaps,
+  }
 }

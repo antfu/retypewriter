@@ -8,11 +8,11 @@ export default defineConfig({
     },
   },
   define: {
-    'import.meta.vitest': 'false',
+    'import.meta.vitest': 'undefined',
   },
-  test: {
-    includeSource: [
-      'packages/core/src/**/*.ts',
-    ],
-  },
+  // test: {
+  //   includeSource: [
+  //     'packages/core/src/**/*.ts',
+  //   ],
+  // },
 })
