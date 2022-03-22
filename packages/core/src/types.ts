@@ -70,3 +70,18 @@ export type AnimatorStep =
   | AnimatorStepPatch
   | AnimatorStepSnap
   | AnimatorStepSnapFinish
+
+export interface ParsedSnaphot {
+  raw: string
+  start: number
+  end: number
+  body: string
+  bodyStart: number
+  bodyEnd: number
+  optionsRaw?: string
+  options?: SnapshotOptions
+}
+
+export interface ParsedHead {
+  options?: SnapshotOptions
+}

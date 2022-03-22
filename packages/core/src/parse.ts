@@ -1,29 +1,47 @@
 import YAML from 'js-yaml'
-import { SNAP_HEADING, SNAP_SEPERATOR_MATCHER, SNAP_SEPERATOR_OPTIONS_MATCHER } from './snaps'
-import type { SnapshotOptions } from './types'
+import type { ParsedHead, ParsedSnaphot, Snapshot, SnapshotOptions } from './types'
 
-export interface ParsedSnaphot {
-  raw: string
-  start: number
-  end: number
-  body: string
-  bodyStart: number
-  bodyEnd: number
-  optionsRaw?: string
-  options?: SnapshotOptions
-}
+export const SNAP_EXT = '.retypewriter'
+export const SNAP_HEADING = 'reTypewriter Snapshots v1\n'
+export const SNAP_SEPERATOR_PRE = '-'.repeat(2)
+export const SNAP_SEPERATOR_POST = '-'.repeat(10)
+export const SNAP_SEPERATOR = `${SNAP_SEPERATOR_PRE}--${SNAP_SEPERATOR_POST}`
+export const SNAP_SEPERATOR_OPTIONS = '-----options--'
+export const SNAP_SEPERATOR_MATCHER = new RegExp(`\\n?${SNAP_SEPERATOR_PRE}[\\w-]{2}${SNAP_SEPERATOR_POST}\\n`, 'g')
+export const SNAP_SEPERATOR_OPTIONS_MATCHER = new RegExp(`\\n?${SNAP_SEPERATOR_OPTIONS}\\n`, 'g')
 
-export interface ParsedHead {
-  options?: SnapshotOptions
-}
-
-function parseOptions(raw: string): SnapshotOptions | undefined {
+export function parseOptions(raw: string): SnapshotOptions | undefined {
   raw = raw.trim()
   if (!raw)
     return undefined
   return (raw.startsWith('{'))
     ? JSON.parse(raw)
     : YAML.load(raw)
+}
+
+export function stringifySnapshots(snapshots: Snapshot[], useYaml = true) {
+  return [
+    SNAP_HEADING,
+    ...snapshots
+      .flatMap((snap, i) => [
+        SNAP_SEPERATOR_PRE + (i + 1).toString().padStart(2, '0') + SNAP_SEPERATOR_POST,
+        snap.content,
+        ...(
+          snap.options
+            ? [
+              SNAP_SEPERATOR_OPTIONS,
+              useYaml
+                ? YAML.dump(snap.options, { indent: 2 }).trimEnd()
+                : Object.keys(snap.options).length > 1
+                  ? JSON.stringify(snap.options, null, 2)
+                  : JSON.stringify(snap.options),
+            ]
+            : []
+        ),
+      ]),
+    SNAP_SEPERATOR,
+    '',
+  ].join('\n')
 }
 
 export function parseSnapshots(raw: string) {

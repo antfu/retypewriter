@@ -1,18 +1,8 @@
-import YAML from 'js-yaml'
 import type { AnimatorStep, Snapshot } from './types'
 import { stepsTo } from './steps'
 import type { TypewriterOptions } from './typewriter'
 import { typingAnimator } from './typewriter'
-import { parseSnapshots } from './parse'
-
-export const SNAP_EXT = '.retypewriter'
-export const SNAP_HEADING = 'reTypewriter Snapshots v1\n'
-export const SNAP_SEPERATOR_PRE = '-'.repeat(2)
-export const SNAP_SEPERATOR_POST = '-'.repeat(10)
-export const SNAP_SEPERATOR = `${SNAP_SEPERATOR_PRE}--${SNAP_SEPERATOR_POST}`
-export const SNAP_SEPERATOR_OPTIONS = '-----options--'
-export const SNAP_SEPERATOR_MATCHER = new RegExp(`\\n?${SNAP_SEPERATOR_PRE}[\\w-]{2}${SNAP_SEPERATOR_POST}\\n`, 'g')
-export const SNAP_SEPERATOR_OPTIONS_MATCHER = new RegExp(`\\n?${SNAP_SEPERATOR_OPTIONS}\\n`, 'g')
+import { SNAP_EXT, parseSnapshots, stringifySnapshots } from './parse'
 
 export class Snapshots extends Array<Snapshot> {
   constructor(...args: Snapshot[]) {
@@ -31,49 +21,29 @@ export class Snapshots extends Array<Snapshot> {
     if (from === to)
       return
 
-    const i = this.splice(from, 1)[0]
-    if (to > from)
-      to -= 1
-    this.splice(to, 0, i)
+    const element = this[from]
+    this.splice(from, 1)
+    this.splice(to, 0, element)
   }
 
   toString(useYaml = true) {
-    return [
-      SNAP_HEADING,
-      ...this
-        .flatMap((snap, i) => [
-          SNAP_SEPERATOR_PRE + (i + 1).toString().padStart(2, '0') + SNAP_SEPERATOR_POST,
-          snap.content,
-          ...(
-            snap.options
-              ? [
-                SNAP_SEPERATOR_OPTIONS,
-                useYaml
-                  ? YAML.dump(snap.options, { indent: 2 }).trimEnd()
-                  : Object.keys(snap.options).length > 1
-                    ? JSON.stringify(snap.options, null, 2)
-                    : JSON.stringify(snap.options),
-              ]
-              : []
-          ),
-        ]),
-      SNAP_SEPERATOR,
-      '',
-    ].join('\n')
+    return stringifySnapshots(this, useYaml)
+  }
+
+  fromString(raw: string) {
+    const { snapshots: parsed } = parseSnapshots(raw)
+    this.length = 0
+    parsed.forEach((p) => {
+      this.push({
+        content: p.body,
+        options: p.options,
+      })
+    })
+    return this
   }
 
   static fromString(raw: string) {
-    const { snapshots: parsed } = parseSnapshots(raw)
-    const snapshots: Snapshot[] = []
-    parsed.forEach((p) => {
-      const snap: Snapshot = {
-        content: p.body,
-        options: p.options,
-      }
-      snapshots.push(snap)
-    })
-
-    return new Snapshots(...snapshots)
+    return new Snapshots().fromString(raw)
   }
 
   *steps(): Generator<AnimatorStep> {
