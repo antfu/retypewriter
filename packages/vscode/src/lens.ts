@@ -1,6 +1,6 @@
-import { getOriginalFilePath, parseSnapshots } from 'retypewriter'
 import type { CodeLensProvider, Event, ProviderResult, TextDocument } from 'vscode'
 import { CodeLens, EventEmitter, Range, Uri } from 'vscode'
+import { getOriginalFilePath, parseSnapshots } from '../../core/src'
 
 export class Lens implements CodeLensProvider {
   private _onDidChangeCodeLenses: EventEmitter<void> = new EventEmitter<void>()

@@ -1,6 +1,6 @@
-import { getOriginalFilePath } from 'retypewriter'
 import type { TextDocument, TextEditor } from 'vscode'
 import { Uri, window, workspace } from 'vscode'
+import { getOriginalFilePath } from '../../core/src'
 
 export async function resolveDoc(doc?: TextDocument | Uri): Promise<{
   doc?: TextDocument

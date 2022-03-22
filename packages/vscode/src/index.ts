@@ -1,6 +1,7 @@
 import type { ExtensionContext } from 'vscode'
 import { commands, languages, workspace } from 'vscode'
 import { SNAP_EXT } from '../../core/src'
+import { registerAnnonations } from './decoration'
 import { Lens } from './lens'
 import { manager } from './manager'
 import { duplicate, moveDown, moveUp, remove, reverse } from './manipulate'
@@ -25,6 +26,8 @@ export function activate(ctx: ExtensionContext) {
     commands.registerCommand('retypewriter.snap-duplicate', duplicate),
 
     languages.registerCodeLensProvider({ scheme: 'file', language: 'retypewriter' }, new Lens()),
+
+    ...registerAnnonations(),
   )
 }
 
