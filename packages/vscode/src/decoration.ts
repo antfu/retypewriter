@@ -1,63 +1,63 @@
 import { DecorationRangeBehavior, Range, ThemeColor, window, workspace } from 'vscode'
 import { calculatePatch, diff, parseSnapshots } from '../../core/src'
 
-export function registerAnnonations() {
-  const DecorationInserted = window.createTextEditorDecorationType({
-    backgroundColor: new ThemeColor('diffEditor.insertedTextBackground'),
-    color: new ThemeColor('terminal.ansiGreen'),
-    rangeBehavior: DecorationRangeBehavior.ClosedClosed,
+const DecorationInserted = window.createTextEditorDecorationType({
+  backgroundColor: new ThemeColor('diffEditor.insertedTextBackground'),
+  color: new ThemeColor('terminal.ansiGreen'),
+  rangeBehavior: DecorationRangeBehavior.ClosedClosed,
+})
+const DecorationRemoved = window.createTextEditorDecorationType({
+  color: new ThemeColor('terminal.ansiRed'),
+  backgroundColor: new ThemeColor('diffEditor.removedTextBackground'),
+  rangeBehavior: DecorationRangeBehavior.ClosedClosed,
+})
+
+export async function updateAnnotation(editor = window.activeTextEditor) {
+  const doc = editor?.document
+  if (!doc || doc.languageId !== 'retypewriter')
+    return reset()
+
+  const code = doc.getText()
+  const snaps = parseSnapshots(code).snapshots
+
+  const removed: Range[] = []
+  const inserted: Range[] = []
+
+  snaps.forEach((snap, index) => {
+    if (index === 0)
+      return
+    const prev = snaps[index - 1]
+
+    calculatePatch(diff(prev.body, snap.body))
+      .forEach((patch) => {
+        if (patch.type === 'insert') {
+          inserted.push(new Range(
+            doc.positionAt(snap.bodyStart + patch.cursor),
+            doc.positionAt(snap.bodyStart + patch.cursor + patch.content.length),
+          ))
+        }
+      })
+
+    calculatePatch(diff(snap.body, prev.body))
+      .forEach((patch) => {
+        if (patch.type === 'insert') {
+          removed.push(new Range(
+            doc.positionAt(prev.bodyStart + patch.cursor),
+            doc.positionAt(prev.bodyStart + patch.cursor + patch.content.length),
+          ))
+        }
+      })
   })
-  const DecorationRemoved = window.createTextEditorDecorationType({
-    color: new ThemeColor('terminal.ansiRed'),
-    backgroundColor: new ThemeColor('diffEditor.removedTextBackground'),
-    rangeBehavior: DecorationRangeBehavior.ClosedClosed,
-  })
 
-  async function updateAnnotation(editor = window.activeTextEditor) {
-    const doc = editor?.document
-    if (!doc || doc.languageId !== 'retypewriter')
-      return reset()
-
-    const code = doc.getText()
-    const snaps = parseSnapshots(code).snapshots
-
-    const removed: Range[] = []
-    const inserted: Range[] = []
-
-    snaps.forEach((snap, index) => {
-      if (index === 0)
-        return
-      const prev = snaps[index - 1]
-
-      calculatePatch(diff(prev.body, snap.body))
-        .forEach((patch) => {
-          if (patch.type === 'insert') {
-            inserted.push(new Range(
-              doc.positionAt(snap.bodyStart + patch.cursor),
-              doc.positionAt(snap.bodyStart + patch.cursor + patch.content.length),
-            ))
-          }
-        })
-
-      calculatePatch(diff(snap.body, prev.body))
-        .forEach((patch) => {
-          if (patch.type === 'insert') {
-            removed.push(new Range(
-              doc.positionAt(prev.bodyStart + patch.cursor),
-              doc.positionAt(prev.bodyStart + patch.cursor + patch.content.length),
-            ))
-          }
-        })
-    })
-
-    function reset() {
-      editor?.setDecorations(DecorationInserted, [])
-      editor?.setDecorations(DecorationRemoved, [])
-    }
-    editor.setDecorations(DecorationInserted, inserted)
-    editor.setDecorations(DecorationRemoved, removed)
+  function reset() {
+    editor?.setDecorations(DecorationInserted, [])
+    editor?.setDecorations(DecorationRemoved, [])
   }
+  editor.setDecorations(DecorationInserted, inserted)
+  editor.setDecorations(DecorationRemoved, removed)
+}
 
+export function registerAnnonations() {
   const throttledUpdateAnnotation = throttle(updateAnnotation, 200)
 
   updateAnnotation()

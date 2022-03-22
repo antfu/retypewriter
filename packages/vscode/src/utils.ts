@@ -19,3 +19,8 @@ export async function resolveDoc(doc?: TextDocument | Uri): Promise<{
     editor,
   }
 }
+
+export async function reveal(uri: Uri) {
+  const doc = await workspace.openTextDocument(uri)
+  await window.showTextDocument(doc)
+}

@@ -11,18 +11,28 @@ export class Lens implements CodeLensProvider {
       snapshots,
     } = parseSnapshots(document.getText())
 
+    const startRange = new Range(1, 0, 1, 0)
     const head: CodeLens[] = [
       new CodeLens(
-        new Range(0, 0, 0, 0),
+        startRange,
         {
-          title: 'Play',
+          title: '▶ Play',
           tooltip: 'Play',
           command: 'retypewriter.play',
           arguments: [Uri.file(getOriginalFilePath(document.uri.fsPath)!)],
         },
       ),
       new CodeLens(
-        new Range(0, 0, 0, 0),
+        startRange,
+        {
+          title: 'Go to file',
+          tooltip: 'Go to file',
+          command: 'retypewriter.reveal',
+          arguments: [Uri.file(getOriginalFilePath(document.uri.fsPath)!)],
+        },
+      ),
+      new CodeLens(
+        startRange,
         {
           title: 'Reverse',
           tooltip: 'Revese items',

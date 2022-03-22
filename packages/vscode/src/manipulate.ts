@@ -1,6 +1,7 @@
 import { Snapshots } from 'retypewriter'
 import type { TextDocument } from 'vscode'
 import { Range, window } from 'vscode'
+import { updateAnnotation } from './decoration'
 import { manager } from './manager'
 
 export async function manipulateSnapshotsInDocument(
@@ -19,6 +20,7 @@ export async function manipulateSnapshotsInDocument(
     await editor.edit((e) => {
       e.replace(new Range(0, 0, Infinity, Infinity), snaps.toString())
     })
+    await updateAnnotation(editor)
   }
 }
 

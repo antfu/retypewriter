@@ -7,6 +7,7 @@ import { manager } from './manager'
 import { duplicate, moveDown, moveUp, remove, reverse } from './manipulate'
 import { play } from './play'
 import { snap } from './record'
+import { reveal } from './utils'
 
 export function activate(ctx: ExtensionContext) {
   const watcher = workspace.createFileSystemWatcher(`**/*\\${SNAP_EXT}`)
@@ -24,6 +25,7 @@ export function activate(ctx: ExtensionContext) {
     commands.registerCommand('retypewriter.snap-remove', remove),
     commands.registerCommand('retypewriter.snap-reverse', reverse),
     commands.registerCommand('retypewriter.snap-duplicate', duplicate),
+    commands.registerCommand('retypewriter.reveal', reveal),
 
     languages.registerCodeLensProvider({ scheme: 'file', language: 'retypewriter' }, new Lens()),
 
