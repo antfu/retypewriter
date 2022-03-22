@@ -1,6 +1,6 @@
-import { parseSnapshots } from 'retypewriter'
+import { getOriginalFilePath, parseSnapshots } from 'retypewriter'
 import type { CodeLensProvider, Event, ProviderResult, TextDocument } from 'vscode'
-import { CodeLens, EventEmitter, Range } from 'vscode'
+import { CodeLens, EventEmitter, Range, Uri } from 'vscode'
 
 export class Lens implements CodeLensProvider {
   private _onDidChangeCodeLenses: EventEmitter<void> = new EventEmitter<void>()
@@ -12,6 +12,15 @@ export class Lens implements CodeLensProvider {
     } = parseSnapshots(document.getText())
 
     const head: CodeLens[] = [
+      new CodeLens(
+        new Range(0, 0, 0, 0),
+        {
+          title: 'Play',
+          tooltip: 'Play',
+          command: 'retypewriter.play',
+          arguments: [Uri.file(getOriginalFilePath(document.uri.fsPath)!)],
+        },
+      ),
       new CodeLens(
         new Range(0, 0, 0, 0),
         {

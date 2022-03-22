@@ -1,11 +1,13 @@
+import type { TextDocument, Uri } from 'vscode'
 import { Range, Selection, commands, window } from 'vscode'
 import { manager } from './manager'
+import { resolveDoc } from './utils'
 
-export async function play() {
-  const editor = window.activeTextEditor
-  const doc = editor?.document
+export async function play(arg?: TextDocument | Uri) {
+  const { doc, editor } = await resolveDoc(arg)
   if (!doc || !editor)
     return
+
   const path = doc.uri.fsPath
 
   const snaps = await manager.ensure(path)
