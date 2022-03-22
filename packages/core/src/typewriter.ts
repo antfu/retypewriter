@@ -18,11 +18,11 @@ export async function *typingAnimator(
     switch (step.type) {
       case 'init':
         break
-      case 'new-snap':
+      case 'snap-start':
         if (step.index)
           await sleep(randRange(700, 1000))
         break
-      case 'new-patch':
+      case 'patch-start':
         if (step.index)
           await sleep(randRange(200, 500))
         break

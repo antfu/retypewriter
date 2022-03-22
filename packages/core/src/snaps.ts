@@ -1,5 +1,5 @@
-import type { AnimatorStep, Snapshot } from './types'
-import { stepsTo } from './steps'
+import type { Snapshot } from './types'
+import { animateSteps } from './steps'
 import type { TypewriterOptions } from './typewriter'
 import { typingAnimator } from './typewriter'
 import { SNAP_EXT, parseSnapshots, stringifySnapshots } from './parse'
@@ -26,7 +26,7 @@ export class Snapshots extends Array<Snapshot> {
     this.splice(to, 0, element)
   }
 
-  toString(useYaml = true) {
+  toString(useYaml = true): string {
     return stringifySnapshots(this, useYaml)
   }
 
@@ -46,31 +46,8 @@ export class Snapshots extends Array<Snapshot> {
     return new Snapshots().fromString(raw)
   }
 
-  *steps(): Generator<AnimatorStep> {
-    let lastContent: string | undefined
-    const copy = [...this]
-    for (let index = 0; index < copy.length; index++) {
-      const snap = copy[index]
-      if (lastContent == null) {
-        lastContent = snap.content
-        yield {
-          type: 'init',
-          content: lastContent,
-        }
-        continue
-      }
-
-      yield {
-        type: 'new-snap',
-        snap,
-        index,
-      }
-      const steps = stepsTo(lastContent, snap.content)
-      for (const step of steps)
-        yield step
-
-      lastContent = snap.content
-    }
+  steps() {
+    return animateSteps(this)
   }
 
   typewriter(options?: TypewriterOptions) {

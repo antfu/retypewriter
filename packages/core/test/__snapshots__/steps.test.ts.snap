@@ -9,7 +9,8 @@ exports[`steps > steps 1`] = `
       "length": 29,
       "type": "removal",
     },
-    "type": "new-patch",
+    "total": 4,
+    "type": "patch-start",
   },
   {
     "content": "
@@ -417,13 +418,28 @@ describe('should', () => {
     "type": "removal",
   },
   {
+    "content": "
+import { describe, expect, it } from 'vitest'
+
+describe('should', () => {
+  it('exported', () => {
+    expect(one).toEqual(1)
+  })
+})
+",
+    "index": 0,
+    "total": 4,
+    "type": "patch-finish",
+  },
+  {
     "index": 1,
     "patch": {
       "cursor": 89,
       "length": 8,
       "type": "removal",
     },
-    "type": "new-patch",
+    "total": 4,
+    "type": "patch-start",
   },
   {
     "content": "
@@ -530,13 +546,28 @@ describe('should', () => {
     "type": "removal",
   },
   {
+    "content": "
+import { describe, expect, it } from 'vitest'
+
+describe('should', () => {
+  it('', () => {
+    expect(one).toEqual(1)
+  })
+})
+",
+    "index": 1,
+    "total": 4,
+    "type": "patch-finish",
+  },
+  {
     "index": 2,
     "patch": {
       "content": "one",
       "cursor": 81,
       "type": "insert",
     },
-    "type": "new-patch",
+    "total": 4,
+    "type": "patch-start",
   },
   {
     "char": "o",
@@ -581,6 +612,20 @@ describe('should', () => {
     "type": "insert",
   },
   {
+    "content": "
+import { describe, expect, it } from 'vitest'
+
+describe('should', () => {
+  it('one', () => {
+    expect(one).toEqual(1)
+  })
+})
+",
+    "index": 2,
+    "total": 4,
+    "type": "patch-finish",
+  },
+  {
     "index": 3,
     "patch": {
       "content": "    expect(two).toEqual(2)
@@ -588,7 +633,8 @@ describe('should', () => {
       "cursor": 122,
       "type": "insert",
     },
-    "type": "new-patch",
+    "total": 4,
+    "type": "patch-start",
   },
   {
     "char": "
@@ -1007,7 +1053,9 @@ describe('should', () => {
   })
 })
 ",
-    "type": "snap-finish",
+    "index": 3,
+    "total": 4,
+    "type": "patch-finish",
   },
 ]
 `;

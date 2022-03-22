@@ -1,5 +1,5 @@
 import type { TextDocument, Uri } from 'vscode'
-import { Range, Selection, commands, window } from 'vscode'
+import { ProgressLocation, Range, Selection, commands, window } from 'vscode'
 import { manager } from './manager'
 import { resolveDoc } from './utils'
 
@@ -35,36 +35,57 @@ export async function play(arg?: TextDocument | Uri) {
       await commands.executeCommand('retypewriter.snap')
   }
 
-  window.showInformationMessage('reTypewriter: Playing...')
-
-  const setCursor = (index: number) => {
-    const pos = doc.positionAt(index)
-    editor.selection = new Selection(pos, pos)
-  }
-
-  for await (const snap of snaps.typewriter()) {
-    switch (snap.type) {
-      case 'init':
-        await editor.edit(edit => edit.replace(new Range(0, 0, Infinity, Infinity), snap.content))
-        break
-
-      case 'insert':
-        await editor.edit(edit => edit.insert(
-          doc.positionAt(snap.cursor - 1),
-          snap.char,
-        ))
-        setCursor(snap.cursor)
-        break
-
-      case 'removal':
-        await editor.edit(edit => edit.delete(new Range(
-          doc.positionAt(snap.cursor),
-          doc.positionAt(snap.cursor + 1),
-        )))
-        setCursor(snap.cursor)
-        break
+  await window.withProgress({
+    location: ProgressLocation.Notification,
+    title: 'reTypewriter: Playing',
+  }, async(progress) => {
+    const setCursor = (index: number) => {
+      const pos = doc.positionAt(index)
+      editor.selection = new Selection(pos, pos)
     }
-  }
 
-  window.showInformationMessage('reTypewriter: Finished')
+    const total = snaps.length - 1
+    const perSnap = 100 / total
+
+    let message = `Step 0 of ${total}`
+    progress.report({
+      message,
+      increment: 0,
+    })
+
+    for await (const snap of snaps.typewriter()) {
+      switch (snap.type) {
+        case 'snap-start':
+          message = `Step ${snap.index} of ${total}`
+          progress.report({
+            message,
+          })
+          break
+
+        case 'patch-finish':
+          progress.report({ message, increment: perSnap / snap.total })
+          break
+
+        case 'init':
+          await editor.edit(edit => edit.replace(new Range(0, 0, Infinity, Infinity), snap.content))
+          break
+
+        case 'insert':
+          await editor.edit(edit => edit.insert(
+            doc.positionAt(snap.cursor - 1),
+            snap.char,
+          ))
+          setCursor(snap.cursor)
+          break
+
+        case 'removal':
+          await editor.edit(edit => edit.delete(new Range(
+            doc.positionAt(snap.cursor),
+            doc.positionAt(snap.cursor + 1),
+          )))
+          setCursor(snap.cursor)
+          break
+      }
+    }
+  })
 }

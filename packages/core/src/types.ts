@@ -47,20 +47,31 @@ export interface AnimatorStepInit {
 }
 
 export interface AnimatorStepPatch {
-  type: 'new-patch'
+  type: 'patch-start'
   patch: Patch
   index: number
+  total: number
 }
 
 export interface AnimatorStepSnap {
-  type: 'new-snap'
+  type: 'snap-start'
   snap: Snapshot
   index: number
+  total: number
 }
 
 export interface AnimatorStepSnapFinish {
   type: 'snap-finish'
   content: string
+  index: number
+  total: number
+}
+
+export interface AnimatorStepPatchFinish {
+  type: 'patch-finish'
+  content: string
+  index: number
+  total: number
 }
 
 export type AnimatorStep =
@@ -70,6 +81,7 @@ export type AnimatorStep =
   | AnimatorStepPatch
   | AnimatorStepSnap
   | AnimatorStepSnapFinish
+  | AnimatorStepPatchFinish
 
 export interface ParsedSnaphot {
   raw: string

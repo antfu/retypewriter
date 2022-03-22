@@ -1,6 +1,6 @@
 import { calculatePatch, diff } from './patch'
 import { sliceInput } from './slicing'
-import type { AnimatorStep, Patch } from './types'
+import type { AnimatorStep, Patch, Snapshot } from './types'
 
 export function *patchSteps(input: string, patches: Patch[]): Generator<AnimatorStep> {
   let output = input
@@ -9,7 +9,12 @@ export function *patchSteps(input: string, patches: Patch[]): Generator<Animator
   for (let index = 0; index < patches.length; index++) {
     const patch = patches[index]
 
-    yield { type: 'new-patch', patch, index }
+    yield {
+      type: 'patch-start',
+      patch,
+      index,
+      total: patches.length,
+    }
 
     if (patch.type === 'insert') {
       cursor = patch.cursor
@@ -39,9 +44,50 @@ export function *patchSteps(input: string, patches: Patch[]): Generator<Animator
       }
       output = head + tail
     }
-  }
 
-  yield { type: 'snap-finish', content: output }
+    yield {
+      type: 'patch-finish',
+      content: output,
+      index,
+      total: patches.length,
+    }
+  }
+}
+
+export function *animateSteps(snapshots: Snapshot[]): Generator<AnimatorStep> {
+  let lastContent: string | undefined
+  const copy = [...snapshots]
+  for (let index = 0; index < copy.length; index++) {
+    const snap = copy[index]
+    if (lastContent == null) {
+      lastContent = snap.content
+      yield {
+        type: 'init',
+        content: lastContent,
+      }
+      continue
+    }
+
+    yield {
+      type: 'snap-start',
+      snap,
+      index,
+      total: copy.length,
+    }
+
+    const steps = stepsTo(lastContent, snap.content)
+    for (const step of steps)
+      yield step
+
+    yield {
+      type: 'snap-finish',
+      content: snap.content,
+      index,
+      total: copy.length,
+    }
+
+    lastContent = snap.content
+  }
 }
 
 export function *animateInsertionSlices(input: string) {
@@ -71,9 +117,10 @@ export function stepsTo(input: string, output: string) {
 }
 
 export function applyPatches(input: string, patches: Patch[]) {
+  let output = input
   for (const patch of patchSteps(input, patches)) {
-    if (patch.type === 'snap-finish')
-      return patch.content
+    if (patch.type === 'patch-finish')
+      output = patch.content
   }
-  return input
+  return output
 }
