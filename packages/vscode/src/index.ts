@@ -1,8 +1,8 @@
-import { commands, languages, window, workspace } from 'vscode'
+import { commands, languages, workspace } from 'vscode'
 import { SNAP_EXT } from '../../core/src'
 import { Lens } from './lens'
 import { manager } from './manager'
-import { moveDown, moveUp } from './move'
+import { moveDown, moveUp, remove, reverse } from './manipulate'
 import { play } from './play'
 import { snap } from './record'
 
@@ -16,7 +16,8 @@ export function activate() {
   commands.registerCommand('retypewriter.play', play)
   commands.registerCommand('retypewriter.snap-move-up', moveUp)
   commands.registerCommand('retypewriter.snap-move-down', moveDown)
-  commands.registerCommand('retypewriter.snap-delete', (...args: any[]) => window.showInformationMessage(`Delete ${args.join(', ')}`))
+  commands.registerCommand('retypewriter.snap-remove', remove)
+  commands.registerCommand('retypewriter.snap-reverse', reverse)
 
   languages.registerCodeLensProvider({ scheme: 'file', language: 'retypewriter' }, new Lens())
 }

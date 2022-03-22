@@ -11,24 +11,46 @@ export class Lens implements CodeLensProvider {
       snapshots,
     } = parseSnapshots(document.getText())
 
-    return snapshots.flatMap((i, idx) => {
+    const head: CodeLens[] = [
+      new CodeLens(
+        new Range(0, 0, 0, 0),
+        {
+          title: 'Reverse',
+          tooltip: 'Revese items',
+          command: 'retypewriter.snap-reverse',
+          arguments: [document],
+        },
+      ),
+    ]
+
+    const items = snapshots.flatMap((i, idx) => {
       const start = document.positionAt(i.start + 1)
       const end = document.positionAt(i.start + i.raw.length - 1)
       const range = new Range(start, end)
-      return [
-        new CodeLens(range, {
+      const lens: CodeLens[] = []
+
+      if (idx > 0) {
+        lens.push(new CodeLens(range, {
           title: '△',
           tooltip: 'Move up',
           command: 'retypewriter.snap-move-up',
           arguments: [document, idx],
-        }),
-        new CodeLens(range, {
+        }))
+      }
+      if (idx < snapshots.length - 1) {
+        lens.push(new CodeLens(range, {
           title: '▽',
           tooltip: 'Move down',
           command: 'retypewriter.snap-move-down',
           arguments: [document, idx],
-        }),
-      ]
+        }))
+      }
+      return lens
     })
+
+    return [
+      ...head,
+      ...items,
+    ]
   }
 }
