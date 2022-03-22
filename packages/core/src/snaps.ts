@@ -26,6 +26,15 @@ export class Snapshots extends Array<Snapshot> {
     this.splice(to, 0, element)
   }
 
+  duplicate(index: number) {
+    const snap = this[index]
+    this.splice(index + 1, 0, snap)
+  }
+
+  remove(index: number) {
+    this.splice(index, 1)
+  }
+
   toString(useYaml = true): string {
     return stringifySnapshots(this, useYaml)
   }

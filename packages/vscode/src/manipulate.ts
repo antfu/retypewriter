@@ -35,7 +35,14 @@ export const moveDown = (doc: TextDocument, index: number) => move(doc, index, 1
 export const remove = (doc: TextDocument, index: number) => {
   return manipulateSnapshotsInDocument(
     doc,
-    snaps => snaps.splice(index, 1),
+    snaps => snaps.remove(index),
+  )
+}
+
+export const duplicate = (doc: TextDocument, index: number) => {
+  return manipulateSnapshotsInDocument(
+    doc,
+    snaps => snaps.duplicate(index),
   )
 }
 
