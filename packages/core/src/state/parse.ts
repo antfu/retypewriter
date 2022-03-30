@@ -1,5 +1,5 @@
 import YAML from 'js-yaml'
-import type { ParsedHead, ParsedSnaphot, Snapshot, SnapshotOptions } from './types'
+import type { ParsedHead, ParsedSnaphot, Snapshot, SnapshotOptions } from '../types'
 
 export const SNAP_EXT = '.retypewriter'
 export const SNAP_HEADING = 'reTypewriter Snapshots v1\n'

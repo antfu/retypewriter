@@ -1,7 +1,7 @@
-import type { Snapshot } from './types'
-import { animateSteps } from './steps'
-import type { TypewriterOptions } from './typewriter'
-import { typingAnimator } from './typewriter'
+import type { Snapshot } from '../types'
+import { animateSteps } from '../animation/steps'
+import type { TypewriterOptions } from '../animation/typewriter'
+import { typingAnimator } from '../animation/typewriter'
 import { SNAP_EXT, parseSnapshots, stringifySnapshots } from './parse'
 
 export class Snapshots extends Array<Snapshot> {

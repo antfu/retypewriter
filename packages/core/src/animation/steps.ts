@@ -1,6 +1,6 @@
-import { calculatePatch, diff } from './patch'
+import { calculatePatch, diff } from '../state/patch'
+import type { AnimatorStep, Patch, Snapshot } from '../types'
 import { sliceInput } from './slicing'
-import type { AnimatorStep, Patch, Snapshot } from './types'
 
 export function *patchSteps(input: string, patches: Patch[]): Generator<AnimatorStep> {
   let output = input

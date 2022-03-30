@@ -1,5 +1,5 @@
+import type { AnimatorStep } from '../types'
 import { getTimeout, randRange } from './timing'
-import type { AnimatorStep } from './types'
 
 export function sleep(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms))

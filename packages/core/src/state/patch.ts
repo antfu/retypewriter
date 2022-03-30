@@ -1,6 +1,6 @@
 import type { Diff } from 'diff-match-patch'
 import { diff_match_patch as DMP } from 'diff-match-patch'
-import type { Patch } from './types'
+import type { Patch } from '../types'
 
 export function diff(a: string, b: string): Diff[] {
   const differ = new DMP()

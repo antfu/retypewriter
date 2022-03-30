@@ -1,4 +1,4 @@
-import type { Slice } from './types'
+import type { Slice } from '../types'
 
 const pairs = [
   ['{', '}'],

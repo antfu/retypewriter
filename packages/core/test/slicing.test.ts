@@ -1,5 +1,5 @@
 import { expect, it } from 'vitest'
-import { applySlice, sliceInput } from '../src/slicing'
+import { applySlice, sliceInput } from '../src/animation/slicing'
 
 it('works', () => {
   const fixture = `
