@@ -82,6 +82,7 @@ export function *animateSteps(snapshots: Snapshot[]): Generator<AnimatorStep> {
     yield {
       type: 'snap-finish',
       content: snap.content,
+      snap,
       index,
       total: copy.length,
     }
@@ -114,13 +115,4 @@ export function stepsTo(input: string, output: string) {
   const delta = diff(input, output)
   const patches = calculatePatch(delta)
   return patchSteps(input, patches)
-}
-
-export function applyPatches(input: string, patches: Patch[]) {
-  let output = input
-  for (const patch of patchSteps(input, patches)) {
-    if (patch.type === 'patch-finish')
-      output = patch.content
-  }
-  return output
 }

@@ -62,6 +62,7 @@ export interface AnimatorStepSnap {
 
 export interface AnimatorStepSnapFinish {
   type: 'snap-finish'
+  snap: Snapshot
   content: string
   index: number
   total: number

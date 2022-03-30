@@ -1,6 +1,16 @@
 import { describe, expect, it } from 'vitest'
-import { applyPatches, calculatePatch, diff } from '../src'
+import type { Patch } from '../src'
+import { calculatePatch, diff, patchSteps } from '../src'
 import { input, output } from './fixture'
+
+export function applyPatches(input: string, patches: Patch[]) {
+  let output = input
+  for (const patch of patchSteps(input, patches)) {
+    if (patch.type === 'patch-finish')
+      output = patch.content
+  }
+  return output
+}
 
 describe('should', () => {
   it('exported', () => {
