@@ -1,7 +1,5 @@
 # retypewriter
 
-[![NPM version](https://img.shields.io/npm/v/retypewriter?color=a1b858&label=)](https://www.npmjs.com/package/retypewriter)
-
 Reply the steps of your changes at ease.
 
 > 💖 Currently the source code is exclusively available to [Sponsors](https://github.com/sponsors/antfu).
@@ -10,7 +8,7 @@ Reply the steps of your changes at ease.
 
 <p align="center">
   <a href="https://cdn.jsdelivr.net/gh/antfu/static/sponsors.svg">
-    <img src='https://cdn.jsdelivr.net/gh/antfu/static/sponsors.svg'/>
+    <img src='https://cdn.jsdelivr.net/gh/antfu/static/sponsors.png'/>
   </a>
 </p>
 
