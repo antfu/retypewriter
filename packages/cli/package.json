@@ -45,9 +45,9 @@
   "dependencies": {
     "cac": "^6.7.12",
     "cli-cursor": "^4.0.0",
+    "cli-highlight": "^2.1.11",
     "log-update": "^5.0.0",
     "picocolors": "^1.0.0",
-    "simple-git": "^3.5.0",
-    "cli-highlight": "^2.1.11"
+    "simple-git": "^3.5.0"
   }
 }
