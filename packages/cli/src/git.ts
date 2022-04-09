@@ -1,7 +1,7 @@
 import { relative, resolve } from 'path'
 import { Snapshots } from 'retypewriter'
 import Git from 'simple-git'
-import type { Snapshot } from '../../core/dist'
+import type { Snapshot } from 'retypewriter'
 
 export async function loadFromGit(path: string, cwd = process.cwd()) {
   const git = Git(cwd)

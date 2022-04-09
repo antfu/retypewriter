@@ -13,7 +13,7 @@ export async function run() {
     const scopeName = `source.${language}`
     const filename = `${langId || 'default'}.json`
     const content = generateSyntax(scopeName, langScope)
-    await fs.writeFile(join(root, 'syntaxes', filename), JSON.stringify(content, null, 2))
+    await fs.writeFile(join(root, 'syntaxes', filename), `${JSON.stringify(content, null, 2)}\n`)
     pkg.contributes.grammars.push({
       language,
       scopeName,
@@ -29,7 +29,7 @@ export async function run() {
       ],
     })
   }
-  await fs.writeFile(join(root, 'package.json'), JSON.stringify(pkg, null, 2))
+  await fs.writeFile(join(root, 'package.json'), `${JSON.stringify(pkg, null, 2)}\n`)
 }
 
 export function generateSyntax(scopeName: string, langScope: string) {
