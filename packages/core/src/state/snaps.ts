@@ -1,10 +1,12 @@
-import type { Snapshot } from '../types'
+import type { Snapshot, SnapshotOptions } from '../types'
 import { animateSteps } from '../animation/steps'
 import type { TypewriterOptions } from '../animation/typewriter'
 import { typingAnimator } from '../animation/typewriter'
 import { SNAP_EXT, parseSnapshots, stringifySnapshots } from './parse'
 
 export class Snapshots extends Array<Snapshot> {
+  public defaults: SnapshotOptions = {}
+
   constructor(...args: Snapshot[]) {
     super(...args)
   }
@@ -40,8 +42,9 @@ export class Snapshots extends Array<Snapshot> {
   }
 
   fromString(raw: string) {
-    const { snapshots: parsed } = parseSnapshots(raw)
+    const { snapshots: parsed, head } = parseSnapshots(raw)
     this.length = 0
+    this.defaults = head.options || {}
     parsed.forEach((p) => {
       this.push({
         content: p.body,
@@ -60,7 +63,9 @@ export class Snapshots extends Array<Snapshot> {
   }
 
   typewriter(options?: TypewriterOptions) {
-    return typingAnimator(this.steps(), options)
+    return typingAnimator(this.steps(), {
+      ...options,
+    })
   }
 }
 

@@ -5,43 +5,45 @@ exports[`works 1`] = `
   "head": {
     "options": {
       "delay": 100,
+      "pause": true,
     },
   },
   "snapshots": [
     {
       "body": "",
-      "bodyEnd": 53,
-      "bodyStart": 53,
-      "end": 53,
+      "bodyEnd": 65,
+      "bodyStart": 65,
+      "end": 65,
       "raw": "
 --01----------
 ",
-      "start": 37,
+      "start": 49,
     },
     {
       "body": "import App from './App.vue'
 ",
-      "bodyEnd": 96,
-      "bodyStart": 68,
-      "end": 96,
-      "raw": "--02----------
+      "bodyEnd": 109,
+      "bodyStart": 81,
+      "end": 109,
+      "raw": "
+--02----------
 import App from './App.vue'
 ",
-      "start": 53,
+      "start": 65,
     },
     {
       "body": "import { } from 'vue'
 import App from './App.vue'
 ",
-      "bodyEnd": 162,
-      "bodyStart": 112,
-      "end": 162,
+      "bodyEnd": 175,
+      "bodyStart": 125,
+      "end": 175,
       "raw": "
 --03----------
 import { } from 'vue'
 import App from './App.vue'
 ",
-      "start": 96,
+      "start": 109,
     },
     {
       "body": "import { createApp } from 'vue'
@@ -50,9 +52,9 @@ import App from './App.vue'
 const app = createApp(App)
 app.mount('#app')
 ",
-      "bodyEnd": 284,
-      "bodyStart": 178,
-      "end": 311,
+      "bodyEnd": 297,
+      "bodyStart": 191,
+      "end": 324,
       "options": {
         "pause": true,
       },
@@ -67,7 +69,7 @@ app.mount('#app')
 
 -----options--
 pause: true",
-      "start": 162,
+      "start": 175,
     },
     {
       "body": "import { createApp } from 'vue'
@@ -79,9 +81,9 @@ const router = createRouter()
 app.use(router)
 app.mount('#app')
 ",
-      "bodyEnd": 521,
-      "bodyStart": 327,
-      "end": 521,
+      "bodyEnd": 534,
+      "bodyStart": 340,
+      "end": 534,
       "raw": "
 --05----------
 import { createApp } from 'vue'
@@ -93,7 +95,7 @@ const router = createRouter()
 app.use(router)
 app.mount('#app')
 ",
-      "start": 311,
+      "start": 324,
     },
     {
       "body": "import { createApp } from 'vue'
@@ -107,9 +109,9 @@ const router = createRouter({
 app.use(router)
 app.mount('#app')
 ",
-      "bodyEnd": 783,
-      "bodyStart": 537,
-      "end": 783,
+      "bodyEnd": 796,
+      "bodyStart": 550,
+      "end": 796,
       "raw": "
 --06----------
 import { createApp } from 'vue'
@@ -123,7 +125,7 @@ const router = createRouter({
 app.use(router)
 app.mount('#app')
 ",
-      "start": 521,
+      "start": 534,
     },
     {
       "body": "import { createApp } from 'vue'
@@ -139,9 +141,9 @@ const router = createRouter({
 app.use(router)
 app.mount('#app')
 ",
-      "bodyEnd": 1100,
-      "bodyStart": 799,
-      "end": 1100,
+      "bodyEnd": 1113,
+      "bodyStart": 812,
+      "end": 1113,
       "raw": "
 --07----------
 import { createApp } from 'vue'
@@ -157,7 +159,7 @@ const router = createRouter({
 app.use(router)
 app.mount('#app')
 ",
-      "start": 783,
+      "start": 796,
     },
   ],
 }

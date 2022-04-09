@@ -75,6 +75,11 @@ export interface AnimatorStepPatchFinish {
   total: number
 }
 
+export interface AnimatorStepActionPause {
+  type: 'action-pause'
+  snap: Snapshot
+}
+
 export type AnimatorStep =
   | AnimatorStepInsert
   | AnimatorStepRemoval
@@ -83,6 +88,7 @@ export type AnimatorStep =
   | AnimatorStepSnap
   | AnimatorStepSnapFinish
   | AnimatorStepPatchFinish
+  | AnimatorStepActionPause
 
 export interface ParsedSnaphot {
   raw: string

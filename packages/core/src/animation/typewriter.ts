@@ -1,4 +1,4 @@
-import type { AnimatorStep } from '../types'
+import type { AnimatorStep, Snapshot, SnapshotOptions } from '../types'
 import { getTimeout, randRange } from './timing'
 
 export function sleep(ms: number) {
@@ -6,7 +6,7 @@ export function sleep(ms: number) {
 }
 
 export interface TypewriterOptions {
-
+  defaults?: SnapshotOptions
 }
 
 export async function *typingAnimator(
@@ -14,6 +14,13 @@ export async function *typingAnimator(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   options: TypewriterOptions = {},
 ): AsyncGenerator<AnimatorStep> {
+  function getOptions(snap: Snapshot) {
+    return {
+      ...(options.defaults || {}),
+      ...(snap.options || {}),
+    }
+  }
+
   for (const step of steps) {
     switch (step.type) {
       case 'init':
@@ -21,6 +28,12 @@ export async function *typingAnimator(
       case 'snap-start':
         if (step.index)
           await sleep(randRange(700, 1000))
+        if (getOptions(step.snap).pause) {
+          yield {
+            type: 'action-pause',
+            snap: step.snap,
+          }
+        }
         break
       case 'patch-start':
         if (step.index)

@@ -1,5 +1,6 @@
 import YAML from 'js-yaml'
-import type { ParsedHead, ParsedSnaphot, Snapshot, SnapshotOptions } from '../types'
+import type { ParsedHead, ParsedSnaphot, SnapshotOptions } from '../types'
+import type { Snapshots } from './snaps'
 
 export const SNAP_EXT = '.retypewriter'
 export const SNAP_HEADING = 'reTypewriter Snapshots v1\n'
@@ -19,9 +20,20 @@ export function parseOptions(raw: string): SnapshotOptions | undefined {
     : YAML.load(raw)
 }
 
-export function stringifySnapshots(snapshots: Snapshot[], useYaml = true) {
+export function stringifySnapshots(snapshots: Snapshots, useYaml = true) {
+  function stringify(obj: any) {
+    if (!Object.keys(obj).length)
+      return undefined
+    return useYaml
+      ? YAML.dump(obj, { indent: 2 }).trimEnd()
+      : Object.keys(obj).length > 1
+        ? JSON.stringify(obj, null, 2)
+        : JSON.stringify(obj)
+  }
+
   return [
     SNAP_HEADING,
+    stringify(snapshots.defaults),
     ...snapshots
       .flatMap((snap, i) => [
         SNAP_SEPERATOR_PRE + (i + 1).toString().padStart(2, '0') + SNAP_SEPERATOR_POST,
@@ -30,18 +42,16 @@ export function stringifySnapshots(snapshots: Snapshot[], useYaml = true) {
           snap.options
             ? [
               SNAP_SEPERATOR_OPTIONS,
-              useYaml
-                ? YAML.dump(snap.options, { indent: 2 }).trimEnd()
-                : Object.keys(snap.options).length > 1
-                  ? JSON.stringify(snap.options, null, 2)
-                  : JSON.stringify(snap.options),
+              stringify(snap.options),
             ]
             : []
         ),
       ]),
     SNAP_SEPERATOR,
     '',
-  ].join('\n')
+  ]
+    .filter(i => i != null)
+    .join('\n')
 }
 
 export function parseSnapshots(raw: string) {

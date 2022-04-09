@@ -1,7 +1,9 @@
 reTypewriter Snapshots v1
 
+pause: true
 delay: 100
 --01----------
+
 --02----------
 import App from './App.vue'
 

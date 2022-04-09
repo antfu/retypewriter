@@ -88,6 +88,10 @@ export async function play(arg?: TextDocument | Uri) {
           )))
           setCursor(snap.cursor)
           break
+
+        case 'action-pause':
+          await window.showInformationMessage('Action paused', 'OK')
+          break
       }
     }
   })
