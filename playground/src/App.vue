@@ -5,6 +5,6 @@ import { snaps } from './logics/snaps'
 <template>
   <div font-sans leading-1em grid="~ cols-2">
     <Snapshots :snaps="snaps" />
-    <div border="l base" />
+    <Player :snaps="snaps" border="l base" />
   </div>
 </template>

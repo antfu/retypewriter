@@ -5,12 +5,10 @@
 declare module 'vue' {
   export interface GlobalComponents {
     CodeMirror: typeof import('./components/CodeMirror.vue')['default']
-    Editor: typeof import('./components/Editor.vue')['default']
+    Player: typeof import('./components/Player.vue')['default']
     Playground: typeof import('./components/Playground.vue')['default']
-    Preview: typeof import('./components/Preview.vue')['default']
     Snap: typeof import('./components/Snap.vue')['default']
     Snapshots: typeof import('./components/Snapshots.vue')['default']
-    TitleBar: typeof import('./components/TitleBar.vue')['default']
   }
 }
 
