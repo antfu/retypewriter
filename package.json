@@ -6,6 +6,7 @@
   "scripts": {
     "build": "pnpm -r run build",
     "dev": "vite playground",
+    "play": "vite playground",
     "stub": "pnpm -r run stub",
     "lint": "eslint .",
     "release": "bumpp --commit --push --tag && pnpm -r publish --access public && pnpm -r run publish",
@@ -14,25 +15,25 @@
     "typecheck": "vue-tsc --noEmit"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.18.9",
-    "@antfu/ni": "^0.13.2",
+    "@antfu/eslint-config": "^0.20.2",
+    "@antfu/ni": "^0.14.0",
     "@babel/types": "^7.17.0",
     "@retypewriter/cli": "workspace:./packages/cli",
     "@types/diff-match-patch": "^1.0.32",
-    "@types/node": "^17.0.22",
+    "@types/node": "^17.0.23",
     "bumpp": "^7.1.1",
     "c8": "^7.11.0",
     "diff-match-patch": "^1.0.5",
-    "eslint": "^8.11.0",
+    "eslint": "^8.13.0",
     "esno": "^0.14.1",
     "jiti": "^1.13.0",
-    "pnpm": "^6.32.3",
+    "pnpm": "^6.32.5",
     "retypewriter": "workspace:./packages/core",
     "rimraf": "^3.0.2",
-    "typescript": "^4.6.2",
-    "unbuild": "^0.7.0",
-    "vite": "^2.8.6",
-    "vitest": "^0.7.7",
-    "vue-tsc": "^0.33.6"
+    "typescript": "^4.6.3",
+    "unbuild": "^0.7.2",
+    "vite": "^2.9.1",
+    "vitest": "^0.9.2",
+    "vue-tsc": "^0.33.9"
   }
 }

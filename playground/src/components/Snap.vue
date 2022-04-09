@@ -45,9 +45,7 @@ const classes = $computed(() => {
   if (!dragHover)
     return
   return [
-    dragHover === 'up'
-      ? 'border-t-red'
-      : 'border-b-red',
+    dragHover === 'up' ? 'border-t-red' : 'border-b-red',
   ]
 })
 </script>
@@ -55,7 +53,7 @@ const classes = $computed(() => {
 <template>
   <div
     ref="el"
-    grid="~ cols-[40px_1fr]"
+    grid="~ cols-[20px_1fr]"
     draggable="true"
     bg-base p2 mb--2px
     border="2 transparent"
@@ -67,18 +65,15 @@ const classes = $computed(() => {
     @dragleave="onDragExit"
     @drop="onDrop"
   >
-    <div op50 py1>
-      [ {{ index + 1 }} ]
+    <div op30 py1 text-sm cursor-grab>
+      {{ index + 1 }}
     </div>
-    <pre
-      w-full
-      :contenteditable="true"
-      border="1 gray"
-      p2 font-mono
-      spellcheck="false"
-      autocomplete="false"
-      overflow-x-auto
-      v-text="snap.content"
+    <CodeMirror
+      border="1 base rounded"
+      bg-code p1
+      :model-value="snap.content"
+      scrollbar-style="null"
+      mode="js"
     />
   </div>
 </template>

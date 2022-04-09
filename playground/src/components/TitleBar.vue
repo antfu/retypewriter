@@ -7,7 +7,7 @@ defineProps<{
 <template>
   <div
     style="background-color: var(--cm-background)"
-    border="r y gray-400/20"
+    border="r y base"
     text="gray-400/80"
     p-2
     select-none

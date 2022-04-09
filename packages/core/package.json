@@ -36,9 +36,9 @@
     "prepublishOnly": "nr build"
   },
   "dependencies": {
+    "@retypewriter/cli": "workspace:*",
     "diff-match-patch": "^1.0.5",
-    "js-yaml": "^4.1.0",
-    "@retypewriter/cli": "workspace:*"
+    "js-yaml": "^4.1.0"
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.5"
