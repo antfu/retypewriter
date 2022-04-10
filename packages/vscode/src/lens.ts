@@ -65,15 +65,15 @@ export class Lens implements CodeLensProvider {
         }))
       }
 
-      lens.push(new CodeLens(range, {
-        title: 'Remove',
-        tooltip: 'Remove',
-        command: 'retypewriter.snap-remove',
-        arguments: [document, idx],
-      }))
+      // lens.push(new CodeLens(range, {
+      //   title: 'Remove',
+      //   tooltip: 'Remove',
+      //   command: 'retypewriter.snap-remove',
+      //   arguments: [document, idx],
+      // }))
 
       lens.push(new CodeLens(range, {
-        title: '+',
+        title: '⊕',
         tooltip: 'Duplicate',
         command: 'retypewriter.snap-duplicate',
         arguments: [document, idx],

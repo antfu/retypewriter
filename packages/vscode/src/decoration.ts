@@ -14,7 +14,7 @@ const DecorationRemoved = window.createTextEditorDecorationType({
 
 export async function updateAnnotation(editor = window.activeTextEditor) {
   const doc = editor?.document
-  if (!doc || doc.languageId !== 'retypewriter')
+  if (!doc || !doc.languageId.includes('retypewriter'))
     return reset()
 
   const code = doc.getText()
