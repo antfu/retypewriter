@@ -5,7 +5,7 @@
 </p>
 
 <h2 align="center">
-retypewriter
+reTypewriter
 </h2>
 
 <p align="center">
@@ -18,7 +18,7 @@ Replay the steps of your changes at ease.
 
 <p align="center">
 <a href="https://twitter.com/antfu7/status/1505236765447458817">Gif Demo</a> | 
-<a href="">Install VS Code Extension</a> 
+<a href="https://marketplace.visualstudio.com/items?itemName=antfu.retypewriter">Install VS Code Extension</a> 
 </p>
 
 <div align="center">

@@ -23,7 +23,7 @@
   "main": "./dist/index.js",
   "icon": "res/icon.png",
   "engines": {
-    "vscode": "^1.65.0"
+    "vscode": "^1.71.0"
   },
   "activationEvents": [
     "onStartupFinished"
