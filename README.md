@@ -1,10 +1,36 @@
-# retypewriter
 
-[![NPM version](https://img.shields.io/npm/v/retypewriter?color=a1b858&label=)](https://www.npmjs.com/package/retypewriter)
+<br>
+<p align="center">
+<img src="https://user-images.githubusercontent.com/11247099/194190772-8bfba8fa-e500-494c-9a71-6a47c646ef12.svg" alt="retypewriter" height="200" width="200"/>
+</p>
 
-Reply the steps of your changes at ease.
+<h2 align="center">
+retypewriter
+</h2>
 
-> 💖 Currently the source code is exclusively available to [Sponsors](https://github.com/sponsors/antfu).
+<p align="center">
+Replay the steps of your changes at ease.
+<br>A diff based typing simulator.
+<br>
+<br>
+<a href="https://www.npmjs.com/package/retypewriter" target="__blank"><img src="https://img.shields.io/npm/v/retypewriter?label=" alt="NPM version"></a>
+</p>
+
+<div align="center">
+<table>
+<tbody>
+<td align="center">
+<img width="2000" height="0"><br>
+<sub>Made possible by my <a href="https://github.com/sponsors/antfu">Sponsor Program 💖</a></sub><br>
+<img width="2000" height="0">
+</td>
+</tbody>
+</table>
+</div>
+
+## Installation
+
+[VS Code Extension]()
 
 ## Sponsors
 

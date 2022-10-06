@@ -26,7 +26,7 @@
     "vscode": "^1.65.0"
   },
   "activationEvents": [
-    "*"
+    "onStartupFinished"
   ],
   "contributes": {
     "languages": [
@@ -164,8 +164,8 @@
     "build": "tsup src/index.ts --external vscode",
     "dev": "nr build --watch",
     "vscode:prepublish": "nr build",
-    "publish": "vsce publish --no-dependencies --allow-star-activation",
-    "pack": "vsce package --no-dependencies --allow-star-activation"
+    "publish": "vsce publish --no-dependencies",
+    "pack": "vsce package --no-dependencies"
   },
   "devDependencies": {
     "@antfu/utils": "0.5.2",
