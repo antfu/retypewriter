@@ -15,9 +15,9 @@ export function activate(ctx: ExtensionContext) {
 
   ctx.subscriptions.push(
     watcher,
-    watcher.onDidChange(uri => manager.delete(uri.path.replace(SNAP_EXT, ''))),
-    watcher.onDidDelete(uri => manager.delete(uri.path.replace(SNAP_EXT, ''))),
-    watcher.onDidCreate(uri => manager.delete(uri.path.replace(SNAP_EXT, ''))),
+    watcher.onDidChange(uri => manager.delete(uri.fsPath.replace(SNAP_EXT, ''))),
+    watcher.onDidDelete(uri => manager.delete(uri.fsPath.replace(SNAP_EXT, ''))),
+    watcher.onDidCreate(uri => manager.delete(uri.fsPath.replace(SNAP_EXT, ''))),
 
     commands.registerCommand('retypewriter.snap', snap),
     commands.registerCommand('retypewriter.play', playStart),
