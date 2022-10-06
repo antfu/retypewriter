@@ -28,7 +28,7 @@ Replay the steps of your changes at ease.
 5. Repeat steps 3. and 4. until you are finished.
 6. Press the `▶️` button to replay the typing.
 
-After you create a snapshot, you will see a `.retypewriter` file created alongside. It stores the snapshots you created. You can edit it manually it as wish.
+After you create a snapshot, you will see a `.retypewriter` file created alongside. It stores the snapshots you created. You can edit it manually as wish.
 
 ## Sponsors
 
