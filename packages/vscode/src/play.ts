@@ -1,4 +1,4 @@
-import type { TextDocument, Uri } from 'vscode'
+import type { StatusBarItem, TextDocument, Uri } from 'vscode'
 import { CancellationTokenSource, Range, Selection, StatusBarAlignment, ThemeColor, commands, window } from 'vscode'
 import type { ControlledPromise } from '@antfu/utils'
 import { createControlledPromise } from '@antfu/utils'
@@ -7,6 +7,7 @@ import { resolveDoc } from './utils'
 
 let token: CancellationTokenSource | undefined
 let pausePromise: ControlledPromise<void> | undefined
+let status: StatusBarItem | undefined
 
 export async function playAbort(prompts = false) {
   if (token) {
@@ -15,7 +16,15 @@ export async function playAbort(prompts = false) {
     playContinue()
     token.cancel()
     token = undefined
+    if (status) {
+      status.dispose()
+      status = undefined
+    }
   }
+}
+
+export function isPlaying() {
+  return token !== undefined
 }
 
 export async function playContinue() {
@@ -68,17 +77,17 @@ export async function playStart(arg?: TextDocument | Uri) {
   const spin = '$(loading~spin) '
 
   token = new CancellationTokenSource()
-  const status = window.createStatusBarItem(StatusBarAlignment.Left, Infinity)
+  status = window.createStatusBarItem(StatusBarAlignment.Left, Infinity)
   status.show()
 
   let lastProgress = 0
   function updateProgress(index = lastProgress) {
     lastProgress = index
     message = `Step ${index} of ${total}`
-    status.color = new ThemeColor('terminal.ansiBrightGreen')
-    status.text = spin + message
-    status.backgroundColor = undefined
-    status.command = {
+    status!.color = new ThemeColor('terminal.ansiBrightGreen')
+    status!.text = spin + message
+    status!.backgroundColor = undefined
+    status!.command = {
       title: 'Abort',
       command: 'retypewriter.abort',
       arguments: [true],
@@ -86,10 +95,10 @@ export async function playStart(arg?: TextDocument | Uri) {
   }
   async function pause() {
     pausePromise = createControlledPromise()
-    status.backgroundColor = new ThemeColor('statusBarItem.warningBackground')
-    status.color = undefined
-    status.text = '$(debug-pause) Paused, press any key to continue'
-    status.command = {
+    status!.backgroundColor = new ThemeColor('statusBarItem.warningBackground')
+    status!.color = undefined
+    status!.text = '$(debug-pause) Paused, press any key to continue'
+    status!.command = {
       title: 'Continue',
       command: 'retypewriter.continue',
     }

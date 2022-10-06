@@ -1,11 +1,11 @@
 import type { ExtensionContext } from 'vscode'
-import { commands, languages, workspace } from 'vscode'
+import { commands, languages, window, workspace } from 'vscode'
 import { SNAP_EXT } from '../../core/src'
 import { registerAnnonations } from './decoration'
 import { Lens } from './lens'
 import { manager } from './manager'
 import { duplicate, moveDown, moveUp, remove, reverse } from './manipulate'
-import { playAbort, playContinue, playStart } from './play'
+import { isPlaying, playAbort, playContinue, playStart } from './play'
 import { snap } from './record'
 import { langageIds } from './syntaxes'
 import { reveal } from './utils'
@@ -34,6 +34,11 @@ export function activate(ctx: ExtensionContext) {
 
     ...registerAnnonations(),
   )
+
+  window.onDidChangeActiveTextEditor(() => {
+    if (isPlaying())
+      playAbort()
+  })
 }
 
 export function deactivate() {

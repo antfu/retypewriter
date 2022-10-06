@@ -141,8 +141,14 @@
       {
         "category": "reTypewriter",
         "command": "retypewriter.play",
-        "title": "Play typewritter",
+        "title": "Start playing typewritter",
         "icon": "$(play)"
+      },
+      {
+        "category": "reTypewriter",
+        "command": "retypewriter.abort",
+        "title": "Stop playing typewritter",
+        "icon": "$(stop)"
       }
     ],
     "menus": {
@@ -154,6 +160,10 @@
         },
         {
           "command": "retypewriter.play",
+          "group": "navigation@1170"
+        },
+        {
+          "command": "retypewriter.abort",
           "group": "navigation@1170"
         }
       ]
