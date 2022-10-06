@@ -8,6 +8,7 @@ export default defineBuildConfig({
   clean: true,
   rollup: {
     emitCJS: true,
+    inlineDependencies: true,
   },
   replace: {
     'import.meta.vitest': 'undefined',

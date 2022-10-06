@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import type { Snapshot, Snapshots } from 'retypewriter'
 
-const el = $ref<HTMLDivElement>(undefined!)
 const props = defineProps<{
   snaps: Snapshots
   snap: Snapshot
   index: number
 }>()
-
+const el = $ref<HTMLDivElement>(undefined!)
 let dragHover = $ref<'up' | 'down' | null>()
 
 function getHoverDirection(e: DragEvent) {

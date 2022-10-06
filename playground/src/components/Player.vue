@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type CodeMirror from 'codemirror'
+import CodeMirror from 'codemirror'
 import type { Snapshots } from 'retypewriter'
 
 const { snaps } = defineProps<{
@@ -32,7 +32,7 @@ async function play() {
     <div border="b base" h-10 flex="~ gap-2 center">
       <button
         flex="~ gap1 center"
-        :class="playing ? 'op30': ''"
+        :class="playing ? 'op30' : ''"
         :disabled="playing"
         @click="play"
       >

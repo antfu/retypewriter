@@ -11,7 +11,7 @@ export async function loadFromGit(path: string, cwd = process.cwd()) {
   const items = await git.log({
     file,
   })
-  const snaps = await Promise.all(items.all.map(async(): Promise<Snapshot> => {
+  const snaps = await Promise.all(items.all.map(async (): Promise<Snapshot> => {
     const content = await git.show(`${items.latest!.hash}:${file}`)
     return {
       content,

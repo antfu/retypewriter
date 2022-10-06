@@ -14,6 +14,6 @@
         "${workspaceFolder}/packages/vscode/dist/**/*.js"
       ],
       "preLaunchTask": "npm: vscode"
-    },
+    }
   ]
 }

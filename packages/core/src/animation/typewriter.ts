@@ -11,7 +11,7 @@ export interface TypewriterOptions {
 
 export async function *typingAnimator(
   steps: Generator<AnimatorStep>,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
   options: TypewriterOptions = {},
 ): AsyncGenerator<AnimatorStep> {
   function getOptions(snap: Snapshot) {

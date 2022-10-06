@@ -41,9 +41,9 @@ export function stringifySnapshots(snapshots: Snapshots, useYaml = true) {
         ...(
           snap.options
             ? [
-              SNAP_SEPERATOR_OPTIONS,
-              stringify(snap.options),
-            ]
+                SNAP_SEPERATOR_OPTIONS,
+                stringify(snap.options),
+              ]
             : []
         ),
       ]),

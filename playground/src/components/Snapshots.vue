@@ -20,13 +20,13 @@ const raw = computed<string>({
   <div h-screen grid="~ rows-[max-content_1fr]">
     <div border="b base" h-10 flex="~ gap-2 center">
       <button
-        px4 py2 :class="mode === 'editor' ? '': 'op50'"
+        px4 py2 :class="mode === 'editor' ? '' : 'op50'"
         @click="mode = 'editor'"
       >
         Editor
       </button>
       <button
-        px4 py2 :class="mode === 'raw' ? '': 'op50'"
+        px4 py2 :class="mode === 'raw' ? '' : 'op50'"
         @click="mode = 'raw'"
       >
         Plain

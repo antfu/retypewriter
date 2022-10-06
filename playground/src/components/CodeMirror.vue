@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useCodeMirror } from '../logics/codemirror'
 
-const emit = defineEmits<{ (input: any): void }>()
 const props = withDefaults(
   defineProps<{
     modelValue: string
@@ -11,7 +10,7 @@ const props = withDefaults(
   }>(),
   { scrollbarStyle: 'native' },
 )
-
+const emit = defineEmits<{ (input: any): void }>()
 const modeMap: Record<string, any> = {
   html: 'htmlmixed',
   vue: 'htmlmixed',
@@ -33,7 +32,7 @@ const cm = ref<CodeMirror.Editor>()
 
 defineExpose({ cm })
 
-onMounted(async() => {
+onMounted(async () => {
   cm.value = useCodeMirror(el, input, {
     ...props,
     mode: modeMap[props.mode || ''] || props.mode,
