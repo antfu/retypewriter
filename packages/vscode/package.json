@@ -168,8 +168,8 @@
     "pack": "vsce package --no-dependencies --allow-star-activation"
   },
   "devDependencies": {
-    "@antfu/utils": "0.5.1",
-    "@types/vscode": "^1.66.0",
-    "tsup": "^5.12.4"
+    "@antfu/utils": "0.5.2",
+    "@types/vscode": "^1.71.0",
+    "tsup": "^6.2.3"
   }
 }
