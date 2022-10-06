@@ -9,7 +9,7 @@
     "play": "vite playground",
     "stub": "pnpm -r run stub",
     "lint": "eslint .",
-    "release": "bumpp && pnpm -r publish --access public && pnpm -r run publish",
+    "release": "bumpp package.json packages/*/package.json && pnpm -r publish --access public --no-git-checks && pnpm -r run publish",
     "test": "vitest",
     "vscode": "nr -C packages/vscode dev",
     "typecheck": "vue-tsc --noEmit"
