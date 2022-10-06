@@ -16,6 +16,11 @@ Replay the steps of your changes at ease.
 <a href="https://www.npmjs.com/package/retypewriter" target="__blank"><img src="https://img.shields.io/npm/v/retypewriter?label=" alt="NPM version"></a>
 </p>
 
+<p align="center">
+<a href="https://twitter.com/antfu7/status/1505236765447458817">Gif Demo</a> | 
+<a href="">Install VS Code Extension</a> 
+</p>
+
 <div align="center">
 <table>
 <tbody>
@@ -27,10 +32,6 @@ Replay the steps of your changes at ease.
 </tbody>
 </table>
 </div>
-
-## Installation
-
-[VS Code Extension]()
 
 ## Sponsors
 
