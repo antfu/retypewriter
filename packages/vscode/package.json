@@ -141,8 +141,14 @@
       {
         "category": "reTypewriter",
         "command": "retypewriter.play",
-        "title": "Play typewritter",
+        "title": "Start playing typewritter",
         "icon": "$(play)"
+      },
+      {
+        "category": "reTypewriter",
+        "command": "retypewriter.abort",
+        "title": "Stop playing typewritter",
+        "icon": "$(stop)"
       }
     ],
     "menus": {
@@ -150,11 +156,17 @@
         {
           "command": "retypewriter.snap",
           "group": "navigation@1170",
-          "when": "editorLangId != retypewriter"
+          "when": "editorLangId != retypewriter && reTypewriter.isNotPlaying"
         },
         {
           "command": "retypewriter.play",
-          "group": "navigation@1170"
+          "group": "navigation@1170",
+          "when": "reTypewriter.isNotPlaying"
+        },
+        {
+          "command": "retypewriter.abort",
+          "group": "navigation@1170",
+          "when": "reTypewriter.isPlaying"
         }
       ]
     }

@@ -1,11 +1,11 @@
 import type { ExtensionContext } from 'vscode'
-import { commands, languages, workspace } from 'vscode'
+import { commands, languages, window, workspace } from 'vscode'
 import { SNAP_EXT } from '../../core/src'
 import { registerAnnonations } from './decoration'
 import { Lens } from './lens'
 import { manager } from './manager'
 import { duplicate, moveDown, moveUp, remove, reverse } from './manipulate'
-import { playAbort, playContinue, playStart } from './play'
+import { continuePause, isPlaying, playAbort, playStart, updateContext } from './play'
 import { snap } from './record'
 import { langageIds } from './syntaxes'
 import { reveal } from './utils'
@@ -22,7 +22,7 @@ export function activate(ctx: ExtensionContext) {
     commands.registerCommand('retypewriter.snap', snap),
     commands.registerCommand('retypewriter.play', playStart),
     commands.registerCommand('retypewriter.abort', playAbort),
-    commands.registerCommand('retypewriter.continue', playContinue),
+    commands.registerCommand('retypewriter.continue', continuePause),
     commands.registerCommand('retypewriter.snap-move-up', moveUp),
     commands.registerCommand('retypewriter.snap-move-down', moveDown),
     commands.registerCommand('retypewriter.snap-remove', remove),
@@ -34,6 +34,13 @@ export function activate(ctx: ExtensionContext) {
 
     ...registerAnnonations(),
   )
+
+  window.onDidChangeActiveTextEditor(() => {
+    if (isPlaying())
+      playAbort()
+  })
+
+  updateContext()
 }
 
 export function deactivate() {
