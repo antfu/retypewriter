@@ -156,15 +156,17 @@
         {
           "command": "retypewriter.snap",
           "group": "navigation@1170",
-          "when": "editorLangId != retypewriter"
+          "when": "editorLangId != retypewriter && reTypewriter.isNotPlaying"
         },
         {
           "command": "retypewriter.play",
-          "group": "navigation@1170"
+          "group": "navigation@1170",
+          "when": "reTypewriter.isNotPlaying"
         },
         {
           "command": "retypewriter.abort",
-          "group": "navigation@1170"
+          "group": "navigation@1170",
+          "when": "reTypewriter.isPlaying"
         }
       ]
     }

@@ -13,21 +13,28 @@ export async function playAbort(prompts = false) {
   if (token) {
     if (prompts && await window.showInformationMessage('Abort playing?', 'Yes', 'Cancel') !== 'Yes')
       return
-    playContinue()
+    continuePause()
     token.cancel()
     token = undefined
     if (status) {
       status.dispose()
       status = undefined
     }
+    updateContext()
   }
+}
+
+export function updateContext() {
+  const playing = isPlaying()
+  commands.executeCommand('setContext', 'reTypewriter.isPlaying', playing)
+  commands.executeCommand('setContext', 'reTypewriter.isNotPlaying', !playing)
 }
 
 export function isPlaying() {
   return token !== undefined
 }
 
-export async function playContinue() {
+export async function continuePause() {
   pausePromise?.resolve()
 }
 
@@ -79,33 +86,38 @@ export async function playStart(arg?: TextDocument | Uri) {
   token = new CancellationTokenSource()
   status = window.createStatusBarItem(StatusBarAlignment.Left, Infinity)
   status.show()
+  updateContext()
 
   let lastProgress = 0
   function updateProgress(index = lastProgress) {
     lastProgress = index
     message = `Step ${index} of ${total}`
-    status!.color = new ThemeColor('terminal.ansiBrightGreen')
-    status!.text = spin + message
-    status!.backgroundColor = undefined
-    status!.command = {
-      title: 'Abort',
-      command: 'retypewriter.abort',
-      arguments: [true],
+    if (status) {
+      status.color = new ThemeColor('terminal.ansiBrightGreen')
+      status.text = spin + message
+      status.backgroundColor = undefined
+      status.command = {
+        title: 'Abort',
+        command: 'retypewriter.abort',
+        arguments: [true],
+      }
     }
   }
   async function pause() {
     pausePromise = createControlledPromise()
-    status!.backgroundColor = new ThemeColor('statusBarItem.warningBackground')
-    status!.color = undefined
-    status!.text = '$(debug-pause) Paused, press any key to continue'
-    status!.command = {
-      title: 'Continue',
-      command: 'retypewriter.continue',
+    if (status) {
+      status.backgroundColor = new ThemeColor('statusBarItem.warningBackground')
+      status.color = undefined
+      status.text = '$(debug-pause) Paused, press any key to continue'
+      status.command = {
+        title: 'Continue',
+        command: 'retypewriter.continue',
+      }
     }
     const command = commands.registerCommand('type', ({ text } = {}) => {
       if (!text)
         return
-      playContinue()
+      continuePause()
       command.dispose()
     })
     await pausePromise
@@ -118,6 +130,8 @@ export async function playStart(arg?: TextDocument | Uri) {
   updateProgress(0)
 
   for await (const snap of snaps.typewriter()) {
+    if (!token)
+      break
     if (token.token.isCancellationRequested)
       break
     switch (snap.type) {
@@ -155,6 +169,7 @@ export async function playStart(arg?: TextDocument | Uri) {
     }
   }
 
-  status.dispose()
+  status?.dispose()
   token = undefined
+  updateContext()
 }
