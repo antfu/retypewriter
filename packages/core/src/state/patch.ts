@@ -9,7 +9,7 @@ export function diff(a: string, b: string): Diff[] {
   return delta
 }
 
-export function calculatePatch(diff: Diff[]): Patch[] {
+export function calculatePatch(diff: Diff[], isPasted?: boolean): Patch[] {
   const patches: Patch[] = []
 
   let cursor = 0
@@ -28,7 +28,7 @@ export function calculatePatch(diff: Diff[]): Patch[] {
     else if (change[0] === 1) {
       const content = change[1]
       patches.push({
-        type: 'insert',
+        type: isPasted ? 'paste' : 'insert',
         cursor,
         content,
       })
