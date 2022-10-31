@@ -161,6 +161,87 @@ app.mount('#app')
 ",
       "start": 796,
     },
+    {
+      "body": "// this code was generated using
+import { createApp } from 'vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import routes from 'virtual:generated-pages'
+import App from './App.vue'
+
+const app = createApp(App)
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+})
+app.use(router)
+app.mount('#app')
+",
+      "bodyEnd": 1463,
+      "bodyStart": 1129,
+      "end": 1463,
+      "raw": "
+--08----------
+// this code was generated using
+import { createApp } from 'vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import routes from 'virtual:generated-pages'
+import App from './App.vue'
+
+const app = createApp(App)
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+})
+app.use(router)
+app.mount('#app')
+",
+      "start": 1113,
+    },
+    {
+      "body": "// this code was generated using https://github.com/antfu/retypewriter
+import { createApp } from 'vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import routes from 'virtual:generated-pages'
+import App from './App.vue'
+
+const app = createApp(App)
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+})
+app.use(router)
+app.mount('#app')
+",
+      "bodyEnd": 1851,
+      "bodyStart": 1479,
+      "end": 1888,
+      "options": {
+        "paste": true,
+        "wait": 200,
+      },
+      "optionsRaw": "wait: 200
+paste: true",
+      "raw": "
+--09----------
+// this code was generated using https://github.com/antfu/retypewriter
+import { createApp } from 'vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import routes from 'virtual:generated-pages'
+import App from './App.vue'
+
+const app = createApp(App)
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+})
+app.use(router)
+app.mount('#app')
+
+-----options--
+wait: 200
+paste: true",
+      "start": 1463,
+    },
   ],
 }
 `;

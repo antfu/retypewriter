@@ -16,12 +16,10 @@ export function *patchSteps(input: string, patches: Patch[]): Generator<Animator
       total: patches.length,
     }
 
-    const head = output.slice(0, patch.cursor)
-    const tail = output.slice(patch.cursor)
-
     if (patch.type === 'insert') {
       cursor = patch.cursor
-
+      const head = output.slice(0, patch.cursor)
+      const tail = output.slice(patch.cursor)
       for (const { char, output, cursor: delta } of animateInsertionSlices(patch.content)) {
         yield {
           type: 'insert',
@@ -35,6 +33,8 @@ export function *patchSteps(input: string, patches: Patch[]): Generator<Animator
     }
     else if (patch.type === 'paste') {
       cursor = patch.cursor
+      const head = output.slice(0, patch.cursor)
+      const tail = output.slice(patch.cursor)
       const { content } = patch
 
       yield {
@@ -47,6 +47,8 @@ export function *patchSteps(input: string, patches: Patch[]): Generator<Animator
     }
     else if (patch.type === 'removal') {
       cursor = patch.cursor - patch.length
+      const head = output.slice(0, cursor)
+      const tail = output.slice(patch.cursor)
       const selection = output.slice(cursor, patch.cursor)
       for (let i = selection.length - 1; i >= 0; i--) {
         yield {
