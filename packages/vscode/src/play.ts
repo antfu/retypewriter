@@ -147,6 +147,14 @@ export async function playStart(arg?: TextDocument | Uri) {
         await editor.edit(edit => edit.replace(new Range(0, 0, Infinity, Infinity), snap.content))
         break
 
+      case 'paste':
+        await editor.edit(edit => edit.insert(
+          doc.positionAt(snap.cursor - snap.content.length),
+          snap.content,
+        ))
+        setCursor(snap.cursor)
+        break
+
       case 'insert':
         await editor.edit(edit => edit.insert(
           doc.positionAt(snap.cursor - 1),

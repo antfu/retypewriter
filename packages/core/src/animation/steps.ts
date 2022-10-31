@@ -16,10 +16,12 @@ export function *patchSteps(input: string, patches: Patch[]): Generator<Animator
       total: patches.length,
     }
 
+    const head = output.slice(0, patch.cursor)
+    const tail = output.slice(patch.cursor)
+
     if (patch.type === 'insert') {
       cursor = patch.cursor
-      const head = output.slice(0, patch.cursor)
-      const tail = output.slice(patch.cursor)
+
       for (const { char, output, cursor: delta } of animateInsertionSlices(patch.content)) {
         yield {
           type: 'insert',
@@ -28,12 +30,23 @@ export function *patchSteps(input: string, patches: Patch[]): Generator<Animator
           content: head + output + tail,
         }
       }
+
+      output = head + patch.content + tail
+    }
+    else if (patch.type === 'paste') {
+      cursor = patch.cursor
+      const { content } = patch
+
+      yield {
+        type: 'paste',
+        cursor: cursor + content.length,
+        content,
+      }
+
       output = head + patch.content + tail
     }
     else if (patch.type === 'removal') {
       cursor = patch.cursor - patch.length
-      const head = output.slice(0, cursor)
-      const tail = output.slice(patch.cursor)
       const selection = output.slice(cursor, patch.cursor)
       for (let i = selection.length - 1; i >= 0; i--) {
         yield {
@@ -75,7 +88,9 @@ export function *animateSteps(snapshots: Snapshot[]): Generator<AnimatorStep> {
       total: copy.length,
     }
 
-    const steps = stepsTo(lastContent, snap.content)
+    const isPasted = snap.options?.paste
+
+    const steps = stepsTo(lastContent, snap.content, isPasted)
     for (const step of steps)
       yield step
 
@@ -111,8 +126,8 @@ export function *animateInsertionSlices(input: string) {
   }
 }
 
-export function stepsTo(input: string, output: string) {
+export function stepsTo(input: string, output: string, isPasted?: boolean) {
   const delta = diff(input, output)
-  const patches = calculatePatch(delta)
+  const patches = calculatePatch(delta, isPasted)
   return patchSteps(input, patches)
 }

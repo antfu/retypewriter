@@ -4,13 +4,19 @@ export interface InsertPatch {
   content: string
 }
 
+export interface PastePatch {
+  type: 'paste'
+  cursor: number
+  content: string
+}
+
 export interface RemovalPatch {
   type: 'removal'
   cursor: number
   length: number
 }
 
-export type Patch = InsertPatch | RemovalPatch
+export type Patch = InsertPatch | PastePatch | RemovalPatch
 
 export interface Slice {
   content: string
@@ -26,6 +32,7 @@ export interface Snapshot {
 export interface SnapshotOptions {
   wait?: number
   pause?: boolean
+  paste?: boolean
 }
 
 export interface AnimatorStepInsert {
@@ -33,6 +40,12 @@ export interface AnimatorStepInsert {
   cursor: number
   content: string
   char: string
+}
+
+export interface AnimatorStepPaste {
+  type: 'paste'
+  cursor: number
+  content: string
 }
 
 export interface AnimatorStepRemoval {
@@ -82,6 +95,7 @@ export interface AnimatorStepActionPause {
 
 export type AnimatorStep =
   | AnimatorStepInsert
+  | AnimatorStepPaste
   | AnimatorStepRemoval
   | AnimatorStepInit
   | AnimatorStepPatch
