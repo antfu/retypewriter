@@ -87,6 +87,6 @@ app.use(router)
 app.mount('#app')
 
 -----options--
-wait: 0
+wait: 200
 paste: true
 --------------
