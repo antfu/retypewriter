@@ -21,6 +21,7 @@
     "@retypewriter/cli": "workspace:./packages/cli",
     "@types/diff-match-patch": "^1.0.32",
     "@types/node": "^20.4.2",
+    "@vscode/vsce": "^2.19.0",
     "bumpp": "^9.1.1",
     "c8": "^8.0.0",
     "diff-match-patch": "^1.0.5",
