@@ -1,6 +1,6 @@
 {
   "name": "@retypewriter/monorepo",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "private": true,
   "packageManager": "pnpm@8.6.9",
   "scripts": {
