@@ -23,7 +23,7 @@
   "main": "./dist/index.js",
   "icon": "res/icon.png",
   "engines": {
-    "vscode": "^1.71.0"
+    "vscode": "^1.80.0"
   },
   "activationEvents": [
     "onStartupFinished"
@@ -180,8 +180,8 @@
     "pack": "vsce package --no-dependencies"
   },
   "devDependencies": {
-    "@antfu/utils": "0.5.2",
-    "@types/vscode": "^1.71.0",
-    "tsup": "^6.2.3"
+    "@antfu/utils": "0.7.5",
+    "@types/vscode": "^1.80.0",
+    "tsup": "^7.1.0"
   }
 }

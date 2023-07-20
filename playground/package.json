@@ -8,19 +8,19 @@
     "serve": "vite preview"
   },
   "devDependencies": {
-    "@iconify-json/carbon": "^1.1.8",
-    "@types/codemirror": "^5.60.5",
-    "@unocss/reset": "^0.45.26",
-    "@vitejs/plugin-vue": "^3.1.2",
-    "@vueuse/core": "^9.3.0",
-    "codemirror": "^5.65.9",
-    "codemirror-theme-vars": "^0.1.1",
-    "splitpanes": "^3.1.1",
-    "unocss": "^0.45.26",
-    "unplugin-auto-import": "^0.11.2",
-    "unplugin-vue-components": "^0.22.8",
-    "vite": "^3.1.4",
-    "vite-plugin-inspect": "^0.7.5",
-    "vue": "^3.2.40"
+    "@iconify-json/carbon": "^1.1.18",
+    "@types/codemirror": "^5.60.8",
+    "@unocss/reset": "^0.53.5",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@vueuse/core": "^10.2.1",
+    "codemirror": "^5.65.14",
+    "codemirror-theme-vars": "^0.1.2",
+    "splitpanes": "^3.1.5",
+    "unocss": "^0.53.5",
+    "unplugin-auto-import": "^0.16.6",
+    "unplugin-vue-components": "^0.25.1",
+    "vite": "^4.4.5",
+    "vite-plugin-inspect": "^0.7.33",
+    "vue": "^3.3.4"
   }
 }
