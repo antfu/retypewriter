@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import CodeMirror from 'codemirror'
+import type CM from 'codemirror'
 import type { Snapshots } from 'retypewriter'
 
 const { snaps } = defineProps<{
@@ -13,7 +13,7 @@ const playing = ref(false)
 async function play() {
   playing.value = true
   code.value = ''
-  const editor: CodeMirror.Editor = cm.value.cm
+  const editor: CM.Editor = cm.value.cm
   for await (const i of snaps.typewriter()) {
     if ('content' in i)
       code.value = i.content
