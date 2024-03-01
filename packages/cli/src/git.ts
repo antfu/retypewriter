@@ -1,4 +1,5 @@
-import { relative, resolve } from 'path'
+import { relative, resolve } from 'node:path'
+import process from 'node:process'
 import { Snapshots } from 'retypewriter'
 import Git from 'simple-git'
 import type { Snapshot } from 'retypewriter'

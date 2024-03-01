@@ -1,4 +1,4 @@
-import { existsSync, promises as fs } from 'fs'
+import { existsSync, promises as fs } from 'node:fs'
 import { SnapshotManager, Snapshots, getSnapshotPath } from '../../core/src'
 
 export const manager = new SnapshotManager({
