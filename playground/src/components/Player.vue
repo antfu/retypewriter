@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import CodeMirror from 'codemirror'
 import type { Snapshots } from 'retypewriter'
 
 const { snaps } = defineProps<{
@@ -13,13 +12,13 @@ const playing = ref(false)
 async function play() {
   playing.value = true
   code.value = ''
-  const editor: CodeMirror.Editor = cm.value.cm
+  const setSelection: (index: number) => void = cm.value.cmSetSelection
   for await (const i of snaps.typewriter()) {
     if ('content' in i)
       code.value = i.content
     if ('cursor' in i) {
       nextTick(() => {
-        editor.setSelection(editor.posFromIndex(i.cursor))
+        setSelection(i.cursor)
       })
     }
   }

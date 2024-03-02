@@ -28,18 +28,22 @@ const modeMap: Record<string, any> = {
 const el = ref<HTMLTextAreaElement>()
 const input = useVModel(props, 'modelValue', emit, { passive: true })
 
-const cm = ref<CodeMirror.Editor>()
+let cm: CodeMirror.Editor | undefined
 
-defineExpose({ cm })
+function cmSetSelection(index: number) {
+  cm && cm.setSelection(cm.posFromIndex(index))
+}
+
+defineExpose({ cmSetSelection })
 
 onMounted(async () => {
-  cm.value = useCodeMirror(el, input, {
+  cm = useCodeMirror(el, input, {
     ...props,
     mode: modeMap[props.mode || ''] || props.mode,
   })
-  cm.value.setSize('100%', '100%')
+  cm.setSize('100%', '100%')
 
-  setTimeout(() => cm.value!.refresh(), 100)
+  setTimeout(() => cm && cm.refresh(), 100)
 })
 </script>
 
