@@ -1,6 +1,6 @@
 {
   "name": "@retypewriter/cli",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "packageManager": "pnpm@8.15.4",
   "description": "reTypewriter CLI",
   "author": "Anthony Fu <anthonyfu117@hotmail.com>",

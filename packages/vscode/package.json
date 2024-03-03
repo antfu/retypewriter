@@ -2,7 +2,7 @@
   "publisher": "antfu",
   "name": "retypewriter",
   "displayName": "reTypewriter",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "private": true,
   "description": "Reply the steps of your changes at ease.",
   "author": "Anthony Fu <anthonyfu117@hotmail.com>",
