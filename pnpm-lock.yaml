@@ -118,7 +118,7 @@ importers:
         specifier: 0.7.5
         version: 0.7.5
       '@types/vscode':
-        specifier: ^1.87.0
+        specifier: ^1.80.0
         version: 1.87.0
       tsup:
         specifier: ^8.0.2
