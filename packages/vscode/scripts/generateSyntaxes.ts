@@ -1,5 +1,5 @@
-import { promises as fs } from 'fs'
-import { join, resolve } from 'path'
+import { promises as fs } from 'node:fs'
+import { join, resolve } from 'node:path'
 import { syntaxMaps } from '../src/syntaxes'
 
 const root = resolve(__dirname, '..')

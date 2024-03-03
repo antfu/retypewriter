@@ -1,4 +1,4 @@
-import { resolve } from 'path'
+import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import Inspect from 'vite-plugin-inspect'
@@ -10,9 +10,7 @@ import rootConfig from '../vitest.config'
 export default defineConfig({
   ...rootConfig,
   plugins: [
-    Vue({
-      reactivityTransform: true,
-    }),
+    Vue(),
     UnoCSS({
       configFile: resolve(__dirname, 'unocss.config.ts'),
     }),
@@ -23,7 +21,6 @@ export default defineConfig({
     AutoImport({
       imports: [
         'vue',
-        'vue/macros',
         '@vueuse/core',
       ],
       dts: 'src/auto-imports.d.ts',

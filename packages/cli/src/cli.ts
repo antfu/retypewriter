@@ -1,5 +1,6 @@
-import { parse as parsePath, resolve } from 'path'
-import { promises as fs } from 'fs'
+import { parse as parsePath, resolve } from 'node:path'
+import { promises as fs } from 'node:fs'
+import process from 'node:process'
 import cac from 'cac'
 import { Snapshots, getSnapshotPath } from 'retypewriter'
 import { version } from '../package.json'

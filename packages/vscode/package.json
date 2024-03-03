@@ -181,7 +181,7 @@
   },
   "devDependencies": {
     "@antfu/utils": "0.7.5",
-    "@types/vscode": "^1.80.0",
-    "tsup": "^7.1.0"
+    "@types/vscode": "^1.87.0",
+    "tsup": "^8.0.2"
   }
 }

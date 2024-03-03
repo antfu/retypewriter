@@ -84,7 +84,7 @@ export async function playStart(arg?: TextDocument | Uri) {
   const spin = '$(loading~spin) '
 
   token = new CancellationTokenSource()
-  status = window.createStatusBarItem(StatusBarAlignment.Left, Infinity)
+  status = window.createStatusBarItem(StatusBarAlignment.Left, Number.POSITIVE_INFINITY)
   status.show()
   updateContext()
 
@@ -144,7 +144,7 @@ export async function playStart(arg?: TextDocument | Uri) {
         break
 
       case 'init':
-        await editor.edit(edit => edit.replace(new Range(0, 0, Infinity, Infinity), snap.content))
+        await editor.edit(edit => edit.replace(new Range(0, 0, Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY), snap.content))
         break
 
       case 'paste':

@@ -6,11 +6,11 @@ const props = defineProps<{
   snap: Snapshot
   index: number
 }>()
-const el = $ref<HTMLDivElement>(undefined!)
-let dragHover = $ref<'up' | 'down' | null>()
+const el = ref<HTMLDivElement>(undefined!)
+let dragHover = ref<'up' | 'down' | null>()
 
 function getHoverDirection(e: DragEvent) {
-  const box = el.getBoundingClientRect()
+  const box = el.value.getBoundingClientRect()
   const y = e.clientY - box.top
   const h = box.height
   const mid = h / 2
@@ -23,12 +23,12 @@ function onDrop(e: DragEvent) {
   const to = props.index + (direction === 'up' ? 0 : 1)
   props.snaps.move(from, to)
 
-  dragHover = null
+  dragHover.value = null
 }
 
 function allowDrop(e: DragEvent) {
   e.preventDefault()
-  dragHover = getHoverDirection(e)
+  dragHover.value = getHoverDirection(e)
 }
 
 function onDrag(e: DragEvent) {
@@ -37,14 +37,14 @@ function onDrag(e: DragEvent) {
 }
 
 function onDragExit() {
-  dragHover = null
+  dragHover.value = null
 }
 
-const classes = $computed(() => {
+const classes = computed(() => {
   if (!dragHover)
     return
   return [
-    dragHover === 'up' ? 'border-t-red' : 'border-b-red',
+    dragHover.value === 'up' ? 'border-t-red' : 'border-b-red',
   ]
 })
 </script>

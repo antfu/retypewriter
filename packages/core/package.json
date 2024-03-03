@@ -1,7 +1,7 @@
 {
   "name": "retypewriter",
   "version": "0.1.4",
-  "packageManager": "pnpm@8.6.9",
+  "packageManager": "pnpm@8.15.4",
   "description": "",
   "author": "Anthony Fu <anthonyfu117@hotmail.com>",
   "license": "MIT",
@@ -20,8 +20,8 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
     }
   },
   "main": "./dist/index.cjs",
@@ -40,7 +40,7 @@
     "diff-match-patch": "^1.0.5"
   },
   "devDependencies": {
-    "@types/js-yaml": "^4.0.5",
+    "@types/js-yaml": "^4.0.9",
     "js-yaml": "^4.1.0"
   }
 }

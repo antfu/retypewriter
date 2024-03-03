@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+import process from 'node:process'
 import type { Snapshots } from 'retypewriter'
 import { highlight } from 'cli-highlight'
 import { createLogUpdate } from 'log-update'

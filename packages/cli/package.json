@@ -1,7 +1,7 @@
 {
   "name": "@retypewriter/cli",
   "version": "0.1.4",
-  "packageManager": "pnpm@8.6.9",
+  "packageManager": "pnpm@8.15.4",
   "description": "reTypewriter CLI",
   "author": "Anthony Fu <anthonyfu117@hotmail.com>",
   "license": "MIT",
@@ -20,8 +20,8 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
     }
   },
   "main": "./dist/index.cjs",
@@ -31,8 +31,8 @@
     "retypewriter": "./bin/retypewriter.mjs"
   },
   "files": [
-    "dist",
-    "bin"
+    "bin",
+    "dist"
   ],
   "scripts": {
     "build": "rimraf dist && unbuild",
@@ -46,8 +46,8 @@
     "cac": "^6.7.14",
     "cli-cursor": "^4.0.0",
     "cli-highlight": "^2.1.11",
-    "log-update": "^5.0.1",
+    "log-update": "^6.0.0",
     "picocolors": "^1.0.0",
-    "simple-git": "^3.19.1"
+    "simple-git": "^3.22.0"
   }
 }

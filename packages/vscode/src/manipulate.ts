@@ -19,7 +19,7 @@ export async function manipulateSnapshotsInDocument(
   if (result !== raw) {
     editor = await window.showTextDocument(doc, { preview: false, preserveFocus: false })
     await editor.edit((e) => {
-      e.replace(new Range(0, 0, Infinity, Infinity), snaps.toString())
+      e.replace(new Range(0, 0, Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY), snaps.toString())
     })
     await updateAnnotation(editor)
   }
@@ -53,21 +53,21 @@ export async function move(doc: TextDocument, index: number, delta = 1) {
 export const moveUp = (doc: TextDocument, index: number) => move(doc, index, -1)
 export const moveDown = (doc: TextDocument, index: number) => move(doc, index, 1)
 
-export const remove = (doc: TextDocument, index: number) => {
+export function remove(doc: TextDocument, index: number) {
   return manipulateSnapshotsInDocument(
     doc,
     snaps => snaps.remove(index),
   )
 }
 
-export const duplicate = (doc: TextDocument, index: number) => {
+export function duplicate(doc: TextDocument, index: number) {
   return manipulateSnapshotsInDocument(
     doc,
     snaps => snaps.duplicate(index),
   )
 }
 
-export const reverse = (doc: TextDocument) => {
+export function reverse(doc: TextDocument) {
   return manipulateSnapshotsInDocument(
     doc,
     snaps => snaps.reverse(),
