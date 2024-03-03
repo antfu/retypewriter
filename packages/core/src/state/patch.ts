@@ -1,11 +1,10 @@
-import type { Diff } from 'diff-match-patch'
-import { diff_match_patch as DMP } from 'diff-match-patch'
+import type { Diff } from 'diff-match-patch-es'
+import { diffMain, diffCleanupSemantic } from 'diff-match-patch-es'
 import type { Patch } from '../types'
 
 export function diff(a: string, b: string): Diff[] {
-  const differ = new DMP()
-  const delta = differ.diff_main(a, b)
-  differ.diff_cleanupSemantic(delta)
+  const delta = diffMain(a, b)
+  diffCleanupSemantic(delta)
   return delta
 }
 
