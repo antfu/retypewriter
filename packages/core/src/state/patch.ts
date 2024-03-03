@@ -1,5 +1,5 @@
 import type { Diff } from 'diff-match-patch-es'
-import { diffMain, diffCleanupSemantic } from 'diff-match-patch-es'
+import { diffCleanupSemantic, diffMain } from 'diff-match-patch-es'
 import type { Patch } from '../types'
 
 export function diff(a: string, b: string): Diff[] {
